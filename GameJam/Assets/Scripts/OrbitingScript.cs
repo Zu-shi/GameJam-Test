@@ -3,10 +3,10 @@ using System.Collections;
 
 public class OrbitingScript : _Mono {
 
-	//public GameObject orbitPrefab;
 	public _Mono planetMask;
-	//public float radiusOfPlan;
 
+	//Scale of the 2D circle sprite we use in comparason to the unit sphere.
+	readonly int CIRCLE_SIZE = 125;
 	float orbitRadius;
 	float planetInitialScale;
 	GameObject orbit;
@@ -33,7 +33,6 @@ public class OrbitingScript : _Mono {
 		xscale = orbitMono.xs / ORBIT_INITIAL_SCALE;
 		yscale = orbitMono.ys / ORBIT_INITIAL_SCALE;
 		*/
-
 	}
 	
 	// Update is called once per frame
@@ -41,11 +40,17 @@ public class OrbitingScript : _Mono {
 		//Debug.Log("x" + x + ", y" + y);
 		//Debug.Log(angle);
 		//angle = 180f - orbitMono.angle;
-		mask.xys = xys * (orbitMono.xs + orbitMono.ys) / 2f;
+		if(mask.GetComponent<SpriteRenderer>() != null){
+			//2D image
+			mask.xys = xys * (orbitMono.xs + orbitMono.ys) / 2f;
+		}else{
+			//3D image
+			mask.xys = xys * (orbitMono.xs + orbitMono.ys) / 2f * CIRCLE_SIZE;
+		}
 		mask.xy = xy;
 		float frameRate = 1.0f / Time.deltaTime;
 		t += Mathf.PI * 2  / (period * frameRate) * Globals.GAME_SPEED;
 		localY = Mathf.Sin (t) * orbitRadius;
 		localX = Mathf.Cos (t) * orbitRadius;
-	}
+	}	
 }
