@@ -53,5 +53,15 @@ public class OrbitingScript : _Mono {
 		t += Mathf.PI * 2  / (period * frameRate) * Globals.GAME_SPEED;
 		localY = Mathf.Sin (t) * orbitRadius;
 		localX = Mathf.Cos (t) * orbitRadius;
-	}	
+	}
+	public void showKey(_Mono keyPrefab, Vector2 location, KeyCode keyCode){
+		
+		keyObject = Utils.InstanceCreate (location, keyPrefab) as _Mono;
+		
+		if (Input.GetKeyDown(keyCode)){
+			
+			mask.spriteRenderer.color = Color.red;
+		}
+		
+	}
 }
