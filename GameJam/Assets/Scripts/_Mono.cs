@@ -82,6 +82,15 @@ public class _Mono : MonoBehaviour {
         }
     }
 
+	public Vector3 xyzs {
+		set {
+			transform.localScale = new Vector3 (value.x, value.y, value.z);
+		}
+		get {
+			return new Vector3(xs, ys, zs);
+		}
+	}
+
 	public float xs {
 		set {
 			transform.localScale = new Vector3 (value, transform.localScale.y, transform.localScale.z);
@@ -97,6 +106,15 @@ public class _Mono : MonoBehaviour {
 		}
 		get {
 			return transform.localScale.y;
+		}
+	}
+
+	public float zs {
+		set {
+			transform.localScale = new Vector3 (transform.localScale.x, transform.localScale.y, value);
+		}
+		get {
+			return transform.localScale.z;
 		}
 	}
 

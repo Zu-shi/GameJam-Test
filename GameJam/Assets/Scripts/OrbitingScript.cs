@@ -46,6 +46,7 @@ public class OrbitingScript : _Mono {
 		}else{
 			//3D image
 			mask.xys = xys * (orbitMono.xs + orbitMono.ys) / 2f * CIRCLE_SIZE;
+			mask.zs = mask.xs;
 		}
 		mask.xy = xy;
 		float frameRate = 1.0f / Time.deltaTime;
