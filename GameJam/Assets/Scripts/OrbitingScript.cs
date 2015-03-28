@@ -13,7 +13,8 @@ public class OrbitingScript : _Mono {
 	_Mono orbitMono;
 	float t;
 	public float period = 2f;
-	_Mono mask;
+	_Mono mask { get; set; }
+	_Mono keyObject;
 
 	// Use this for initialization
 	void Start () {
@@ -54,6 +55,7 @@ public class OrbitingScript : _Mono {
 		localY = Mathf.Sin (t) * orbitRadius;
 		localX = Mathf.Cos (t) * orbitRadius;
 	}
+
 	public void showKey(_Mono keyPrefab, Vector2 location, KeyCode keyCode){
 		
 		keyObject = Utils.InstanceCreate (location, keyPrefab) as _Mono;
