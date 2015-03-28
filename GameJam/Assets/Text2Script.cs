@@ -16,4 +16,8 @@ public class Text2Script : MonoBehaviour {
 	void loadLevel(){
 		Application.LoadLevel ("Test");
 	}
+
+	void Exit () {
+		Application.Quit ();
+	}
 }
