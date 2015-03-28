@@ -237,6 +237,7 @@ GameObject:
   - 222: {fileID: 616926694}
   - 114: {fileID: 616926693}
   - 114: {fileID: 616926696}
+  - 114: {fileID: 616926697}
   m_Layer: 5
   m_Name: Text 1
   m_TagString: Untagged
@@ -301,6 +302,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 616926692}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df4a9f1b2e7b52b41802376c3f80d771, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &616926697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 616926692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: -234403039, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -313,9 +325,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: .470588207, g: .128027678, b: .128027678, a: 1}
-    m_PressedColor: {r: .0627703294, g: .948529422, b: .398747951, a: 1}
-    m_DisabledColor: {r: .157439455, g: .299844861, b: .823529422, a: .501960814}
+    m_HighlightedColor: {r: .960784316, g: .960784316, b: .960784316, a: 1}
+    m_PressedColor: {r: .784313738, g: .784313738, b: .784313738, a: 1}
+    m_DisabledColor: {r: .784313738, g: .784313738, b: .784313738, a: .501960814}
     m_ColorMultiplier: 1
     m_FadeDuration: .100000001
   m_SpriteState:
@@ -625,7 +637,7 @@ MonoBehaviour:
             Culture=neutral, PublicKeyToken=null
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Application.LoadLevel("Test")
+          m_StringArgument: LoadLevel, "Test"
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
