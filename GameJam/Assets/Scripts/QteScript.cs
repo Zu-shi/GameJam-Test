@@ -45,8 +45,7 @@ public class QteScript : _Mono {
 				Vector2 keyPosition = otherPosition + new Vector2 (planets[i].GetComponent<Renderer>().bounds.size.x/2, 0f);
 				OrbitingScript os = GetComponent<OrbitingScript>();
 				os.showKey(keyObject, keyPosition, KeyCode.Q);
-				
-				
+					
 			}
 			
 		}

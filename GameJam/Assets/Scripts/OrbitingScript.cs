@@ -13,7 +13,7 @@ public class OrbitingScript : _Mono {
 	_Mono orbitMono;
 	float t;
 	public float period = 2f;
-	_Mono mask { get; set; }
+	public _Mono mask { get; set; }
 	_Mono keyObject;
 
 	// Use this for initialization
