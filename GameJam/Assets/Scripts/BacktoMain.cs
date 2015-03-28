@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Text2Script : MonoBehaviour {
+public class BacktoMain : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -10,14 +10,8 @@ public class Text2Script : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
-	}
-
-	void loadLevel(){
-		Application.LoadLevel ("Test");
-	}
-
-	void Exit () {
-		Application.Quit ();
+		if (Input.GetKey (KeyCode.Space)) {
+			Application.LoadLevel("MainMenu");
+		}
 	}
 }
