@@ -8,30 +8,30 @@ spery = 3.15 * math.pow(10,7)
 m = m_earth
 
 
-r = input("Input the distance from the sun in AU")
+r = input("Input the distance from the sun in AU (semimajor axis)")
 
-r = r * 149597870700 #convert AU to m
+rkm = r * 149597870700 #convert AU to m
 
 try:
 	m = input("Input the mass (hit enter for Earth mass)")
 except:
 	m = m_earth
 
-v_earth = math.sqrt(G*m_earth/r)
+v_earth = math.sqrt(G*m_earth/rkm)
 
 orbitalvelocity = math.sqrt(G*m/r)
 orbitalvelocityratio = orbitalvelocity/v_earth
-period = 2 * math.pi * math.sqrt(math.pow(r, 3) / G / m)
-period_year = period / spery
+period = math.sqrt(math.pow(r, 1/3))
 
-print period
+
+
 
 print "The orbital period (years):  "
-print period_year
+print period
 
-print "The orbital velocity (m/s):  "
-print orbitalvelocity
-print "the orbital velocity in relation to earth:  "
-print orbitalvelocityratio
+#print "The orbital velocity (m/s):  "
+#print orbitalvelocity
+#print "the orbital velocity in relation to earth:  "
+#print orbitalvelocityratio
 
 
