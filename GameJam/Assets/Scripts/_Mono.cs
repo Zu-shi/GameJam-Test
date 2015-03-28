@@ -36,6 +36,33 @@ public class _Mono : MonoBehaviour {
 		}
 	}
 
+	public float localX {
+		set {
+			transform.localPosition = new Vector3 (value, transform.localPosition.y, transform.localPosition.z);
+		}
+		get {
+			return transform.localPosition.x;
+		}
+	}
+	
+	public float localY {
+		set {
+			transform.localPosition = new Vector3 (transform.localPosition.x, value, transform.localPosition.z);
+		}
+		get {
+			return transform.localPosition.y;
+		}
+	}
+	
+	public float localZ {
+		set {
+			transform.localPosition = new Vector3 (transform.localPosition.x, transform.localPosition.y, value);
+		}
+		get {
+			return transform.localPosition.z;
+		}
+	}
+
 	public Vector2 xy {
 		set {
 			transform.position = new Vector3(value.x, value.y, transform.position.z);
