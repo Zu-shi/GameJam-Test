@@ -4,7 +4,8 @@ using System.Collections;
 public class QteScript : _Mono {
 	
 	public _Mono keyObject;
-	KeyCode[] p1Keys, p2Keys;
+	KeyCode[] p1Keys;
+	KeyCode[] p2Keys;
 	
 	// Use this for initialization
 	void Start () {
