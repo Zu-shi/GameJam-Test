@@ -49,6 +49,16 @@ public class NameManager : MonoBehaviour {
 		planetNames [24] = "Gilgamesh";
 		planetNames [25] = "Laos";
 		planetNames [26] = "Media";
+		planetNames [27] = "Dune";
+		planetNames [28] = "Cookie";
+		planetNames [29] = "Polyphemus";
+		planetNames [30] = "Best Planet";
+		planetNames [31] = "Discworld";
+		planetNames [32] = "Arda";
+		planetNames [33] = "Luna";
+		planetNames [34] = "Tattooine";
+		planetNames [35] = "Krypton";
+		planetNames [36] = "Qo'noS";
 
 		int i = 1;
 		// assign a name to each planet
