@@ -20,6 +20,7 @@ public class NameManager : MonoBehaviour {
 	{
 		planetCount = 0;
 		planetToName = new Dictionary<GameObject, GameObject> ();
+
 	 	planetNames = new string[37];
 
 		planetNames [0] = "Hermes";
