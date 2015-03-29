@@ -15,7 +15,9 @@ public class InputManagerScript : MonoBehaviour {
 	KeyCode[] p1Keys;
 	KeyCode[] p2Keys;
 	//public AudioClip transformSound;
-	public AudioSource audioSource;
+	AudioSource audioSource;
+	public AudioClip p1Audio;
+	public AudioClip p2Audio;
 	private List<MaskScript> planetsToClear;
 	private List<KeyScript> ksToClear;
 
@@ -36,8 +38,7 @@ public class InputManagerScript : MonoBehaviour {
 		p1Keys [4] = KeyCode.S;
 		p1Keys [5] = KeyCode.D;
 		
-		//player one = right keys
-		//p2Keys = new KeyCode[6];
+		//player two  = right keys
 		p2Keys = new KeyCode[6];
 		p2Keys [0] = KeyCode.I;
 		p2Keys [1] = KeyCode.O;
@@ -77,6 +78,7 @@ public class InputManagerScript : MonoBehaviour {
 							targetKs1 = ks;
 							Instantiate(p1EffectPrefab, ks.targetPlanet.xyz, Quaternion.identity);
 							ks.targetPlanet.GetComponent<MaskScript>().wearer.owner = 1;
+							audioSource.clip = p1Audio;
 							audioSource.Play();
 							planetsToClear.Add(ks.targetPlanet.GetComponent<MaskScript>());
 						}
@@ -152,6 +154,7 @@ public class InputManagerScript : MonoBehaviour {
 							targetKs2 = ks;
 							Instantiate(p2EffectPrefab, ks.targetPlanet.xyz, Quaternion.identity);
 							ks.targetPlanet.GetComponent<MaskScript>().wearer.owner = 2;
+							audioSource.clip = p2Audio;
 							audioSource.Play();
 						}
 					}

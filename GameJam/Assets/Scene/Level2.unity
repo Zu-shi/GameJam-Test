@@ -360,7 +360,8 @@ MonoBehaviour:
   p1EffectPrefab: {fileID: 11440346, guid: 5042a72e34b0a45b8b877b189a44c6a5, type: 2}
   p2EffectPrefab: {fileID: 11414726, guid: c877d317f6fb3484f961306c9d443338, type: 2}
   keyUIPrefab: {fileID: 0}
-  audioSource: {fileID: 0}
+  p1Audio: {fileID: 0}
+  p2Audio: {fileID: 0}
 --- !u!4 &230749311
 Transform:
   m_ObjectHideFlags: 0
