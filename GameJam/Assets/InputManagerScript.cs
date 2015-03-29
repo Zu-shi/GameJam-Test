@@ -4,22 +4,29 @@ using System.Collections.Generic;
 
 public class InputManagerScript : MonoBehaviour {
 
-	readonly float LOCKOUT_TIME = 1f;
+	public static readonly float LOCKOUT_TIME = 1f;
 	float[] lockOutP1 = new float[6];
 	float[] lockOutP2 = new float[6];
+	KeyUIScript[] keyUIP1 = new KeyUIScript[6];
+	KeyUIScript[] keyUIP2 = new KeyUIScript[6];
 	public _Mono p1EffectPrefab;
 	public _Mono p2EffectPrefab;
+	public KeyUIScript keyUIPrefab;
 	KeyCode[] p1Keys;
 	KeyCode[] p2Keys;
 	//public AudioClip transformSound;
 	public AudioSource audioSource;
-	public List<MaskScript> planetsToClear;
-	public List<KeyScript> ksToClear;
+	private List<MaskScript> planetsToClear;
+	private List<KeyScript> ksToClear;
+
+	//private List<KeyUIScript> listUIKeys;
 
 	// Use this for initialization
 	void Start () {
 		planetsToClear = new List<MaskScript>();
 		ksToClear = new List<KeyScript>();
+		//listUIKeys = new List<KeyUIScript>();
+
 		//player one = left keys
 		p1Keys = new KeyCode[6];
 		p1Keys [0] = KeyCode.Q;
@@ -38,6 +45,22 @@ public class InputManagerScript : MonoBehaviour {
 		p2Keys [3] = KeyCode.J;
 		p2Keys [4] = KeyCode.K;
 		p2Keys [5] = KeyCode.L;
+		
+		for(int i = 0; i < 6; i++){
+			KeyUIScript kui = Instantiate(keyUIPrefab);
+			keyUIP1[i] = kui;
+			kui.setSprite(p1Keys[i]);
+			kui.x = -2450 + i % 3 * 200;
+			kui.y = -1100 - i / 3 * 200;
+		}
+		
+		for(int i = 0; i < 6; i++){
+			KeyUIScript kui = Instantiate(keyUIPrefab);
+			keyUIP2[i] = kui;
+			kui.setSprite(p2Keys[i]);
+			kui.x = 2050 + i % 3 * 200;
+			kui.y = -1100 - i / 3 * 200;
+		}
 	}
 	
 	// Update is called once per frame
@@ -112,6 +135,7 @@ public class InputManagerScript : MonoBehaviour {
 						}
 					}*/
 					lockOutP1[i] = LOCKOUT_TIME;
+					keyUIP1[i].SetCooldown();
 				}
 			}
 		}
@@ -183,6 +207,7 @@ public class InputManagerScript : MonoBehaviour {
 					}
 					*/
 					lockOutP2[i] = LOCKOUT_TIME;
+					keyUIP2[i].SetCooldown();
 				}
 			}
 		}
