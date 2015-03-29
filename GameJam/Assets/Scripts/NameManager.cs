@@ -20,7 +20,7 @@ public class NameManager : MonoBehaviour {
 	{
 		planetCount = 0;
 		planetToName = new Dictionary<GameObject, GameObject> ();
-	 	planetNames = new string[19];
+	 	planetNames = new string[27];
 
 		planetNames [0] = "Hermes";
 		planetNames [1] = "Condon";
@@ -40,7 +40,15 @@ public class NameManager : MonoBehaviour {
 		planetNames [15] = "Farm";
 		planetNames [16] = "Emerion";
 		planetNames [17] = "Andromeda";
-		planetNames [18] = "Pikachu";
+		planetNames [18] = "Charmander";
+		planetNames [19] = "Ire";
+		planetNames [20] = "Sarina";
+		planetNames [21] = "Lewis";
+		planetNames [22] = "0x00";
+		planetNames [23] = "Hades";
+		planetNames [24] = "Gilgamesh";
+		planetNames [25] = "Laos";
+		planetNames [26] = "Media";
 
 		int i = 1;
 		// assign a name to each planet
