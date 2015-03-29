@@ -72,7 +72,15 @@ public class _Mono : MonoBehaviour {
 		}
 	}
 
-    
+	public Vector3 xyz {
+		set {
+			transform.position = new Vector3(value.x, value.y, value.z);
+		}
+		get {
+			return new Vector3(x, y, z);
+		}
+	}
+
     public Vector2 xys {
         set {
             transform.localScale = new Vector3 (value.x, value.y, transform.localScale.z);
