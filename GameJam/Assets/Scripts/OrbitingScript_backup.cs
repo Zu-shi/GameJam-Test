@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class OrbitingScript : _Mono {
+public class OrbitingScript_backup : _Mono {
 
 	public _Mono planetMask;
+
 	public GameObject optionsObj;
 
 	//Scale of the 2D circle sprite we use in comparason to the unit sphere.

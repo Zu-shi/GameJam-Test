@@ -4,6 +4,7 @@ using System.Collections;
 public class OrbitingScript : _Mono {
 
 	public _Mono planetMask;
+	public GameObject optionsObj;
 	public int owner = 0;
 	public bool home = false;
 	//Scale of the 2D circle sprite we use in comparason to the unit sphere.
@@ -54,6 +55,8 @@ public class OrbitingScript : _Mono {
 				Application.LoadLevel("GameOver2");
 			}
 		}
+		OptionsScript optionscomponent = optionsObj.GetComponent<OptionsScript>();
+		float realPeriod = period * optionscomponent.speedAdjust;
 		//Debug.Log("x" + x + ", y" + y);
 		//Debug.Log(angle);
 		//angle = 180f - orbitMono.angle;
