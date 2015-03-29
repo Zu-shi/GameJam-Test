@@ -56,8 +56,12 @@ public class OrbitingScript : _Mono {
 	void Update () {
 		if(owner != homeOwner && home){
 			if(owner == 1){
+				StateManager.P1ActiveKeys.Clear();
+				StateManager.P2ActiveKeys.Clear();
 				Application.LoadLevel("GameOver1");
 			}else{
+				StateManager.P1ActiveKeys.Clear();
+				StateManager.P2ActiveKeys.Clear();
 				Application.LoadLevel("GameOver2");
 			}
 		}
