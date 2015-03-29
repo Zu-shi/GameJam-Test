@@ -128,7 +128,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 187144, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_Name
-      value: Orbit2.2
+      value: East Middle
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalScale.x
@@ -204,7 +204,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 187144, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_Name
-      value: Orbit2.3
+      value: East Outer
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalScale.x
@@ -330,7 +330,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 181190, guid: cc399ba0399054798a40827dfe2b9acf, type: 2}
       propertyPath: m_Name
-      value: Star3
+      value: North Star
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc399ba0399054798a40827dfe2b9acf, type: 2}
@@ -376,7 +376,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 181190, guid: cc399ba0399054798a40827dfe2b9acf, type: 2}
       propertyPath: m_Name
-      value: Star2
+      value: East Star
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc399ba0399054798a40827dfe2b9acf, type: 2}
@@ -422,7 +422,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 187144, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_Name
-      value: Orbit4.2
+      value: South Outer
       objectReference: {fileID: 0}
     - target: {fileID: 21272030, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_Enabled
@@ -490,7 +490,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 187144, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_Name
-      value: Orbit3.1
+      value: North Center
       objectReference: {fileID: 0}
     - target: {fileID: 21272030, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_Enabled
@@ -605,7 +605,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 187144, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_Name
-      value: Orbit4.1
+      value: South Center
       objectReference: {fileID: 0}
     - target: {fileID: 21272030, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_Enabled
@@ -681,7 +681,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 187144, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_Name
-      value: Orbit1.3
+      value: West Outer
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalScale.x
@@ -757,7 +757,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 181190, guid: cc399ba0399054798a40827dfe2b9acf, type: 2}
       propertyPath: m_Name
-      value: Star4
+      value: South Star
       objectReference: {fileID: 0}
     - target: {fileID: 19833822, guid: cc399ba0399054798a40827dfe2b9acf, type: 2}
       propertyPath: ColorModule.gradient.maxGradient.atime2
@@ -932,7 +932,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 187144, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_Name
-      value: Orbit1.2
+      value: West Middle
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalScale.x
@@ -1008,7 +1008,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 187144, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_Name
-      value: Orbit2.1
+      value: East Center
       objectReference: {fileID: 0}
     - target: {fileID: 21272030, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_Enabled
@@ -1084,7 +1084,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 181190, guid: cc399ba0399054798a40827dfe2b9acf, type: 2}
       propertyPath: m_Name
-      value: Star 1
+      value: West Star
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc399ba0399054798a40827dfe2b9acf, type: 2}
@@ -1145,7 +1145,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 187144, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_Name
-      value: Orbit3.2
+      value: North Outer
       objectReference: {fileID: 0}
     - target: {fileID: 21272030, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_Enabled
@@ -1238,7 +1238,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 187144, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_Name
-      value: Orbit1.1
+      value: West Center
       objectReference: {fileID: 0}
     - target: {fileID: 11446312, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: period
