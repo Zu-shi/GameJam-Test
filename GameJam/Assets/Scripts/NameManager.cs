@@ -43,18 +43,18 @@ public class NameManager : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update ()
+	void LateUpdate ()
 	{
 		if (!generatedList) {	
 			int i = 1;
 			foreach (GameObject planet in GameObject.FindGameObjectsWithTag("Planet")) {
 					planetCount++;
 					GameObject obj = Instantiate(connector, planet.transform.position, Quaternion.identity) as GameObject;
+					obj.transform.GetChild(0).GetComponent<_Mono>().alpha = 0.8f;
 					planet.name = planetNames[i];
 					planetToName.Add(planet, obj);
 					TextMesh textMesh = planetToName[planet].GetComponentInChildren<TextMesh>();
 					textMesh.text = planetNames[i];
-					
 					i++;
 			}
 			positions = new Vector3[planetCount];
@@ -80,17 +80,14 @@ public class NameManager : MonoBehaviour {
 			if (!generatedPosition && j < planetCount) {
 				positions[j] = offset;
 			}
-			textObj.transform.position = planet.transform.position + positions[j];
+			textObj.transform.position = planet.transform.position + new Vector3(30f, 0f, 0f) + positions[j];
 		}
-
-
-	
 	}
 
 	Vector3 getUpperRight(GameObject obj) {
 		Bounds bnd = obj.GetComponent<Renderer> ().bounds;
 		//return (new Vector3 (2*bnd.extents.x/3 - bnd.size.x/7, 2*bnd.extents.y/3 - bnd.size.y/7, 0));
-			return (new Vector3 (bnd.size.x/2, bnd.size.y/2, 0));
+		return (new Vector3 (bnd.size.x/2, bnd.size.y/2, 0));
 	}
 }
 
