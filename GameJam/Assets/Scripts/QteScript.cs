@@ -105,6 +105,7 @@ public class QteScript : _Mono {
 							// make button picture on right side of the planet
 							KeyScript newKey = planetToKeysMap[foundGo];
 							newKey.alpha = 1;
+							newKey.timer = KeyScript.TIMER_MAX;
 							newKey.alphaDim = -1f;
 							newKey.setSprite(kc);
 							StateManager.activeKeysDirectory[thisOwner].Add (newKey);
@@ -121,14 +122,21 @@ public class QteScript : _Mono {
 						bool alreadyInList = false;
 						foreach(KeyScript ks in StateManager.activeKeysDirectory[thisOwner]){
 							if(ks.Equals(planetToKeysMap[foundGo])){
-								alreadyInList = true;
-								ks.alphaDim = 1f;
-								break;
+								if(ks.timer <= 0f){
+									alreadyInList = true;
+									ks.alphaDim = 1f;
+									break;
+								}else{
+									//Debug.Log ("timer not up");
+								}
 							}
 						}
 
 						if(alreadyInList){
 							StateManager.activeKeysDirectory[thisOwner].Remove(planetToKeysMap[planets[i]]);
+						}else{
+							Vector2 keyPosition = otherPosition + (thisOwner - 1.5f) * -2f * new Vector2 (planets[i].GetComponent<Renderer>().bounds.size.x/2, 0f) * 2f;
+							planetToKeysMap[foundGo].xy = keyPosition;
 						}
 					}
 				}

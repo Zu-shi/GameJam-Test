@@ -3,6 +3,7 @@ using System.Collections;
 
 public class KeyScript : _Mono {
 
+	public static readonly float TIMER_MAX = 1f;
 	public Sprite keyQ;
 	public Sprite keyW;
 	public Sprite keyE;
@@ -19,6 +20,7 @@ public class KeyScript : _Mono {
 	public _Mono sourcePlanet{ get; set; }
 	public KeyCode keyCode{ get; set; }
 	public float alphaDim;
+	public float timer = 0f; //Minimum stay-alive timer;
 
 	// Use this for initialization
 	void Start () {
@@ -27,6 +29,7 @@ public class KeyScript : _Mono {
 	
 	// Update is called once per frame
 	void Update () {
+		timer -= Time.deltaTime;
 		if(alphaDim > 0){
 			alpha -= 0.08f;
 			alphaDim -= 0.08f;
