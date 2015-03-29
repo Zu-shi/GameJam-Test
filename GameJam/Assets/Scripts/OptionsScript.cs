@@ -11,7 +11,8 @@ public class OptionsScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		StateManager.P1ActiveKeys.Clear();
+		StateManager.P2ActiveKeys.Clear();
 	}
 	
 	// Update is called once per frame

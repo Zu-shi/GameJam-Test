@@ -3,7 +3,7 @@ using System.Collections;
 
 public class KeyScript : _Mono {
 
-	public static readonly float TIMER_MAX = 1f;
+	public static readonly float TIMER_MAX = 1.5f;
 	public Sprite keyQ;
 	public Sprite keyW;
 	public Sprite keyE;
