@@ -25,7 +25,7 @@ public class KeyUIScript : _Mono {
 	}
 
 	void Update(){
-		shadow.alpha = 0.8f;
+		shadow.alpha = 1f;
 		timer -= Time.deltaTime;
 		if(timer < 0f){timer = 0;}
 		shadow.x = x;
