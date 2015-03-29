@@ -98,7 +98,7 @@ GameObject:
   - 222: {fileID: 184255890}
   - 114: {fileID: 184255889}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -544,7 +544,7 @@ GameObject:
   - 114: {fileID: 872903804}
   - 114: {fileID: 872903808}
   m_Layer: 5
-  m_Name: Text 2
+  m_Name: StartGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -628,7 +628,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Click Here to Begin (Two Player)(2)
+  m_Text: Click Here to Begin (Two Player)
 --- !u!222 &872903806
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -660,7 +660,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 872903803}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23a69fd538520604c81d2753366fa63b, type: 3}
+  m_Script: {fileID: 11500000, guid: f057fe3d8779c274aba4dfb183c17b88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1050520509
@@ -682,7 +682,7 @@ GameObject:
   - 114: {fileID: 1108851579}
   - 114: {fileID: 1108851578}
   m_Layer: 5
-  m_Name: Text 3
+  m_Name: Exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -766,7 +766,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1108851576}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23a69fd538520604c81d2753366fa63b, type: 3}
+  m_Script: {fileID: 11500000, guid: f057fe3d8779c274aba4dfb183c17b88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1108851580

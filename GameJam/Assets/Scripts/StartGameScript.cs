@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Text2Script : MonoBehaviour {
+public class StartGameScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
