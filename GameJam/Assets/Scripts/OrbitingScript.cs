@@ -19,7 +19,7 @@ public class OrbitingScript : _Mono {
 	public _Mono mask { get; set; }
 	_Mono keyObject;
 
-	public int homeOwner;
+	private int homeOwner;
 
 
 	// Use this for initialization
