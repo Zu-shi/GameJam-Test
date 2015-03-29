@@ -17,9 +17,14 @@ public class OrbitingScript : _Mono {
 	public _Mono mask { get; set; }
 	_Mono keyObject;
 
+	public int homeOwner;
+
 
 	// Use this for initialization
 	void Start () {
+		if(home){
+			homeOwner = owner;
+		}
 		alpha = 0;
 		orbit = gameObject.transform.parent.gameObject;
 		orbitMono = orbit.AddComponent<_Mono>();
@@ -42,6 +47,13 @@ public class OrbitingScript : _Mono {
 	
 	// Update is called once per frame
 	void Update () {
+		if(owner != homeOwner && home){
+			if(owner == 1){
+				Application.LoadLevel("GameOver1");
+			}else{
+				Application.LoadLevel("GameOver2");
+			}
+		}
 		//Debug.Log("x" + x + ", y" + y);
 		//Debug.Log(angle);
 		//angle = 180f - orbitMono.angle;
