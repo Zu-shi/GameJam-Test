@@ -47,4 +47,8 @@ public class OptionsScript : MonoBehaviour {
 	void Awake(){
 		DontDestroyOnLoad (transform.gameObject);
 	}
+
+	void OpenCredits() {
+		Application.LoadLevel ("Credits");
+	}
 }
