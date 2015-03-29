@@ -1054,7 +1054,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 187144, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_Name
-      value: North Middle
+      value: North Outer
       objectReference: {fileID: 0}
     - target: {fileID: 21272030, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_Enabled
