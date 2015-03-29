@@ -17,7 +17,7 @@ public class KeyScript : _Mono {
 	public Sprite keyL;
 	public _Mono targetPlanet{ get; set; }
 	public KeyCode keyCode{ get; set; }
-
+	public float alphaDim;
 
 	// Use this for initialization
 	void Start () {
@@ -26,6 +26,10 @@ public class KeyScript : _Mono {
 	
 	// Update is called once per frame
 	void Update () {
+		if(alphaDim > 0){
+			alpha -= 0.08f;
+			alphaDim -= 0.08f;
+		}
 		z = -100;
 	}
 

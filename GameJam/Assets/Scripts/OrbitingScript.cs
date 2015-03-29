@@ -4,7 +4,8 @@ using System.Collections;
 public class OrbitingScript : _Mono {
 
 	public _Mono planetMask;
-
+	public int owner = 0;
+	public bool home = false;
 	//Scale of the 2D circle sprite we use in comparason to the unit sphere.
 	readonly int CIRCLE_SIZE = 125;
 	float orbitRadius;
@@ -25,6 +26,7 @@ public class OrbitingScript : _Mono {
 		orbitMono.alpha = 0f;
 
 		mask = _Mono.Instantiate(planetMask);
+		mask.GetComponent<MaskScript>().wearer = this;
 		mask.tag = "Planet";
 		//keeps track of the default readius
 		orbitRadius = Mathf.Sqrt(Mathf.Pow(localX, 2f) + Mathf.Pow(localY, 2f));

@@ -5,4 +5,8 @@ using System.Collections.Generic;
 public class StateManager {
 	public static List<KeyScript> P1ActiveKeys = new List<KeyScript>();
 	public static List<KeyScript> P2ActiveKeys = new List<KeyScript>();
+	public static List<KeyScript>[] activeKeysDirectory = {
+		null, P1ActiveKeys, P2ActiveKeys
+	};
+
 }

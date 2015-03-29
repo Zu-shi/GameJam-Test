@@ -71,6 +71,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planetMask: {fileID: 0}
+  owner: 0
+  home: 0
   period: -4
 --- !u!114 &11455568
 MonoBehaviour:
@@ -83,6 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 943909949d8144e7994dcf331fec0b33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  keyPrefab: {fileID: 11457772, guid: f5fa1c8595b96444ca0f3fe09ba5dbbe, type: 2}
 --- !u!212 &21268714
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -115,7 +118,7 @@ SpriteRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 187144}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_Materials:
