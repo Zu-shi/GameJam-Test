@@ -1,12 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class OrbitingScript : _Mono {
+public class OrbitingScript_backup : _Mono {
 
 	public _Mono planetMask;
 	public GameObject optionsObj;
-	public int owner = 0;
-	public bool home = false;
+
 	//Scale of the 2D circle sprite we use in comparason to the unit sphere.
 	readonly int CIRCLE_SIZE = 125;
 	float orbitRadius;
@@ -19,21 +18,15 @@ public class OrbitingScript : _Mono {
 	public _Mono mask { get; set; }
 	_Mono keyObject;
 
-	public int homeOwner;
-
 
 	// Use this for initialization
 	void Start () {
-		if(home){
-			homeOwner = owner;
-		}
 		alpha = 0;
 		orbit = gameObject.transform.parent.gameObject;
 		orbitMono = orbit.AddComponent<_Mono>();
 		orbitMono.alpha = 0f;
 
 		mask = _Mono.Instantiate(planetMask);
-		mask.GetComponent<MaskScript>().wearer = this;
 		mask.tag = "Planet";
 		//keeps track of the default readius
 		orbitRadius = Mathf.Sqrt(Mathf.Pow(localX, 2f) + Mathf.Pow(localY, 2f));
@@ -49,13 +42,6 @@ public class OrbitingScript : _Mono {
 	
 	// Update is called once per frame
 	void Update () {
-		if(owner != homeOwner && home){
-			if(owner == 1){
-				Application.LoadLevel("GameOver1");
-			}else{
-				Application.LoadLevel("GameOver2");
-			}
-		}
 
 		OptionsScript optionscomponent = optionsObj.GetComponent<OptionsScript>();
 		float realPeriod = period * optionscomponent.speedAdjust;
