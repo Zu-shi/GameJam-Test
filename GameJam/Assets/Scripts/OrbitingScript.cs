@@ -22,6 +22,7 @@ public class OrbitingScript : _Mono {
 		alpha = 0;
 		orbit = gameObject.transform.parent.gameObject;
 		orbitMono = orbit.AddComponent<_Mono>();
+		orbitMono.alpha = 0f;
 
 		mask = _Mono.Instantiate(planetMask);
 		mask.tag = "Planet";
