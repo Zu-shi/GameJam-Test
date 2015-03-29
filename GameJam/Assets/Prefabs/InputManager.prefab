@@ -113,7 +113,7 @@ MonoBehaviour:
   p2EffectPrefab: {fileID: 11414726, guid: c877d317f6fb3484f961306c9d443338, type: 2}
   keyUIPrefab: {fileID: 11437354, guid: 3dd1e598a27d34444ab56b9b932f2fc9, type: 2}
   p1Audio: {fileID: 8300000, guid: c44d6ad29abd7405182814adb1f01a9f, type: 3}
-  p2Audio: {fileID: 8300000, guid: 850036f7b6ce94798a2234cd2381b416, type: 3}
+  p2Audio: {fileID: 8300000, guid: df44fad3e52e447cda8890ae92565da4, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
