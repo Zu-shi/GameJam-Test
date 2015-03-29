@@ -1732,7 +1732,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Big Circle
+  m_Text: Samsara
 --- !u!222 &1924053751
 CanvasRenderer:
   m_ObjectHideFlags: 0
