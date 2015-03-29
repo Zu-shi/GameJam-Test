@@ -16,6 +16,7 @@ public class KeyScript : _Mono {
 	public Sprite keyK;
 	public Sprite keyL;
 	public _Mono targetPlanet{ get; set; }
+	public _Mono sourcePlanet{ get; set; }
 	public KeyCode keyCode{ get; set; }
 	public float alphaDim;
 

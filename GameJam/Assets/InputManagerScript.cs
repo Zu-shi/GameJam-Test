@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class InputManagerScript : MonoBehaviour {
 
@@ -12,9 +13,13 @@ public class InputManagerScript : MonoBehaviour {
 	KeyCode[] p2Keys;
 	//public AudioClip transformSound;
 	public AudioSource audioSource;
+	public List<MaskScript> planetsToClear;
+	public List<KeyScript> ksToClear;
 
 	// Use this for initialization
 	void Start () {
+		planetsToClear = new List<MaskScript>();
+		ksToClear = new List<KeyScript>();
 		//player one = left keys
 		p1Keys = new KeyCode[6];
 		p1Keys [0] = KeyCode.Q;
@@ -50,11 +55,62 @@ public class InputManagerScript : MonoBehaviour {
 							Instantiate(p1EffectPrefab, ks.targetPlanet.xyz, Quaternion.identity);
 							ks.targetPlanet.GetComponent<MaskScript>().wearer.owner = 1;
 							audioSource.Play();
+							planetsToClear.Add(ks.targetPlanet.GetComponent<MaskScript>());
 						}
 					}
-					if(targetKs1 != null){
-						StateManager.activeKeysDirectory[1].Remove(targetKs1);
+
+
+					//bool deletedAll = false;
+					
+					foreach(KeyScript ksTemp in StateManager.activeKeysDirectory[1]) {
+						if(ksTemp.targetPlanet.gameObject.Equals(ksTemp.targetPlanet.gameObject) ){
+							ksToClear.Add(ksTemp);
+						}
+						if(ksTemp.sourcePlanet.gameObject.Equals(ksTemp.targetPlanet.gameObject) ){
+							ksToClear.Add(ksTemp);
+						}
 					}
+					foreach(KeyScript kstc in ksToClear){
+						StateManager.activeKeysDirectory[1].Remove(kstc);
+						kstc.alphaDim = -1;
+						kstc.alpha = 0f;
+					}
+					ksToClear.Clear();
+					
+					foreach(KeyScript ksTemp in StateManager.activeKeysDirectory[2]) {
+						if(ksTemp.targetPlanet.gameObject.Equals(ksTemp.targetPlanet.gameObject) ){
+							ksToClear.Add(ksTemp);
+						}
+						if(ksTemp.sourcePlanet.gameObject.Equals(ksTemp.targetPlanet.gameObject) ){
+							ksToClear.Add(ksTemp);
+						}
+					}
+					foreach(KeyScript kstc in ksToClear){
+						StateManager.activeKeysDirectory[2].Remove(kstc);
+						kstc.alphaDim = -1;
+						kstc.alpha = 0f;
+					}
+					ksToClear.Clear();
+					/*
+					if(targetKs1 != null){
+						while(deletedAll == false){
+							KeyCode deleteKc = targetKs1.keyCode;
+							bool found = false;
+							foreach(KeyScript ksTemp in StateManager.activeKeysDirectory[1]) {
+								if(ksTemp.keyCode == deleteKc){
+									targetKs1 = ksTemp;
+									found = true;
+								}
+							}
+							if(found == true){
+								StateManager.activeKeysDirectory[1].Remove(targetKs1);
+								targetKs1.alpha = 0f;
+								targetKs1.alphaDim = -1f;
+							}else{
+								deletedAll = true;
+							}
+						}
+					}*/
 					lockOutP1[i] = LOCKOUT_TIME;
 				}
 			}
@@ -73,9 +129,59 @@ public class InputManagerScript : MonoBehaviour {
 							audioSource.Play();
 						}
 					}
-					if(targetKs2 != null){
-						StateManager.activeKeysDirectory[2].Remove(targetKs2);
+
+					foreach(KeyScript ksTemp in StateManager.activeKeysDirectory[1]) {
+						if(ksTemp.targetPlanet.gameObject.Equals(ksTemp.targetPlanet.gameObject) ){
+							ksToClear.Add(ksTemp);
+						}
+						if(ksTemp.sourcePlanet.gameObject.Equals(ksTemp.targetPlanet.gameObject) ){
+							ksToClear.Add(ksTemp);
+						}
 					}
+					foreach(KeyScript kstc in ksToClear){
+						StateManager.activeKeysDirectory[1].Remove(kstc);
+						kstc.alphaDim = -1;
+						kstc.alpha = 0f;
+					}
+					ksToClear.Clear();
+					
+					foreach(KeyScript ksTemp in StateManager.activeKeysDirectory[2]) {
+						if(ksTemp.targetPlanet.gameObject.Equals(ksTemp.targetPlanet.gameObject) ){
+							ksToClear.Add(ksTemp);
+						}
+						if(ksTemp.sourcePlanet.gameObject.Equals(ksTemp.targetPlanet.gameObject) ){
+							ksToClear.Add(ksTemp);
+						}
+					}
+					foreach(KeyScript kstc in ksToClear){
+						kstc.alphaDim = -1;
+						kstc.alpha = 0f;
+						StateManager.activeKeysDirectory[2].Remove(kstc);
+					}
+					ksToClear.Clear();
+
+					//bool deletedAll = false;
+					/*
+					if(targetKs2 != null){						
+						while(deletedAll == false){
+							KeyCode deleteKc = targetKs2.keyCode;
+							bool found = false;
+							foreach(KeyScript ksTemp in StateManager.activeKeysDirectory[2]) {
+								if(ksTemp.keyCode == deleteKc){
+									targetKs2 = ksTemp;
+									found = true;
+								}
+							}
+							if(found == true){
+								StateManager.activeKeysDirectory[2].Remove(targetKs2);
+								targetKs2.alpha = 0f;
+								targetKs2.alphaDim = -1f;
+							}else{
+								deletedAll = true;
+							}
+						}
+					}
+					*/
 					lockOutP2[i] = LOCKOUT_TIME;
 				}
 			}
