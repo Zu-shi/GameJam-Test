@@ -752,7 +752,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 947790773}
+      - m_Target: {fileID: 1555682403}
         m_MethodName: SendMessage
         m_Mode: 5
         m_Arguments:
@@ -1338,6 +1338,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc399ba0399054798a40827dfe2b9acf, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1555682403
+GameObject:
+  m_PrefabParentObject: {fileID: 162286, guid: f6676b4203b85f74a8debbae832a0570, type: 2}
+  m_PrefabInternal: {fileID: 1103805453}
 --- !u!1 &1557790063
 GameObject:
   m_ObjectHideFlags: 0
@@ -1635,8 +1639,8 @@ RectTransform:
   m_RootOrder: 6
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -72.9000015, y: -55.5}
-  m_SizeDelta: {x: 43.4000015, y: 13.3000002}
+  m_AnchoredPosition: {x: -72.8999939, y: -57.4249992}
+  m_SizeDelta: {x: 43.4000015, y: 17.1499996}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1972287613
 MonoBehaviour:
