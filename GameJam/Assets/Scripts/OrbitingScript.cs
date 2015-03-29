@@ -16,6 +16,7 @@ public class OrbitingScript : _Mono {
 	public _Mono mask { get; set; }
 	_Mono keyObject;
 
+
 	// Use this for initialization
 	void Start () {
 		alpha = 0;
@@ -56,14 +57,16 @@ public class OrbitingScript : _Mono {
 		localX = Mathf.Cos (t) * orbitRadius;
 	}
 
-	public void showKey(_Mono keyPrefab, Vector2 location, KeyCode keyCode){
-		
-		keyObject = Utils.InstanceCreate (location, keyPrefab) as _Mono;
-		
-		if (Input.GetKeyDown(keyCode)){
-			
+	/*
+	public void showKey(Vector2 location, KeyCode keyCode){
+
+		if (keyCode == KeyCode.Q) {
+			keyObject = Utils.InstanceCreate(Resources.Load ("Prefabs/KeyPrefabs/Key_Q_Prefab"), location) as _Mono;
+		}
+
+		if (Input.GetKeyDown(keyCode)) {
 			mask.spriteRenderer.color = Color.red;
 		}
 		
-	}
+	}*/
 }
