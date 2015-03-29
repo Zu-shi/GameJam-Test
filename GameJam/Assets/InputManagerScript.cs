@@ -77,7 +77,9 @@ public class InputManagerScript : MonoBehaviour {
 							targetKs1 = ks;
 							Instantiate(p1EffectPrefab, ks.targetPlanet.xyz, Quaternion.identity);
 							ks.targetPlanet.GetComponent<MaskScript>().wearer.owner = 1;
-							audioSource.Play();
+							if(!ks.targetPlanet.GetComponent<MaskScript>().wearer.home){
+								audioSource.Play();
+							}
 							planetsToClear.Add(ks.targetPlanet.GetComponent<MaskScript>());
 						}
 					}
@@ -152,7 +154,9 @@ public class InputManagerScript : MonoBehaviour {
 							targetKs2 = ks;
 							Instantiate(p2EffectPrefab, ks.targetPlanet.xyz, Quaternion.identity);
 							ks.targetPlanet.GetComponent<MaskScript>().wearer.owner = 2;
-							audioSource.Play();
+							if(!ks.targetPlanet.GetComponent<MaskScript>().wearer.home){
+								audioSource.Play();
+							}
 						}
 					}
 
