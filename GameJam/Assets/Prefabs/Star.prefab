@@ -69,7 +69,7 @@ Light:
   m_Type: 2
   m_Color: {r: .897058845, g: .872312367, b: 0, a: 1}
   m_Intensity: 3.46000004
-  m_Range: 2000
+  m_Range: 2300
   m_SpotAngle: 83
   m_CookieSize: 10
   m_Shadows:
@@ -140,7 +140,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     startSpeed:
-      scalar: 5
+      scalar: 20
       maxCurve:
         serializedVersion: 2
         m_Curve:

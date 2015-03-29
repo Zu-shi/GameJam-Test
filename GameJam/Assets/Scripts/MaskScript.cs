@@ -12,6 +12,10 @@ public class MaskScript : _Mono {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		switch(wearer.owner){
+		case 0: {GetComponent<MeshRenderer>().material.color = Color.white; break;}
+		case 1: {GetComponent<MeshRenderer>().material.color = new Color32(255, 155, 0, 1); break;}
+		case 2: {GetComponent<MeshRenderer>().material.color = new Color32(13, 206, 255, 1); break;}//SetColor("_SpecColor", Color.red); Debug.Log("red"); break;}
+		}
 	}
 }
