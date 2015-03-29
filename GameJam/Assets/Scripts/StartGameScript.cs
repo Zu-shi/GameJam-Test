@@ -29,6 +29,10 @@ public class StartGameScript : MonoBehaviour {
 		Application.LoadLevel ("Level4");
 	}
 
+	void loadLevel5(){
+		Application.LoadLevel ("Level5");
+	}
+
 	void Exit () {
 		Application.Quit ();
 	}
