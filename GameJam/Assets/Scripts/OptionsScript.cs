@@ -43,4 +43,12 @@ public class OptionsScript : MonoBehaviour {
 			menuEnabled = false;
 		}
 	}
+
+	void Awake(){
+		DontDestroyOnLoad (transform.gameObject);
+	}
+
+	void OpenCredits() {
+		Application.LoadLevel ("Credits");
+	}
 }

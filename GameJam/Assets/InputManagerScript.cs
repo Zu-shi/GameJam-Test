@@ -4,22 +4,31 @@ using System.Collections.Generic;
 
 public class InputManagerScript : MonoBehaviour {
 
-	readonly float LOCKOUT_TIME = 1f;
+	public static readonly float LOCKOUT_TIME = 1f;
 	float[] lockOutP1 = new float[6];
 	float[] lockOutP2 = new float[6];
+	KeyUIScript[] keyUIP1 = new KeyUIScript[6];
+	KeyUIScript[] keyUIP2 = new KeyUIScript[6];
 	public _Mono p1EffectPrefab;
 	public _Mono p2EffectPrefab;
+	public KeyUIScript keyUIPrefab;
 	KeyCode[] p1Keys;
 	KeyCode[] p2Keys;
 	//public AudioClip transformSound;
-	public AudioSource audioSource;
-	public List<MaskScript> planetsToClear;
-	public List<KeyScript> ksToClear;
+	AudioSource audioSource;
+	public AudioClip p1Audio;
+	public AudioClip p2Audio;
+	private List<MaskScript> planetsToClear;
+	private List<KeyScript> ksToClear;
+
+	//private List<KeyUIScript> listUIKeys;
 
 	// Use this for initialization
 	void Start () {
 		planetsToClear = new List<MaskScript>();
 		ksToClear = new List<KeyScript>();
+		//listUIKeys = new List<KeyUIScript>();
+
 		//player one = left keys
 		p1Keys = new KeyCode[6];
 		p1Keys [0] = KeyCode.Q;
@@ -29,8 +38,7 @@ public class InputManagerScript : MonoBehaviour {
 		p1Keys [4] = KeyCode.S;
 		p1Keys [5] = KeyCode.D;
 		
-		//player one = right keys
-		//p2Keys = new KeyCode[6];
+		//player two  = right keys
 		p2Keys = new KeyCode[6];
 		p2Keys [0] = KeyCode.I;
 		p2Keys [1] = KeyCode.O;
@@ -38,6 +46,22 @@ public class InputManagerScript : MonoBehaviour {
 		p2Keys [3] = KeyCode.J;
 		p2Keys [4] = KeyCode.K;
 		p2Keys [5] = KeyCode.L;
+		
+		for(int i = 0; i < 6; i++){
+			KeyUIScript kui = Instantiate(keyUIPrefab);
+			keyUIP1[i] = kui;
+			kui.setSprite(p1Keys[i]);
+			kui.x = -2450 + i % 3 * 200;
+			kui.y = -1100 - i / 3 * 200;
+		}
+		
+		for(int i = 0; i < 6; i++){
+			KeyUIScript kui = Instantiate(keyUIPrefab);
+			keyUIP2[i] = kui;
+			kui.setSprite(p2Keys[i]);
+			kui.x = 2050 + i % 3 * 200;
+			kui.y = -1100 - i / 3 * 200;
+		}
 	}
 	
 	// Update is called once per frame
@@ -54,6 +78,7 @@ public class InputManagerScript : MonoBehaviour {
 							targetKs1 = ks;
 							Instantiate(p1EffectPrefab, ks.targetPlanet.xyz, Quaternion.identity);
 							ks.targetPlanet.GetComponent<MaskScript>().wearer.owner = 1;
+							audioSource.clip = p1Audio;
 							audioSource.Play();
 							planetsToClear.Add(ks.targetPlanet.GetComponent<MaskScript>());
 						}
@@ -74,6 +99,7 @@ public class InputManagerScript : MonoBehaviour {
 						StateManager.activeKeysDirectory[1].Remove(kstc);
 						kstc.alphaDim = -1;
 						kstc.alpha = 0f;
+						kstc.timer = 0f;
 					}
 					ksToClear.Clear();
 					
@@ -89,6 +115,7 @@ public class InputManagerScript : MonoBehaviour {
 						StateManager.activeKeysDirectory[2].Remove(kstc);
 						kstc.alphaDim = -1;
 						kstc.alpha = 0f;
+						kstc.timer = 0f;
 					}
 					ksToClear.Clear();
 					/*
@@ -112,6 +139,7 @@ public class InputManagerScript : MonoBehaviour {
 						}
 					}*/
 					lockOutP1[i] = LOCKOUT_TIME;
+					keyUIP1[i].SetCooldown();
 				}
 			}
 		}
@@ -126,6 +154,7 @@ public class InputManagerScript : MonoBehaviour {
 							targetKs2 = ks;
 							Instantiate(p2EffectPrefab, ks.targetPlanet.xyz, Quaternion.identity);
 							ks.targetPlanet.GetComponent<MaskScript>().wearer.owner = 2;
+							audioSource.clip = p2Audio;
 							audioSource.Play();
 						}
 					}
@@ -142,6 +171,7 @@ public class InputManagerScript : MonoBehaviour {
 						StateManager.activeKeysDirectory[1].Remove(kstc);
 						kstc.alphaDim = -1;
 						kstc.alpha = 0f;
+						kstc.timer = 0f;
 					}
 					ksToClear.Clear();
 					
@@ -156,6 +186,7 @@ public class InputManagerScript : MonoBehaviour {
 					foreach(KeyScript kstc in ksToClear){
 						kstc.alphaDim = -1;
 						kstc.alpha = 0f;
+						kstc.timer = 0f;
 						StateManager.activeKeysDirectory[2].Remove(kstc);
 					}
 					ksToClear.Clear();
@@ -183,6 +214,7 @@ public class InputManagerScript : MonoBehaviour {
 					}
 					*/
 					lockOutP2[i] = LOCKOUT_TIME;
+					keyUIP2[i].SetCooldown();
 				}
 			}
 		}

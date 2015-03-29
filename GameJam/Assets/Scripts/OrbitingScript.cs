@@ -4,7 +4,7 @@ using System.Collections;
 public class OrbitingScript : _Mono {
 
 	public _Mono planetMask;
-	public GameObject optionsObj;
+	OptionsScript persistentOptions;
 	public int owner = 0;
 	public bool home = false;
 	//Scale of the 2D circle sprite we use in comparason to the unit sphere.
@@ -45,6 +45,11 @@ public class OrbitingScript : _Mono {
 		xscale = orbitMono.xs / ORBIT_INITIAL_SCALE;
 		yscale = orbitMono.ys / ORBIT_INITIAL_SCALE;
 		*/
+
+		GameObject optionsObj = GameObject.Find ("Options");
+		persistentOptions = optionsObj.GetComponent<OptionsScript> ();
+
+
 	}
 	
 	// Update is called once per frame
@@ -57,8 +62,8 @@ public class OrbitingScript : _Mono {
 			}
 		}
 
-		OptionsScript optionscomponent = optionsObj.GetComponent<OptionsScript>();
-		float realPeriod = period * optionscomponent.speedAdjust;
+
+		float realPeriod = period * persistentOptions.speedAdjust;
 		//Debug.Log("x" + x + ", y" + y);
 		//Debug.Log(angle);
 		//angle = 180f - orbitMono.angle;
