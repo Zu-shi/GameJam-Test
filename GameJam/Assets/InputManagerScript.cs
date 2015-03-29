@@ -97,6 +97,7 @@ public class InputManagerScript : MonoBehaviour {
 						StateManager.activeKeysDirectory[1].Remove(kstc);
 						kstc.alphaDim = -1;
 						kstc.alpha = 0f;
+						kstc.timer = 0f;
 					}
 					ksToClear.Clear();
 					
@@ -112,6 +113,7 @@ public class InputManagerScript : MonoBehaviour {
 						StateManager.activeKeysDirectory[2].Remove(kstc);
 						kstc.alphaDim = -1;
 						kstc.alpha = 0f;
+						kstc.timer = 0f;
 					}
 					ksToClear.Clear();
 					/*
@@ -166,6 +168,7 @@ public class InputManagerScript : MonoBehaviour {
 						StateManager.activeKeysDirectory[1].Remove(kstc);
 						kstc.alphaDim = -1;
 						kstc.alpha = 0f;
+						kstc.timer = 0f;
 					}
 					ksToClear.Clear();
 					
@@ -180,6 +183,7 @@ public class InputManagerScript : MonoBehaviour {
 					foreach(KeyScript kstc in ksToClear){
 						kstc.alphaDim = -1;
 						kstc.alpha = 0f;
+						kstc.timer = 0f;
 						StateManager.activeKeysDirectory[2].Remove(kstc);
 					}
 					ksToClear.Clear();
