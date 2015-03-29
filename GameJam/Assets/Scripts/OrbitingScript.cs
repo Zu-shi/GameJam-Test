@@ -56,10 +56,7 @@ public class OrbitingScript : _Mono {
 				Application.LoadLevel("GameOver2");
 			}
 		}
-<<<<<<< HEAD
-=======
 
->>>>>>> master
 		OptionsScript optionscomponent = optionsObj.GetComponent<OptionsScript>();
 		float realPeriod = period * optionscomponent.speedAdjust;
 		//Debug.Log("x" + x + ", y" + y);
