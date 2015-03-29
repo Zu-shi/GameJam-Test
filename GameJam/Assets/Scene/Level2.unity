@@ -96,11 +96,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -854
+      value: -846
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1092
+      value: 1094
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.z
@@ -132,7 +132,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalScale.x
-      value: 10.3382359
+      value: 11.0051928
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalScale.y
@@ -158,6 +158,10 @@ Prefab:
     - target: {fileID: 11446312, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: period
       value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11455568, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
+      propertyPath: MAX_DISTANCE_FOR_DETECTION
+      value: 400
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
@@ -254,6 +258,121 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc399ba0399054798a40827dfe2b9acf, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &230749308
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 189596, guid: e7b5a6220a41d074fb0846d4351d84d9, type: 2}
+  m_PrefabInternal: {fileID: 1877452664}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 230749311}
+  - 114: {fileID: 230749310}
+  - 82: {fileID: 230749309}
+  m_Layer: 0
+  m_Name: InputManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &230749309
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 8238504, guid: e7b5a6220a41d074fb0846d4351d84d9,
+    type: 2}
+  m_PrefabInternal: {fileID: 1877452664}
+  m_GameObject: {fileID: 230749308}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 5bfaaa280324943d0bb3b0b6d2d18b16, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+--- !u!114 &230749310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11473112, guid: e7b5a6220a41d074fb0846d4351d84d9,
+    type: 2}
+  m_PrefabInternal: {fileID: 1877452664}
+  m_GameObject: {fileID: 230749308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56ff184859cbb48d1a213fe764f63711, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1EffectPrefab: {fileID: 11440346, guid: 5042a72e34b0a45b8b877b189a44c6a5, type: 2}
+  p2EffectPrefab: {fileID: 11414726, guid: c877d317f6fb3484f961306c9d443338, type: 2}
+  keyUIPrefab: {fileID: 0}
+  audioSource: {fileID: 0}
+--- !u!4 &230749311
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 427274, guid: e7b5a6220a41d074fb0846d4351d84d9, type: 2}
+  m_PrefabInternal: {fileID: 1877452664}
+  m_GameObject: {fileID: 230749308}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1318, y: -153, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 35
 --- !u!1001 &411550683
 Prefab:
   m_ObjectHideFlags: 0
@@ -309,11 +428,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -248
+      value: -314
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 181
+      value: 309
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.z
@@ -345,11 +464,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalScale.x
-      value: 2.15094662
+      value: 2.5484612
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalScale.y
-      value: 1.57936525
+      value: 2.49537277
       objectReference: {fileID: 0}
     - target: {fileID: 11446312, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: planetMask
@@ -364,6 +483,10 @@ Prefab:
       propertyPath: period
       value: -2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11455568, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
+      propertyPath: MAX_DISTANCE_FOR_DETECTION
+      value: 400
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
   m_IsPrefabParent: 0
@@ -376,11 +499,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1740
+      value: 1712
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 49
+      value: -40
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.z
@@ -412,11 +535,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalScale.x
-      value: 6.94931507
+      value: 8.0226841
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalScale.y
-      value: 6.57822084
+      value: 7.56090021
       objectReference: {fileID: 0}
     - target: {fileID: 11446312, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: planetMask
@@ -431,6 +554,10 @@ Prefab:
       propertyPath: period
       value: -7
       objectReference: {fileID: 0}
+    - target: {fileID: 11455568, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
+      propertyPath: MAX_DISTANCE_FOR_DETECTION
+      value: 400
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
   m_IsPrefabParent: 0
@@ -443,11 +570,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1091
+      value: -1044
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1213
+      value: 1029
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.z
@@ -479,11 +606,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1.67128336
+      value: 2.27866721
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalScale.y
-      value: 3.49506736
+      value: 2.52025223
       objectReference: {fileID: 0}
     - target: {fileID: 11446312, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: planetMask
@@ -497,6 +624,10 @@ Prefab:
     - target: {fileID: 11446312, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: period
       value: -2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11455568, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
+      propertyPath: MAX_DISTANCE_FOR_DETECTION
+      value: 400
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
@@ -610,11 +741,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -111
+      value: -26
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -52
+      value: -138
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.z
@@ -646,11 +777,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalScale.x
-      value: 2.16323113
+      value: 2.6833477
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalScale.y
-      value: 1.47243178
+      value: 2.97536302
       objectReference: {fileID: 0}
     - target: {fileID: 11446312, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: planetMask
@@ -665,6 +796,10 @@ Prefab:
       propertyPath: period
       value: 3.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11455568, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
+      propertyPath: MAX_DISTANCE_FOR_DETECTION
+      value: 400
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
   m_IsPrefabParent: 0
@@ -677,11 +812,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 795
+      value: 479
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1246
+      value: -1053
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.z
@@ -713,11 +848,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalScale.x
-      value: 2.19927311
+      value: 2.46611762
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalScale.y
-      value: 4.0145545
+      value: 3.42221332
       objectReference: {fileID: 0}
     - target: {fileID: 11446312, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: planetMask
@@ -731,6 +866,10 @@ Prefab:
     - target: {fileID: 11446312, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: period
       value: -2.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 11455568, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
+      propertyPath: MAX_DISTANCE_FOR_DETECTION
+      value: 400
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
@@ -841,6 +980,10 @@ Prefab:
       propertyPath: period
       value: -7
       objectReference: {fileID: 0}
+    - target: {fileID: 11455568, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
+      propertyPath: MAX_DISTANCE_FOR_DETECTION
+      value: 400
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
   m_IsPrefabParent: 0
@@ -945,11 +1088,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -794
+      value: -648
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1290
+      value: 1161
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.z
@@ -981,7 +1124,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1.73908162
+      value: 2.04791355
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalScale.y
@@ -1000,6 +1143,10 @@ Prefab:
       propertyPath: period
       value: 3.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11455568, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
+      propertyPath: MAX_DISTANCE_FOR_DETECTION
+      value: 400
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
   m_IsPrefabParent: 0
@@ -1012,11 +1159,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1152
+      value: 1009
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1118
+      value: -860
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1048,11 +1195,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalScale.x
-      value: 2.12329292
+      value: 2.66820359
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalScale.y
-      value: 4.37292528
+      value: 3.43497372
       objectReference: {fileID: 0}
     - target: {fileID: 11446312, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: planetMask
@@ -1066,6 +1213,10 @@ Prefab:
     - target: {fileID: 11446312, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: period
       value: 2.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 11455568, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
+      propertyPath: MAX_DISTANCE_FOR_DETECTION
+      value: 400
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
@@ -1251,11 +1402,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1281
+      value: -855
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -952
+      value: -925
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1271,11 +1422,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalRotation.z
-      value: .42261833
+      value: .50000006
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalRotation.w
-      value: .906307817
+      value: .866025388
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_RootOrder
@@ -1287,11 +1438,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalScale.x
-      value: 6.36873245
+      value: 5.37990808
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalScale.y
-      value: 9.91706848
+      value: 12.8186016
       objectReference: {fileID: 0}
     - target: {fileID: 11446312, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: planetMask
@@ -1305,6 +1456,10 @@ Prefab:
     - target: {fileID: 11446312, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: period
       value: -5.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11455568, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
+      propertyPath: MAX_DISTANCE_FOR_DETECTION
+      value: 400
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
@@ -1481,6 +1636,10 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: .0110437237
       objectReference: {fileID: 0}
+    - target: {fileID: 11455568, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
+      propertyPath: MAX_DISTANCE_FOR_DETECTION
+      value: 400
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
   m_IsPrefabParent: 0
@@ -1552,6 +1711,10 @@ Prefab:
       propertyPath: home
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11455568, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
+      propertyPath: MAX_DISTANCE_FOR_DETECTION
+      value: 400
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
   m_IsPrefabParent: 0
@@ -1564,11 +1727,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 788
+      value: 395
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1257
+      value: 975
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1600,11 +1763,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalScale.x
-      value: 6.01506662
+      value: 2.80673623
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalScale.y
-      value: 1.7100023
+      value: 2.27841854
       objectReference: {fileID: 0}
     - target: {fileID: 11446312, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: planetMask
@@ -1619,6 +1782,10 @@ Prefab:
       propertyPath: period
       value: 2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11455568, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
+      propertyPath: MAX_DISTANCE_FOR_DETECTION
+      value: 400
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
   m_IsPrefabParent: 0
@@ -1631,11 +1798,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -166
+      value: -169
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 47
+      value: 96
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1667,11 +1834,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalScale.x
-      value: 4.06897449
+      value: 4.4185462
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalScale.y
-      value: 10.110424
+      value: 13.4007568
       objectReference: {fileID: 0}
     - target: {fileID: 11446312, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: planetMask
@@ -1686,6 +1853,10 @@ Prefab:
       propertyPath: period
       value: -7
       objectReference: {fileID: 0}
+    - target: {fileID: 11455568, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
+      propertyPath: MAX_DISTANCE_FOR_DETECTION
+      value: 400
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
   m_IsPrefabParent: 0
@@ -1698,11 +1869,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1373
+      value: -704
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1264
+      value: -1061
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1734,11 +1905,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalScale.x
-      value: 5.6551342
+      value: 3.4120276
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalScale.y
-      value: 2.34435129
+      value: 2.5924809
       objectReference: {fileID: 0}
     - target: {fileID: 11446312, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: planetMask
@@ -1753,6 +1924,10 @@ Prefab:
       propertyPath: period
       value: -2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11455568, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
+      propertyPath: MAX_DISTANCE_FOR_DETECTION
+      value: 400
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
   m_IsPrefabParent: 0
@@ -1765,11 +1940,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 765
+      value: 642
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1020
+      value: 821
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1801,11 +1976,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalScale.x
-      value: 5.75301552
+      value: 4.35247087
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalScale.y
-      value: 10.7126398
+      value: 12.5463076
       objectReference: {fileID: 0}
     - target: {fileID: 11446312, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: planetMask
@@ -1820,6 +1995,10 @@ Prefab:
       propertyPath: period
       value: -7.25
       objectReference: {fileID: 0}
+    - target: {fileID: 11455568, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
+      propertyPath: MAX_DISTANCE_FOR_DETECTION
+      value: 400
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
   m_IsPrefabParent: 0
@@ -1832,11 +2011,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 703
+      value: 712
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -989
+      value: -955
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1852,11 +2031,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalRotation.z
-      value: .258819073
+      value: .173648223
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalRotation.w
-      value: .965925813
+      value: .984807789
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_RootOrder
@@ -1868,11 +2047,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalScale.x
-      value: 10.8822412
+      value: 13.154232
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalScale.y
-      value: 6.22019291
+      value: 5.36440706
       objectReference: {fileID: 0}
     - target: {fileID: 11446312, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: planetMask
@@ -1886,6 +2065,10 @@ Prefab:
     - target: {fileID: 11446312, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: period
       value: 6.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11455568, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
+      propertyPath: MAX_DISTANCE_FOR_DETECTION
+      value: 400
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
@@ -1958,6 +2141,10 @@ Prefab:
       propertyPath: home
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11455568, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
+      propertyPath: MAX_DISTANCE_FOR_DETECTION
+      value: 400
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
   m_IsPrefabParent: 0
@@ -2016,11 +2203,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1612
+      value: -1151
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -984
+      value: -778
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2052,11 +2239,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalScale.x
-      value: 5.93694544
+      value: 3.50296187
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalScale.y
-      value: 2.19613147
+      value: 2.70078754
       objectReference: {fileID: 0}
     - target: {fileID: 11446312, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: planetMask
@@ -2070,6 +2257,10 @@ Prefab:
     - target: {fileID: 11446312, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: period
       value: 3.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 11455568, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
+      propertyPath: MAX_DISTANCE_FOR_DETECTION
+      value: 400
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
@@ -2125,11 +2316,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1194
+      value: 886
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1095
+      value: 667
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2161,11 +2352,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalScale.x
-      value: 6.49612141
+      value: 2.73433375
       objectReference: {fileID: 0}
     - target: {fileID: 485346, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_LocalScale.y
-      value: 2.35357571
+      value: 2.28484607
       objectReference: {fileID: 0}
     - target: {fileID: 11446312, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: planetMask
@@ -2179,6 +2370,10 @@ Prefab:
     - target: {fileID: 11446312, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: period
       value: -3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11455568, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
+      propertyPath: MAX_DISTANCE_FOR_DETECTION
+      value: 400
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
