@@ -7,7 +7,7 @@ public class OptionsScript : MonoBehaviour {
 
 	private bool menuEnabled = false;
 
-	public float speedAdjust = 0;
+	public float speedAdjust = 1;
 
 	// Use this for initialization
 	void Start () {
@@ -29,7 +29,7 @@ public class OptionsScript : MonoBehaviour {
 	void OnGUI(){
 		if (menuEnabled) {
 			speedAdjust = GUI.HorizontalSlider( new Rect(Screen.width/2 - 50, Screen.height/2 - 5,
-			                                             100, 30), speedAdjust, (float) 0.0001, (float) 10.0);
+			                                             100, 30), speedAdjust, (float) 0.1, (float) 10.0);
 			
 			GUI.Label(new Rect(Screen.width/2 - 50 + 110, Screen.height/2 - 5, 100, 30),
 			          "Game Speed: " + speedAdjust);
