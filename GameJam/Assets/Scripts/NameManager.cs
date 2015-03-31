@@ -5,6 +5,10 @@ using System.Collections.Generic;
 public class NameManager : MonoBehaviour {
 
 	public GameObject connector;
+	public _Mono homeConnectorP1prefab;
+	public _Mono homeConnectorP2prefab;
+	private _Mono homeConnectorP1;
+	private _Mono homeConnectorP2;
 	string[] planetNames;
 	Dictionary<GameObject, GameObject> planetToName;
 	Vector3[] positions;
@@ -16,17 +20,18 @@ public class NameManager : MonoBehaviour {
 	{
 		planetCount = 0;
 		planetToName = new Dictionary<GameObject, GameObject> ();
-	 	planetNames = new string[17];
 
-		planetNames [0] = "Home";
-		planetNames [1] = "Earth";
-		planetNames [2] = "Saturn";
-		planetNames [3] = "Mercury";
-		planetNames [4] = "Venus";
+	 	planetNames = new string[37];
+
+		planetNames [0] = "Hermes";
+		planetNames [1] = "Condon";
+		planetNames [2] = "Helen";
+		planetNames [3] = "Kepler-20a";
+		planetNames [4] = "Kepler-20b";
 		planetNames [5] = "Uranus";
 		planetNames [6] = "Neptune";
-		planetNames [7] = "Mars";
-		planetNames [8] = "Jupiter";
+		planetNames [8] = "Wilkening";
+		planetNames [7] = "Zuoming";
 		planetNames [9] = "Pluto";
 		planetNames [10] = "Ceres";
 		planetNames [11] = "Haumea";
@@ -35,6 +40,26 @@ public class NameManager : MonoBehaviour {
 		planetNames [14] = "Planet";
 		planetNames [15] = "Farm";
 		planetNames [16] = "Emerion";
+		planetNames [17] = "Andromeda";
+		planetNames [18] = "Charmander";
+		planetNames [19] = "Ire";
+		planetNames [20] = "Sarina";
+		planetNames [21] = "Lewis";
+		planetNames [22] = "0x00";
+		planetNames [23] = "Hades";
+		planetNames [24] = "Gilgamesh";
+		planetNames [25] = "Laos";
+		planetNames [26] = "Media";
+		planetNames [27] = "Dune";
+		planetNames [28] = "Cookie";
+		planetNames [29] = "Polyphemus";
+		planetNames [30] = "Best Planet";
+		planetNames [31] = "Discworld";
+		planetNames [32] = "Arda";
+		planetNames [33] = "Luna";
+		planetNames [34] = "Tattooine";
+		planetNames [35] = "Krypton";
+		planetNames [36] = "Qo'noS";
 
 		int i = 1;
 		// assign a name to each planet
@@ -43,22 +68,24 @@ public class NameManager : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update ()
+	void LateUpdate ()
 	{
 		if (!generatedList) {	
 			int i = 1;
 			foreach (GameObject planet in GameObject.FindGameObjectsWithTag("Planet")) {
 					planetCount++;
 					GameObject obj = Instantiate(connector, planet.transform.position, Quaternion.identity) as GameObject;
+					obj.transform.GetChild(0).GetComponent<_Mono>().alpha = 0.8f;
 					planet.name = planetNames[i];
 					planetToName.Add(planet, obj);
 					TextMesh textMesh = planetToName[planet].GetComponentInChildren<TextMesh>();
 					textMesh.text = planetNames[i];
-					
 					i++;
 			}
 			positions = new Vector3[planetCount];
 			generatedList = true;
+			homeConnectorP1 = Instantiate(homeConnectorP1prefab);
+			homeConnectorP2 = Instantiate(homeConnectorP2prefab);
 		}
 
 		/*if (!generatedPosition) {	
@@ -80,17 +107,19 @@ public class NameManager : MonoBehaviour {
 			if (!generatedPosition && j < planetCount) {
 				positions[j] = offset;
 			}
-			textObj.transform.position = planet.transform.position + positions[j];
+			textObj.transform.position = planet.transform.position + new Vector3(30f, 0f, 0f) + positions[j];
+			if(planet.GetComponent<MaskScript>().wearer.home && planet.GetComponent<MaskScript>().wearer.owner == 1){
+				homeConnectorP1.xyz = planet.transform.position + new Vector3(-30f, 0f, 0f) + positions[j];
+			}else if(planet.GetComponent<MaskScript>().wearer.home && planet.GetComponent<MaskScript>().wearer.owner == 2){
+				homeConnectorP2.xyz = planet.transform.position + new Vector3(-30f, 0f, 0f) + positions[j];
+			}
 		}
-
-
-	
 	}
 
 	Vector3 getUpperRight(GameObject obj) {
 		Bounds bnd = obj.GetComponent<Renderer> ().bounds;
 		//return (new Vector3 (2*bnd.extents.x/3 - bnd.size.x/7, 2*bnd.extents.y/3 - bnd.size.y/7, 0));
-			return (new Vector3 (bnd.size.x/2, bnd.size.y/2, 0));
+		return (new Vector3 (bnd.size.x/2, bnd.size.y/2, 0));
 	}
 }
 

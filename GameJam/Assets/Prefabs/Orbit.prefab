@@ -70,7 +70,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e1a70d024969406eabba9dd5c8d73fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planetMask: {fileID: 0}
+  planetMask: {fileID: 11440612, guid: d7ee7a9d8d9744d5480430929d3469c5, type: 2}
+  optionsObj: {fileID: 148658, guid: f6676b4203b85f74a8debbae832a0570, type: 2}
   owner: 0
   home: 0
   period: -4

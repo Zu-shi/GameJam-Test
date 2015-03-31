@@ -7,6 +7,7 @@ TagManager:
   - Planet
   - Fire
   - Audio
+  - Options
   layers:
   - Default
   - TransparentFX
@@ -55,4 +56,7 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 2656923273
+    locked: 0
+  - name: GUI
+    uniqueID: 3029924605
     locked: 0
