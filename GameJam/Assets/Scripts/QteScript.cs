@@ -13,10 +13,14 @@ public class QteScript : _Mono {
 	List<GameObject> activePlanets;
 	Dictionary<GameObject, KeyScript> planetToKeysMap;
 	bool generatedList = false;
+	bool customDistance = false;
 	public float MAX_DISTANCE_FOR_DETECTION = 575f; 
 
 	// Use this for initialization
 	void Start () {
+		if(!customDistance){
+			MAX_DISTANCE_FOR_DETECTION = Globals.MAX_DISTANCE_FOR_DETECTION;
+		}
 		activePlanets = new List<GameObject> ();
 		planetToKeysMap = new Dictionary<GameObject, KeyScript> ();
 

@@ -28,11 +28,11 @@ public class NameManager : MonoBehaviour {
 		planetNames [2] = "Helen";
 		planetNames [3] = "Kepler-20a";
 		planetNames [4] = "Kepler-20b";
-		planetNames [5] = "Uranus";
-		planetNames [6] = "Neptune";
+		planetNames [5] = "Ocampa";
+		planetNames [6] = "Minerva";
 		planetNames [8] = "Wilkening";
-		planetNames [7] = "Zuoming";
-		planetNames [9] = "Pluto";
+		planetNames [7] = "Zuos";
+		planetNames [9] = "Scilla";
 		planetNames [10] = "Ceres";
 		planetNames [11] = "Haumea";
 		planetNames [12] = "Eris";
@@ -41,14 +41,14 @@ public class NameManager : MonoBehaviour {
 		planetNames [15] = "Farm";
 		planetNames [16] = "Emerion";
 		planetNames [17] = "Andromeda";
-		planetNames [18] = "Charmander";
+		planetNames [18] = "Vega";
 		planetNames [19] = "Ire";
 		planetNames [20] = "Sarina";
 		planetNames [21] = "Lewis";
-		planetNames [22] = "0x00";
-		planetNames [23] = "Hades";
+		planetNames [22] = "Zarathustra";
+		planetNames [23] = "Onyx";
 		planetNames [24] = "Gilgamesh";
-		planetNames [25] = "Laos";
+		planetNames [25] = "Darwin";
 		planetNames [26] = "Media";
 		planetNames [27] = "Dune";
 		planetNames [28] = "Cookie";
@@ -107,7 +107,7 @@ public class NameManager : MonoBehaviour {
 			if (!generatedPosition && j < planetCount) {
 				positions[j] = offset;
 			}
-			textObj.transform.position = planet.transform.position + new Vector3(30f, 0f, 0f) + positions[j];
+			textObj.transform.position = planet.transform.position + new Vector3(40f, 0f, 0f) + positions[j];
 			if(planet.GetComponent<MaskScript>().wearer.home && planet.GetComponent<MaskScript>().wearer.owner == 1){
 				homeConnectorP1.xyz = planet.transform.position + new Vector3(-30f, 0f, 0f) + positions[j];
 			}else if(planet.GetComponent<MaskScript>().wearer.home && planet.GetComponent<MaskScript>().wearer.owner == 2){

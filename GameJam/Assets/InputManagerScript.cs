@@ -75,51 +75,55 @@ public class InputManagerScript : MonoBehaviour {
 					KeyScript targetKs1 = null;
 					foreach(KeyScript ks in StateManager.activeKeysDirectory[1] ){
 						if(ks.keyCode == p1Keys[i]){
-							targetKs1 = ks;
 							Instantiate(p1EffectPrefab, ks.targetPlanet.xyz, Quaternion.identity);
 							ks.targetPlanet.GetComponent<MaskScript>().wearer.owner = 1;
 							if(!ks.targetPlanet.GetComponent<MaskScript>().wearer.home){
 								audioSource.clip = p1Audio;
 								audioSource.Play();
+								targetKs1 = ks;
+								//planetsToClear.Add(ks.targetPlanet.GetComponent<MaskScript>());
 							}
-							planetsToClear.Add(ks.targetPlanet.GetComponent<MaskScript>());
 						}
 					}
 
 
 					//bool deletedAll = false;
-					
-					foreach(KeyScript ksTemp in StateManager.activeKeysDirectory[1]) {
-						if(ksTemp.targetPlanet.gameObject.Equals(ksTemp.targetPlanet.gameObject) ){
-							ksToClear.Add(ksTemp);
+					if(targetKs1 != null){
+						foreach(KeyScript ksTemp in StateManager.activeKeysDirectory[1]) {
+							if(ksTemp.targetPlanet.gameObject.Equals(targetKs1.targetPlanet.gameObject) ){
+								ksToClear.Add(ksTemp);
+							}
+							if(ksTemp.sourcePlanet.gameObject.Equals(targetKs1.targetPlanet.gameObject) ){
+								ksToClear.Add(ksTemp);
+							}
 						}
-						if(ksTemp.sourcePlanet.gameObject.Equals(ksTemp.targetPlanet.gameObject) ){
-							ksToClear.Add(ksTemp);
+						
+						foreach(KeyScript kstc in ksToClear){
+							StateManager.activeKeysDirectory[1].Remove(kstc);
+							kstc.alphaDim = -1;
+							kstc.alpha = 0f;
+							kstc.timer = 0f;
 						}
-					}
-					foreach(KeyScript kstc in ksToClear){
-						StateManager.activeKeysDirectory[1].Remove(kstc);
-						kstc.alphaDim = -1;
-						kstc.alpha = 0f;
-						kstc.timer = 0f;
-					}
-					ksToClear.Clear();
-					
-					foreach(KeyScript ksTemp in StateManager.activeKeysDirectory[2]) {
-						if(ksTemp.targetPlanet.gameObject.Equals(ksTemp.targetPlanet.gameObject) ){
-							ksToClear.Add(ksTemp);
+						ksToClear.Clear();
+
+						foreach(KeyScript ksTemp in StateManager.activeKeysDirectory[2]) {
+							if(ksTemp.targetPlanet.gameObject.Equals(targetKs1.targetPlanet.gameObject) ){
+								ksToClear.Add(ksTemp);
+							}
+							if(ksTemp.sourcePlanet.gameObject.Equals(targetKs1.targetPlanet.gameObject) ){
+								ksToClear.Add(ksTemp);
+							}
 						}
-						if(ksTemp.sourcePlanet.gameObject.Equals(ksTemp.targetPlanet.gameObject) ){
-							ksToClear.Add(ksTemp);
+						
+						foreach(KeyScript kstc in ksToClear){
+							StateManager.activeKeysDirectory[2].Remove(kstc);
+							kstc.alphaDim = -1;
+							kstc.alpha = 0f;
+							kstc.timer = 0f;
 						}
+						ksToClear.Clear();
 					}
-					foreach(KeyScript kstc in ksToClear){
-						StateManager.activeKeysDirectory[2].Remove(kstc);
-						kstc.alphaDim = -1;
-						kstc.alpha = 0f;
-						kstc.timer = 0f;
-					}
-					ksToClear.Clear();
+
 					/*
 					if(targetKs1 != null){
 						while(deletedAll == false){
@@ -153,47 +157,53 @@ public class InputManagerScript : MonoBehaviour {
 					KeyScript targetKs2 = null;
 					foreach(KeyScript ks in StateManager.activeKeysDirectory[2] ){
 						if(ks.keyCode == p2Keys[i]){
-							targetKs2 = ks;
 							Instantiate(p2EffectPrefab, ks.targetPlanet.xyz, Quaternion.identity);
 							ks.targetPlanet.GetComponent<MaskScript>().wearer.owner = 2;
 							if(!ks.targetPlanet.GetComponent<MaskScript>().wearer.home){
+								targetKs2 = ks;
 								audioSource.clip = p2Audio;
 								audioSource.Play();
 							}
 						}
 					}
 
-					foreach(KeyScript ksTemp in StateManager.activeKeysDirectory[1]) {
-						if(ksTemp.targetPlanet.gameObject.Equals(ksTemp.targetPlanet.gameObject) ){
-							ksToClear.Add(ksTemp);
+					if(targetKs2 != null){
+						foreach(KeyScript ksTemp in StateManager.activeKeysDirectory[1]) {
+							if(ksTemp.targetPlanet.gameObject.Equals(targetKs2.targetPlanet.gameObject) ){
+								ksToClear.Add(ksTemp);
+							}
+							if(ksTemp.sourcePlanet.gameObject.Equals(targetKs2.targetPlanet.gameObject) ){
+								ksToClear.Add(ksTemp);
+							}
 						}
-						if(ksTemp.sourcePlanet.gameObject.Equals(ksTemp.targetPlanet.gameObject) ){
-							ksToClear.Add(ksTemp);
+						
+						foreach(KeyScript kstc in ksToClear){
+							StateManager.activeKeysDirectory[1].Remove(kstc);
+							kstc.alphaDim = -1;
+							kstc.alpha = 0f;
+							kstc.timer = 0f;
 						}
-					}
-					foreach(KeyScript kstc in ksToClear){
-						StateManager.activeKeysDirectory[1].Remove(kstc);
-						kstc.alphaDim = -1;
-						kstc.alpha = 0f;
-						kstc.timer = 0f;
-					}
-					ksToClear.Clear();
-					
-					foreach(KeyScript ksTemp in StateManager.activeKeysDirectory[2]) {
-						if(ksTemp.targetPlanet.gameObject.Equals(ksTemp.targetPlanet.gameObject) ){
-							ksToClear.Add(ksTemp);
+						ksToClear.Clear();
+
+						
+						foreach(KeyScript ksTemp in StateManager.activeKeysDirectory[2]) {
+							if(ksTemp.targetPlanet.gameObject.Equals(targetKs2.targetPlanet.gameObject) ){
+								ksToClear.Add(ksTemp);
+							}
+							if(ksTemp.sourcePlanet.gameObject.Equals(targetKs2.targetPlanet.gameObject) ){
+								ksToClear.Add(ksTemp);
+							}
 						}
-						if(ksTemp.sourcePlanet.gameObject.Equals(ksTemp.targetPlanet.gameObject) ){
-							ksToClear.Add(ksTemp);
+
+						foreach(KeyScript kstc in ksToClear){
+							kstc.alphaDim = -1;
+							kstc.alpha = 0f;
+							kstc.timer = 0f;
+							StateManager.activeKeysDirectory[2].Remove(kstc);
 						}
+						ksToClear.Clear();
 					}
-					foreach(KeyScript kstc in ksToClear){
-						kstc.alphaDim = -1;
-						kstc.alpha = 0f;
-						kstc.timer = 0f;
-						StateManager.activeKeysDirectory[2].Remove(kstc);
-					}
-					ksToClear.Clear();
+
 
 					//bool deletedAll = false;
 					/*
