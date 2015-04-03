@@ -31,7 +31,7 @@ public class NameManager : MonoBehaviour {
 		planetNames [5] = "Ocampa";
 		planetNames [6] = "Minerva";
 		planetNames [8] = "Wilkening";
-		planetNames [7] = "Zuos";
+		planetNames [7] = "Zoom";
 		planetNames [9] = "Scilla";
 		planetNames [10] = "Ceres";
 		planetNames [11] = "Haumea";
