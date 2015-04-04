@@ -26,23 +26,21 @@ public class QteScript : _Mono {
 
 		
 		//player one = left keys
-		p1Keys = new KeyCode[6];
-		p1Keys [0] = KeyCode.Q;
-		p1Keys [1] = KeyCode.W;
-		p1Keys [2] = KeyCode.E;
-		p1Keys [3] = KeyCode.A;
-		p1Keys [4] = KeyCode.S;
-		p1Keys [5] = KeyCode.D;
+		p1Keys = new KeyCode[5];
+		p1Keys [0] = KeyCode.Alpha1;
+		p1Keys [1] = KeyCode.Alpha2;
+		p1Keys [2] = KeyCode.Alpha3;
+		p1Keys [3] = KeyCode.Alpha4;
+		p1Keys [4] = KeyCode.Alpha5;
 		
 		//player one = right keys
 		//p2Keys = new KeyCode[6];
-		p2Keys = new KeyCode[6];
-		p2Keys [0] = KeyCode.I;
-		p2Keys [1] = KeyCode.O;
-		p2Keys [2] = KeyCode.P;
-		p2Keys [3] = KeyCode.J;
-		p2Keys [4] = KeyCode.K;
-		p2Keys [5] = KeyCode.L;
+		p2Keys = new KeyCode[5];
+		p2Keys [0] = KeyCode.Alpha6;
+		p2Keys [1] = KeyCode.Alpha7;
+		p2Keys [2] = KeyCode.Alpha8;
+		p2Keys [3] = KeyCode.Alpha9;
+		p2Keys [4] = KeyCode.Alpha0;
 
 		keys = new List<KeyCode[]>();
 //		keys.Add();

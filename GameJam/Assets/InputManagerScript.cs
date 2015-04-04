@@ -5,10 +5,10 @@ using System.Collections.Generic;
 public class InputManagerScript : MonoBehaviour {
 
 	public static readonly float LOCKOUT_TIME = 1f;
-	float[] lockOutP1 = new float[6];
-	float[] lockOutP2 = new float[6];
-	KeyUIScript[] keyUIP1 = new KeyUIScript[6];
-	KeyUIScript[] keyUIP2 = new KeyUIScript[6];
+	float[] lockOutP1 = new float[Globals.NUM_KEYS_PER_PLAYER];
+	float[] lockOutP2 = new float[Globals.NUM_KEYS_PER_PLAYER];
+	KeyUIScript[] keyUIP1 = new KeyUIScript[Globals.NUM_KEYS_PER_PLAYER];
+	KeyUIScript[] keyUIP2 = new KeyUIScript[Globals.NUM_KEYS_PER_PLAYER];
 	public _Mono p1EffectPrefab;
 	public _Mono p2EffectPrefab;
 	public KeyUIScript keyUIPrefab;
@@ -30,37 +30,37 @@ public class InputManagerScript : MonoBehaviour {
 		//listUIKeys = new List<KeyUIScript>();
 
 		//player one = left keys
-		p1Keys = new KeyCode[6];
-		p1Keys [0] = KeyCode.Q;
-		p1Keys [1] = KeyCode.W;
-		p1Keys [2] = KeyCode.E;
-		p1Keys [3] = KeyCode.A;
-		p1Keys [4] = KeyCode.S;
-		p1Keys [5] = KeyCode.D;
+		p1Keys = new KeyCode[Globals.NUM_KEYS_PER_PLAYER];
+		p1Keys [0] = KeyCode.Alpha1;
+		p1Keys [1] = KeyCode.Alpha2;
+		p1Keys [2] = KeyCode.Alpha3;
+		p1Keys [3] = KeyCode.Alpha4;
+		p1Keys [4] = KeyCode.Alpha5;
 		
 		//player two  = right keys
-		p2Keys = new KeyCode[6];
-		p2Keys [0] = KeyCode.I;
-		p2Keys [1] = KeyCode.O;
-		p2Keys [2] = KeyCode.P;
-		p2Keys [3] = KeyCode.J;
-		p2Keys [4] = KeyCode.K;
-		p2Keys [5] = KeyCode.L;
+		p2Keys = new KeyCode[Globals.NUM_KEYS_PER_PLAYER];
+		p2Keys [0] = KeyCode.Alpha6;
+		p2Keys [1] = KeyCode.Alpha7;
+		p2Keys [2] = KeyCode.Alpha8;
+		p2Keys [3] = KeyCode.Alpha9;
+		p2Keys [4] = KeyCode.Alpha0;
 		
-		for(int i = 0; i < 6; i++){
+		for(int i = 0; i < Globals.NUM_KEYS_PER_PLAYER; i++){
 			KeyUIScript kui = Instantiate(keyUIPrefab);
 			keyUIP1[i] = kui;
 			kui.setSprite(p1Keys[i]);
-			kui.x = -2450 + i % 3 * 200;
-			kui.y = -1100 - i / 3 * 200;
+			kui.x = -2450 + i % 5 * 200;
+			kui.y = -1300;
+			//kui.y = -1100 - i / 3 * 200;
 		}
 		
-		for(int i = 0; i < 6; i++){
+		for(int i = 0; i < Globals.NUM_KEYS_PER_PLAYER; i++){
 			KeyUIScript kui = Instantiate(keyUIPrefab);
 			keyUIP2[i] = kui;
 			kui.setSprite(p2Keys[i]);
-			kui.x = 2050 + i % 3 * 200;
-			kui.y = -1100 - i / 3 * 200;
+			kui.x = 1650 + i % 5 * 200;
+			kui.y = -1300;
+			//kui.y = -1100 - i / 3 * 200;
 		}
 	}
 	
@@ -68,7 +68,7 @@ public class InputManagerScript : MonoBehaviour {
 	void Update () {
 		audioSource = GetComponent<AudioSource>();
 
-		for(int i = 0; i < 6; i++){
+		for(int i = 0; i < Globals.NUM_KEYS_PER_PLAYER; i++){
 			lockOutP1[i] -= Time.deltaTime;
 			if(Input.GetKeyDown(p1Keys[i])){
 				if(lockOutP1[i] < 0){
@@ -150,7 +150,7 @@ public class InputManagerScript : MonoBehaviour {
 			}
 		}
 
-		for(int i = 0; i < 6; i++){
+		for(int i = 0; i < Globals.NUM_KEYS_PER_PLAYER; i++){
 			lockOutP2[i] -= Time.deltaTime;
 			if(Input.GetKeyDown(p2Keys[i])){
 				if(lockOutP2[i] < 0){
