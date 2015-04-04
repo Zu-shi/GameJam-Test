@@ -150,7 +150,7 @@ public class QteScript : _Mono {
 	KeyCode generateNonClashingKey(int owner){
 		//TODO: modify for 2 players
 		Debug.Log (owner);
-		if (StateManager.activeKeysDirectory[owner].Count >= 6) {
+		if (StateManager.activeKeysDirectory[owner].Count >= Globals.NUM_KEYS_PER_PLAYER) {
 			return Utils.RandomFromArray<KeyCode> (keys[owner - 1]);
 		} else {
 			KeyCode keyCode = KeyCode.Space;
