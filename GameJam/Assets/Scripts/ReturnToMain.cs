@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ReturnToMain : MonoBehaviour {
 
-	private bool startedLoad = false;
+//	private bool startedLoad = false;
 	// Use this for initialization
 	void Start () {
 	
@@ -14,7 +14,7 @@ public class ReturnToMain : MonoBehaviour {
 	{
 		if(Input.GetMouseButton(0)) {
 			Application.LoadLevel("MainMenu");
-			startedLoad = true;
+			//startedLoad = true;
 		}
 		
 		

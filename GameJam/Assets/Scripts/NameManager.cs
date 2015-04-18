@@ -15,7 +15,7 @@ public class NameManager : MonoBehaviour {
 	bool generatedList = false;
 	bool generatedPosition = false;
 	int planetCount;
-	// Use this for initialization
+
 	void Start ()
 	{
 		planetCount = 0;
@@ -60,11 +60,6 @@ public class NameManager : MonoBehaviour {
 		planetNames [34] = "Tattooine";
 		planetNames [35] = "Krypton";
 		planetNames [36] = "Qo'noS";
-
-		int i = 1;
-		// assign a name to each planet
-		// make a GUI text and sprite for each on right
-
 	}
 	
 	// Update is called once per frame
@@ -88,15 +83,6 @@ public class NameManager : MonoBehaviour {
 			homeConnectorP2 = Instantiate(homeConnectorP2prefab);
 		}
 
-		/*if (!generatedPosition) {	
-			foreach (GameObject planet in GameObject.FindGameObjectsWithTag("Planet")) {
-				Vector3 offset = getUpperRight (planet);
-				planetToPosition.Add (planet, offset);
-				
-			}
-			//generatedPosition = true;
-		//}*/
-
 		int j = 0;
 		//keeps name a constant distance from planet
 		foreach (GameObject planet in GameObject.FindGameObjectsWithTag("Planet")) {
@@ -108,9 +94,9 @@ public class NameManager : MonoBehaviour {
 				positions[j] = offset;
 			}
 			textObj.transform.position = planet.transform.position + new Vector3(40f, 0f, 0f) + positions[j];
-			if(planet.GetComponent<MaskScript>().wearer.home && planet.GetComponent<MaskScript>().wearer.owner == 1){
+			if(planet.GetComponent<MaskScript>().wearer.home && planet.GetComponent<MaskScript>().wearer.currentOwner == 1){
 				homeConnectorP1.xyz = planet.transform.position + new Vector3(-30f, 0f, 0f) + positions[j];
-			}else if(planet.GetComponent<MaskScript>().wearer.home && planet.GetComponent<MaskScript>().wearer.owner == 2){
+			}else if(planet.GetComponent<MaskScript>().wearer.home && planet.GetComponent<MaskScript>().wearer.currentOwner == 2){
 				homeConnectorP2.xyz = planet.transform.position + new Vector3(-30f, 0f, 0f) + positions[j];
 			}
 		}

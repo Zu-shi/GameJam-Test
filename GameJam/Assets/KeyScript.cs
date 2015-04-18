@@ -2,8 +2,8 @@
 using System.Collections;
 
 public class KeyScript : _Mono {
-
-	public static readonly float TIMER_MAX = 1.5f;
+	
+	public static readonly float TIMER_MAX = 1.5f; //Minimum time a planet may stay alive
 	public Sprite key1;
 	public Sprite key2;
 	public Sprite key3;
@@ -14,25 +14,21 @@ public class KeyScript : _Mono {
 	public Sprite key8;
 	public Sprite key9;
 	public Sprite key0;
-	public _Mono targetPlanet{ get; set; }
-	public _Mono sourcePlanet{ get; set; }
+	public _Mono targetPlanet{ get; set; } //
+	public _Mono sourcePlanet{ get; set; } //
 	public KeyCode keyCode{ get; set; }
-	public float alphaDim;
-	public float timer = 0f; //Minimum stay-alive timer;
+	public float alphaDim; //Controls the dimming of the planet (will decrease to 0 and bring alpha along)
+	public float timer = 0f; //stay-alive timer (when this is above one, the key will not fade out)
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
 	// Update is called once per frame
 	void Update () {
 		timer -= Time.deltaTime;
 		if(alphaDim > 0){
+			//TODO: better fading system
 			alpha -= 0.08f;
 			alphaDim -= 0.08f;
 		}
-		z = -100;
+		z = -100; //required for camera projection
 	}
 	
 	public void setSprite(KeyCode keyCode) {
