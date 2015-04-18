@@ -5,6 +5,11 @@ using System.Collections.Generic;
 /* Description: This script takes a name from an array of names and
  * assigns the name to a planet mask. However, if the name of the planet's wearer has been 
  * manually changed, that name is kept instead.
+ * In order to manually change planet name:
+ * 1. Drag "Orbit" prefab onto hierarchy (or use one already in hierarchy)
+ * 2. Click on the "Planet" child of the "Orbit"
+ * 3. Change name of "Planet" object
+ * And now you manually changed the planet name yay!
  */
 public class NameManager : MonoBehaviour {
 
