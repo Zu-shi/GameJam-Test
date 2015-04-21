@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class GameOverTest : MonoBehaviour {
-	private bool startedLoad = false;
+	//private bool startedLoad = false;
 	// Use this for initialization
 	void Start ()
 	{
@@ -14,9 +14,7 @@ public class GameOverTest : MonoBehaviour {
 	{
 		if(Input.GetMouseButton(0)) {
 			Application.LoadLevel("GameOver1");
-			startedLoad = true;
+			//startedLoad = true;
 		}
-		
-		
 	}
 }

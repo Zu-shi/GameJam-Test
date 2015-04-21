@@ -70,18 +70,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8c8295a96945451d8a960461c12da36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyQ: {fileID: 21300000, guid: 0b5757da61a7a4cb98bd2b25c57775ab, type: 3}
-  keyW: {fileID: 21300000, guid: 4a07c32b8bc7d48a696ed3eb7a1a42db, type: 3}
-  keyE: {fileID: 21300000, guid: f5b81dfcce118482fb724d475e4cefc7, type: 3}
-  keyA: {fileID: 21300000, guid: 430b44323dd47444f8d3770c0db08f88, type: 3}
-  keyS: {fileID: 21300000, guid: 275c52c8a8ca64a008cc1bbf75273818, type: 3}
-  keyD: {fileID: 21300000, guid: c8c696b9dd4574eb7997b7485fea8ae9, type: 3}
-  keyI: {fileID: 21300000, guid: 250812f7d04e942b2b9e3f8894fe4be5, type: 3}
-  keyO: {fileID: 21300000, guid: 62dcf18bece92427daccfbdfc0b3bcd1, type: 3}
-  keyP: {fileID: 21300000, guid: 31cce68cf40fc41c58ae7ce27916b5a1, type: 3}
-  keyJ: {fileID: 21300000, guid: b8222fa4b74d841e8bd3a7555f4ebee6, type: 3}
-  keyK: {fileID: 21300000, guid: f888260bcf420444f91b5e8b7f354798, type: 3}
-  keyL: {fileID: 21300000, guid: 471fa646943de480ea0d131060f322e1, type: 3}
+  key1: {fileID: 21300000, guid: 9122c221915e646288eede11b1b9d0cb, type: 3}
+  key2: {fileID: 21300000, guid: b99bf4fb339e54b3bbcadebf4f07bf85, type: 3}
+  key3: {fileID: 21300000, guid: 149767636001344d29bfd0feda656df0, type: 3}
+  key4: {fileID: 21300000, guid: 8a4b0c0a13c584791b6221c0ef01c9ed, type: 3}
+  key5: {fileID: 21300000, guid: 12bf1f3f7e07649a9a074e9ef3374558, type: 3}
+  key6: {fileID: 21300000, guid: 16c31c28cc85b401a8e18dbccad2f978, type: 3}
+  key7: {fileID: 21300000, guid: dd5f5986a19b14c5cab1790faabe82d6, type: 3}
+  key8: {fileID: 21300000, guid: cf85ff3174fe8476a9a573fd561df09c, type: 3}
+  key9: {fileID: 21300000, guid: 04cde040578774ea2ab3b6745304487d, type: 3}
+  key0: {fileID: 21300000, guid: 05fd17aea2652430ea1f7a19ebfbab85, type: 3}
   keyCode: 0
 --- !u!114 &11477578
 MonoBehaviour:
