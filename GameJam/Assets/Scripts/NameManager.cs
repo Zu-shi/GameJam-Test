@@ -74,6 +74,28 @@ public class NameManager : MonoBehaviour {
 		planetNames [35] = "Krypton";
 		planetNames [36] = "Qo'noS";
 	}
+
+	void Update() {
+		// update name text color based on planet owner
+		// *Feel free to make colors more visually appealling*
+		if (generatedList) {
+
+			foreach (KeyValuePair<GameObject, GameObject> obj in planetToName) {
+
+				OrbitingScript wearer = obj.Key.GetComponent<MaskScript> ().wearer;
+				TextMesh textMesh = obj.Value.GetComponentInChildren<TextMesh> ();
+				
+				if (wearer.currentOwner == 1) {
+					textMesh.color = Color.blue; // player 1 color
+				} else if (wearer.currentOwner == 2) {
+					textMesh.color = Color.yellow; // player 2 color
+				} else {
+					textMesh.color = Color.gray; // neutral color
+				}
+
+			}
+		}
+	}
 	
 	// Update is called once per frame
 	void LateUpdate ()
@@ -102,6 +124,8 @@ public class NameManager : MonoBehaviour {
 				planetToName.Add(planet, obj); 
 				TextMesh textMesh = planetToName[planet].GetComponentInChildren<TextMesh>();
 				textMesh.text = planet.name; // set text of name label to current planet name
+
+				textMesh.color = Color.blue;
 			}
 
 			// create positions array to hold offsets for each name label  
