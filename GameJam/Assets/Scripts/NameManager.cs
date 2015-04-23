@@ -18,6 +18,7 @@ public class NameManager : MonoBehaviour {
 	public _Mono homeConnectorP2prefab;
 	private _Mono homeConnectorP1;
 	private _Mono homeConnectorP2;
+	public int fontSize; // used to manually set font size. CHANGES FONT SIZE OF ALL PLANETS ON SCREEN
 	string[] planetNames;
 	Dictionary<GameObject, GameObject> planetToName;
 	Vector3[] positions;
@@ -125,7 +126,11 @@ public class NameManager : MonoBehaviour {
 				TextMesh textMesh = planetToName[planet].GetComponentInChildren<TextMesh>();
 				textMesh.text = planet.name; // set text of name label to current planet name
 
-				textMesh.color = Color.blue;
+				// if fontSize has been manually set, change fontSize of name label
+				if (fontSize > 0) {
+
+					textMesh.fontSize = fontSize;
+				}
 			}
 
 			// create positions array to hold offsets for each name label  
