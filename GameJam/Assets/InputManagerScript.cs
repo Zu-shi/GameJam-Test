@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class InputManagerScript : MonoBehaviour {
 
-	public static readonly float LOCKOUT_TIME = 1f;
+	public static readonly float LOCKOUT_TIME = 0.5f;
 	float[] lockOutP1 = new float[Globals.NUM_KEYS_PER_PLAYER];
 	float[] lockOutP2 = new float[Globals.NUM_KEYS_PER_PLAYER];
 	KeyUIScript[] keyUIP1 = new KeyUIScript[Globals.NUM_KEYS_PER_PLAYER];
