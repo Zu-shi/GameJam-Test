@@ -1,0 +1,15 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\GameJam\Assets\KeyScript.cs">
+    <Files>
+      <File FileName="..\GameJam\Assets\KeyScript.cs" Line="34" Column="42" />
+      <File FileName="..\GameJam\Assets\MainKeyScript.cs" Line="4" Column="37" />
+      <File FileName="..\GameJam\Assets\PracticeScript.cs" Line="4" Column="23" />
+      <File FileName="..\GameJam\Assets\Scripts\OrbitingScript.cs" Line="6" Column="26" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
