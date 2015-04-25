@@ -29,11 +29,11 @@ public class QteScript : _Mono {
 		
 		//player one = left keys
 		p1Keys = new KeyCode[5];
-		p1Keys [0] = KeyCode.Alpha1;
-		p1Keys [1] = KeyCode.Alpha2;
-		p1Keys [2] = KeyCode.Alpha3;
-		p1Keys [3] = KeyCode.Alpha4;
-		p1Keys [4] = KeyCode.Alpha5;
+		p1Keys [0] = KeyCode.BackQuote;
+		p1Keys [1] = KeyCode.Alpha1;
+		p1Keys [2] = KeyCode.Alpha2;
+		p1Keys [3] = KeyCode.Alpha3;
+		p1Keys [4] = KeyCode.Alpha4;
 		
 		//player one = right keys
 		p2Keys = new KeyCode[5];

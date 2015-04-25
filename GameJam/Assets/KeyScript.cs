@@ -34,19 +34,19 @@ public class KeyScript : _Mono {
 	public void setSprite(KeyCode keyCode) {
 		this.keyCode = keyCode;
 		switch (keyCode) {
-		case(KeyCode.Alpha1) :
+		case(KeyCode.BackQuote) :
 			spriteRenderer.sprite = key1;
 			break;
-		case(KeyCode.Alpha2) :
+		case(KeyCode.Alpha1) :
 			spriteRenderer.sprite = key2;
 			break;
-		case(KeyCode.Alpha3) :
+		case(KeyCode.Alpha2) :
 			spriteRenderer.sprite = key3;
 			break;
-		case(KeyCode.Alpha4) :
+		case(KeyCode.Alpha3) :
 			spriteRenderer.sprite = key4;
 			break;
-		case(KeyCode.Alpha5) :
+		case(KeyCode.Alpha4) :
 			spriteRenderer.sprite = key5;
 			break;
 		case(KeyCode.Alpha6) :
