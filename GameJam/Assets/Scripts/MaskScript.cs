@@ -15,15 +15,15 @@ public class MaskScript : _Mono {
 		Color32 newColor = Color.white;
 		switch(wearer.currentOwner){
 			case 0: {
-				newColor = new Color32(200, 200, 200, 140);
-				break;
-			}
-			case 2: {
-				newColor = new Color32(255, 155, 0, 140);
+				newColor = Globals.PLAYER_NEUTRAL_COLOR;
 				break;
 			}
 			case 1: {
-				newColor = new Color32(13, 206, 255, 140); 
+				newColor = Globals.PLAYER_ONE_COLOR;
+				break;
+			}
+			case 2: {
+				newColor = Globals.PLAYER_TWO_COLOR;
 				break;
 			}
 		}

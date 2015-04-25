@@ -87,11 +87,11 @@ public class NameManager : MonoBehaviour {
 				TextMesh textMesh = obj.Value.GetComponentInChildren<TextMesh> ();
 				
 				if (wearer.currentOwner == 1) {
-					textMesh.color = Color.blue; // player 1 color
+					textMesh.color = Globals.PLAYER_ONE_COLOR; // player 1 color
 				} else if (wearer.currentOwner == 2) {
-					textMesh.color = Color.yellow; // player 2 color
+					textMesh.color = Globals.PLAYER_TWO_COLOR; // player 2 color
 				} else {
-					textMesh.color = Color.gray; // neutral color
+					textMesh.color = Globals.PLAYER_NEUTRAL_NAME_COLOR; // neutral color
 				}
 
 			}
