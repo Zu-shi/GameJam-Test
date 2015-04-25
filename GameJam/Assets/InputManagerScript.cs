@@ -25,11 +25,11 @@ public class InputManagerScript : MonoBehaviour {
 
 		//player one = left keys
 		p1Keys = new KeyCode[Globals.NUM_KEYS_PER_PLAYER];
-		p1Keys [0] = KeyCode.Alpha1;
-		p1Keys [1] = KeyCode.Alpha2;
-		p1Keys [2] = KeyCode.Alpha3;
-		p1Keys [3] = KeyCode.Alpha4;
-		p1Keys [4] = KeyCode.Alpha5;
+		p1Keys [0] = KeyCode.BackQuote;
+		p1Keys [1] = KeyCode.Alpha1;
+		p1Keys [2] = KeyCode.Alpha2;
+		p1Keys [3] = KeyCode.Alpha3;
+		p1Keys [4] = KeyCode.Alpha4;
 		
 		//player two  = right keys
 		p2Keys = new KeyCode[Globals.NUM_KEYS_PER_PLAYER];
@@ -117,10 +117,14 @@ public class InputManagerScript : MonoBehaviour {
 							kstc.timer = 0f;
 						}
 						ksToClear.Clear();
+					}else{
+						//At least one key is wrong, set universal timeout
+						//Set cooldown for all keys
+						for(int j = 0; j < Globals.NUM_KEYS_PER_PLAYER; j++){
+							lockOutP1[j] = LOCKOUT_TIME;
+							keyUIP1[j].SetCooldown();
+						}
 					}
-
-					lockOutP1[i] = LOCKOUT_TIME;
-					keyUIP1[i].SetCooldown();
 				}
 			}
 		}
@@ -178,10 +182,14 @@ public class InputManagerScript : MonoBehaviour {
 							StateManager.activeKeysList[2].Remove(kstc);
 						}
 						ksToClear.Clear();
+					}else{	
+						//At least one key is wrong, set universal timeout
+						//Set cooldown for all keys
+						for(int j = 0; j < Globals.NUM_KEYS_PER_PLAYER; j++){
+							lockOutP2[j] = LOCKOUT_TIME;
+							keyUIP2[j].SetCooldown();
+						}
 					}
-
-					lockOutP2[i] = LOCKOUT_TIME;
-					keyUIP2[i].SetCooldown();
 				}
 			}
 		}
