@@ -12,10 +12,22 @@ public class MaskScript : _Mono {
 	
 	// Update is called once per frame
 	void Update () {
+		Color32 newColor = Color.white;
 		switch(wearer.currentOwner){
-		case 0: {GetComponent<MeshRenderer>().material.color = new Color32(200, 200, 200, 1); break;}
-		case 2: {GetComponent<MeshRenderer>().material.color = new Color32(255, 155, 0, 1); break;}
-		case 1: {GetComponent<MeshRenderer>().material.color = new Color32(13, 206, 255, 1); break;}//SetColor("_SpecColor", Color.red); Debug.Log("red"); break;}
+			case 0: {
+				newColor = new Color32(200, 200, 200, 140);
+				break;
+			}
+			case 2: {
+				newColor = new Color32(255, 155, 0, 140);
+				break;
+			}
+			case 1: {
+				newColor = new Color32(13, 206, 255, 140); 
+				break;
+			}
 		}
+		GetComponent<MeshRenderer>().material.color = newColor; 
+		GetComponentInChildren<TrailRenderer>().material.SetColor("_TintColor", newColor);
 	}
 }
