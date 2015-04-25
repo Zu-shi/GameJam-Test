@@ -117,10 +117,14 @@ public class InputManagerScript : MonoBehaviour {
 							kstc.timer = 0f;
 						}
 						ksToClear.Clear();
+					}else{
+						//At least one key is wrong, set universal timeout
+						//Set cooldown for all keys
+						for(int j = 0; j < Globals.NUM_KEYS_PER_PLAYER; j++){
+							lockOutP1[j] = LOCKOUT_TIME;
+							keyUIP1[j].SetCooldown();
+						}
 					}
-
-					lockOutP1[i] = LOCKOUT_TIME;
-					keyUIP1[i].SetCooldown();
 				}
 			}
 		}
@@ -178,10 +182,14 @@ public class InputManagerScript : MonoBehaviour {
 							StateManager.activeKeysList[2].Remove(kstc);
 						}
 						ksToClear.Clear();
+					}else{	
+						//At least one key is wrong, set universal timeout
+						//Set cooldown for all keys
+						for(int j = 0; j < Globals.NUM_KEYS_PER_PLAYER; j++){
+							lockOutP2[j] = LOCKOUT_TIME;
+							keyUIP2[j].SetCooldown();
+						}
 					}
-
-					lockOutP2[i] = LOCKOUT_TIME;
-					keyUIP2[i].SetCooldown();
 				}
 			}
 		}
