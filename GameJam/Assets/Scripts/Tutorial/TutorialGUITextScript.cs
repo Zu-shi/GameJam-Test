@@ -35,7 +35,7 @@ public class TutorialGUITextScript : _Mono
 		p2HexColor = "#" + colorToHex (Color.yellow);
 
 		// Get title's #hexcode
-		Color orange = new Color (255.0f/255, 140.0f/255, 0f/255);
+		Color orange = new Color (255.0f / 255, 140.0f / 255, 0f / 255);
 		titleHexColor = "#" + colorToHex (orange);
 
 		Debug.Log (titleHexColor);
@@ -94,18 +94,18 @@ public class TutorialGUITextScript : _Mono
 	{
 
 		if (txt.Contains ("Player 1")) {
-			string replacement = "<color="+p1HexColor+">Player 1</color>";
-			txt = txt.Replace("Player 1", replacement);
+			string replacement = "<color=" + p1HexColor + ">Player 1</color>";
+			txt = txt.Replace ("Player 1", replacement);
 		}
 
 		if (txt.Contains ("Player 2")) {
-			string replacement = "<color="+p2HexColor+">Player 2</color>";
-			txt = txt.Replace("Player 2", replacement);
+			string replacement = "<color=" + p2HexColor + ">Player 2</color>";
+			txt = txt.Replace ("Player 2", replacement);
 		}
 
-		if (txt.ToUpper().Contains("STELLAR LEAP")) {
-			string replacement = "<color="+titleHexColor+">STELLAR LEAP</color>";
-			txt = txt.ToUpper().Replace("STELLAR LEAP", replacement);
+		if (txt.ToUpper ().Contains ("STELLAR LEAP")) {
+			string replacement = "<color=" + titleHexColor + ">STELLAR LEAP</color>";
+			txt = txt.ToUpper ().Replace ("STELLAR LEAP", replacement);
 		}
 
 
@@ -134,10 +134,10 @@ public class TutorialGUITextScript : _Mono
 	// Takes in a color parameter and returns a string representation of the color in XXXXXX form
 	// Color32 is used instead of Color because a Color.r returns a float rather than a byte,
 	// which can't be converted into a hexidecimal string
-	string colorToHex(Color32 color)
+	string colorToHex (Color32 color)
 	{
 		// the "X2" parameter converts the given number to a two digit hexidecimal string
-		string hex = color.r.ToString("X2") + color.g.ToString("X2") + color.b.ToString("X2");
+		string hex = color.r.ToString ("X2") + color.g.ToString ("X2") + color.b.ToString ("X2");
 		return hex;
 	}
 }
