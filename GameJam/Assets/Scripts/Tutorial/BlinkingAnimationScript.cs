@@ -34,9 +34,7 @@ public class BlinkingAnimationScript : _Mono
 			alpha = 1f;
 			StartCoroutine (blinkAnimation ());
 			started = true; // animation started
-			Debug.Log ("blinking animation started");
 		} else if (!show) {
-			Debug.Log ("blinking animation stopped");
 			StopAllCoroutines ();
 			alpha = 0f;
 			started = false; // animation stopped

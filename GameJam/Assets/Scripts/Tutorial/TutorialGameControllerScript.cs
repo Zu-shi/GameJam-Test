@@ -92,8 +92,10 @@ public class TutorialGameControllerScript : _Mono
 	{
 
 		// change startSpeed depending of if player changes speed manually
-		if (os.speedAdjust < pauseSpeed)
+		if (os.speedAdjust < pauseSpeed && os.speedAdjust != startSpeed) {
 			startSpeed = os.speedAdjust;
+			Debug.Log ("Start Speed Changed = " +startSpeed);
+		}
 	
 		// start game on "1" press
 		if (!sceneComplete [0]) {
@@ -138,7 +140,7 @@ public class TutorialGameControllerScript : _Mono
 	public void startGame ()
 	{
 		paused = false;
-		Debug.Log ("game started");
+		Debug.Log ("game started, game speed = "+startSpeed);
 		os.speedAdjust = startSpeed;
 
 	}
@@ -239,8 +241,7 @@ public class TutorialGameControllerScript : _Mono
 			
 			// tell player 1 which button to press to capture planet
 			p1Text.setText ("Player 1, press the \"" + str + "\" key to capture the planet!");
-			
-			
+				
 		}
 		
 		if (StateManager.P1ActiveKeys.Count == 0 && p1Instruct.activeSelf) {
