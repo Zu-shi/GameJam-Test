@@ -138,7 +138,7 @@ TrailRenderer:
       serializedVersion: 2
       rgba: 16777215
   m_MinVertexDistance: 1
-  m_Autodestruct: 1
+  m_Autodestruct: 0
 --- !u!114 &11427936
 MonoBehaviour:
   m_ObjectHideFlags: 1
