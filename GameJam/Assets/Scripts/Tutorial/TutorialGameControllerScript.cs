@@ -114,16 +114,18 @@ public class TutorialGameControllerScript : _Mono
 		// game then have UI box appear with instructions
 		if (sceneComplete [1]) {
 			if (!sceneComplete [2]) {
-				im.p2Active = false; //disable p2 input
+				//im.p2Active = false; //disable p2 input
 				p1 ();
 
 				// if player 2's button appears first then show this message
-				if (StateManager.P2ActiveKeys.Count > 0) {
+				/*if (StateManager.P2ActiveKeys.Count > 0) {
 					p2Text.activate ();
 					p2Text.setText ("Player 2, you have to wait :( it's Player 1's turn first (just for the tutorial)!");
-				}
-			} else if (!sceneComplete [3]) {
-				im.p1Active = false; //disable p1 input
+				}*/
+			}
+
+			if (!sceneComplete [3]) {
+				//im.p1Active = false; //disable p1 input
 				p2 ();
 			
 			}

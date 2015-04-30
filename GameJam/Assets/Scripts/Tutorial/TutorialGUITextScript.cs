@@ -38,9 +38,6 @@ public class TutorialGUITextScript : _Mono
 		Color orange = new Color (255.0f / 255, 140.0f / 255, 0f / 255);
 		titleHexColor = "#" + colorToHex (orange);
 
-		Debug.Log (titleHexColor);
-
-
 		thisRect = GetComponent<RectTransform> ();
 		parentRect = GetComponentInParent<RectTransform> ();
 		theText = GetComponent<Text> ();
