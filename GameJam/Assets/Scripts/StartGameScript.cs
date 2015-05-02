@@ -14,9 +14,7 @@ public class StartGameScript : MonoBehaviour {
 	}
 
 	void loadLevel1(){
-		Fader.GetComponent<Fading> ().BeginFade (1);
 		Application.LoadLevel ("Level1");
-		Fader.GetComponent<Fading> ().BeginFade (-1);
 	}
 
 	void loadLevel2(){
