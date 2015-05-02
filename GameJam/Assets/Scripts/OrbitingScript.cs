@@ -5,9 +5,8 @@ public class OrbitingScript : _Mono {
 
 	public _Mono planetMask;
 	OptionsScript persistentOptions;
-	public int owner = 0;
-	public bool home = false;
-	//Scale of the 2D circle sprite we use in comparason to the unit sphere.
+	public int currentOwner = 0; //0 is neutral
+	public bool home = false; //Is this a home planet?
 	readonly int CIRCLE_SIZE = 125;
 	float orbitRadius;
 	float planetInitialScale;
@@ -15,62 +14,61 @@ public class OrbitingScript : _Mono {
 	_Mono orbitMono;
 	float t;
 	float speedAdjust;
-	public float period = 2f;
+	public float period = 2f; //How long it takes for the planet to circle around
 	public _Mono mask { get; set; }
 	_Mono keyObject;
 
-	private int homeOwner;
+	private int ownerOfHome;
 
 
 	// Use this for initialization
 	void Start () {
 		if(home){
-			homeOwner = owner;
+			ownerOfHome = currentOwner;
 		}
-		alpha = 0;
+		alpha = 0; //This object needs to be invisible.
+
+		//While orbits are visible in the editor, as soon as the game starts we set them to be invisible for aesthetics purposes.
 		orbit = gameObject.transform.parent.gameObject;
 		orbitMono = orbit.AddComponent<_Mono>();
 		orbitMono.alpha = 0f;
 
+		//Creates the graphic representation of this object (this object is invisible, but a mask will be in the same position as this at all times)
+		//This circumvents graphic distortion caused by local coordinates.
 		mask = _Mono.Instantiate(planetMask);
 		mask.GetComponent<MaskScript>().wearer = this;
 		mask.tag = "Planet";
-		//keeps track of the default readius
+
+		//keeps track of the default radius from observing where the planet is placed in relation to the orbit.
 		orbitRadius = Mathf.Sqrt(Mathf.Pow(localX, 2f) + Mathf.Pow(localY, 2f));
+		//Sets the starting t (time value for parametric function outputting position of planet at all frames
 		t = Mathf.Atan2(localY, localX);
 
-		/*
-		//Keeps track of the default scale of the orbit radius
-		ORBIT_INITIAL_SCALE = orbitPrefab.transform.localScale.x;
-		xscale = orbitMono.xs / ORBIT_INITIAL_SCALE;
-		yscale = orbitMono.ys / ORBIT_INITIAL_SCALE;
-		*/
-
+		//Options (ask Trevor)
 		GameObject optionsObj = GameObject.Find ("Options");
 		persistentOptions = optionsObj.GetComponent<OptionsScript> ();
-
-
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if(owner != homeOwner && home){
-			if(owner == 1){
+		//If this is a home planet and it's ownership has changed
+		if(currentOwner != ownerOfHome && home){
+			if(currentOwner == 1){
+				//Player 1 wins, we clear all keys currently used to prevent future bugs with keys
 				StateManager.P1ActiveKeys.Clear();
 				StateManager.P2ActiveKeys.Clear();
 				Application.LoadLevel("GameOver1");
 			}else{
+				//Player 2 wins, we clear all keys currently used to prevent future bugs with keys
 				StateManager.P1ActiveKeys.Clear();
 				StateManager.P2ActiveKeys.Clear();
 				Application.LoadLevel("GameOver2");
 			}
 		}
 
-
 		float realPeriod = period * persistentOptions.speedAdjust;
-		//Debug.Log("x" + x + ", y" + y);
-		//Debug.Log(angle);
-		//angle = 180f - orbitMono.angle;
+
+		//This dynamically controls the size of the "mask", that is, the visual appearance of the object
 		if(mask.GetComponent<SpriteRenderer>() != null){
 			//2D image
 			mask.xys = xys * (orbitMono.xs + orbitMono.ys) / 2f;
@@ -79,23 +77,10 @@ public class OrbitingScript : _Mono {
 			mask.xys = xys * (orbitMono.xs + orbitMono.ys) / 2f * CIRCLE_SIZE;
 			mask.zs = mask.xs;
 		}
-		mask.xy = xy;
+		mask.xy = xy; //sets its position
 		float frameRate = 1.0f / Time.deltaTime;
 		t += Mathf.PI * 2  / (realPeriod * frameRate) * Globals.GAME_SPEED;
 		localY = Mathf.Sin (t) * orbitRadius;
 		localX = Mathf.Cos (t) * orbitRadius;
 	}
-
-	/*
-	public void showKey(Vector2 location, KeyCode keyCode){
-
-		if (keyCode == KeyCode.Q) {
-			keyObject = Utils.InstanceCreate(Resources.Load ("Prefabs/KeyPrefabs/Key_Q_Prefab"), location) as _Mono;
-		}
-
-		if (Input.GetKeyDown(keyCode)) {
-			mask.spriteRenderer.color = Color.red;
-		}
-		
-	}*/
 }

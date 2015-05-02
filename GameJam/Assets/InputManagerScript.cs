@@ -4,231 +4,202 @@ using System.Collections.Generic;
 
 public class InputManagerScript : MonoBehaviour {
 
-	public static readonly float LOCKOUT_TIME = 1f;
-	float[] lockOutP1 = new float[6];
-	float[] lockOutP2 = new float[6];
-	KeyUIScript[] keyUIP1 = new KeyUIScript[6];
-	KeyUIScript[] keyUIP2 = new KeyUIScript[6];
+	public static readonly float LOCKOUT_TIME = 0.5f;
+	float[] lockOutP1 = new float[Globals.NUM_KEYS_PER_PLAYER];
+	float[] lockOutP2 = new float[Globals.NUM_KEYS_PER_PLAYER];
+	KeyUIScript[] keyUIP1 = new KeyUIScript[Globals.NUM_KEYS_PER_PLAYER];
+	KeyUIScript[] keyUIP2 = new KeyUIScript[Globals.NUM_KEYS_PER_PLAYER];
 	public _Mono p1EffectPrefab;
 	public _Mono p2EffectPrefab;
 	public KeyUIScript keyUIPrefab;
 	KeyCode[] p1Keys;
 	KeyCode[] p2Keys;
-	//public AudioClip transformSound;
 	AudioSource audioSource;
 	public AudioClip p1Audio;
 	public AudioClip p2Audio;
-	private List<MaskScript> planetsToClear;
-	private List<KeyScript> ksToClear;
+	private List<KeyScript> ksToClear; //Temporarily tracks the key scripts that need to be removed due to a transaction.
 
-	//private List<KeyUIScript> listUIKeys;
+	public bool p1Active { get; set;}
+	public bool p2Active {get; set;}
 
-	// Use this for initialization
 	void Start () {
-		planetsToClear = new List<MaskScript>();
 		ksToClear = new List<KeyScript>();
 		//listUIKeys = new List<KeyUIScript>();
 
+		p1Active = true;
+		p2Active = true;
+
 		//player one = left keys
-		p1Keys = new KeyCode[6];
-		p1Keys [0] = KeyCode.Q;
-		p1Keys [1] = KeyCode.W;
-		p1Keys [2] = KeyCode.E;
-		p1Keys [3] = KeyCode.A;
-		p1Keys [4] = KeyCode.S;
-		p1Keys [5] = KeyCode.D;
+		p1Keys = new KeyCode[Globals.NUM_KEYS_PER_PLAYER];
+		p1Keys [0] = KeyCode.BackQuote;
+		p1Keys [1] = KeyCode.Alpha1;
+		p1Keys [2] = KeyCode.Alpha2;
+		p1Keys [3] = KeyCode.Alpha3;
+		p1Keys [4] = KeyCode.Alpha4;
 		
 		//player two  = right keys
-		p2Keys = new KeyCode[6];
-		p2Keys [0] = KeyCode.I;
-		p2Keys [1] = KeyCode.O;
-		p2Keys [2] = KeyCode.P;
-		p2Keys [3] = KeyCode.J;
-		p2Keys [4] = KeyCode.K;
-		p2Keys [5] = KeyCode.L;
-		
-		for(int i = 0; i < 6; i++){
+		p2Keys = new KeyCode[Globals.NUM_KEYS_PER_PLAYER];
+		p2Keys [0] = KeyCode.Alpha6;
+		p2Keys [1] = KeyCode.Alpha7;
+		p2Keys [2] = KeyCode.Alpha8;
+		p2Keys [3] = KeyCode.Alpha9;
+		p2Keys [4] = KeyCode.Alpha0;
+
+		//Code to place and scale the graphics for keys
+		for(int i = 0; i < Globals.NUM_KEYS_PER_PLAYER; i++){
 			KeyUIScript kui = Instantiate(keyUIPrefab);
 			keyUIP1[i] = kui;
 			kui.setSprite(p1Keys[i]);
-			kui.x = -2450 + i % 3 * 200;
-			kui.y = -1100 - i / 3 * 200;
+			kui.x = -2450 + i % 5 * 200;
+			kui.y = -1300;
 		}
 		
-		for(int i = 0; i < 6; i++){
+		for(int i = 0; i < Globals.NUM_KEYS_PER_PLAYER; i++){
 			KeyUIScript kui = Instantiate(keyUIPrefab);
 			keyUIP2[i] = kui;
 			kui.setSprite(p2Keys[i]);
-			kui.x = 2050 + i % 3 * 200;
-			kui.y = -1100 - i / 3 * 200;
+			kui.x = 1650 + i % 5 * 200;
+			kui.y = -1300;
 		}
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
-		audioSource = GetComponent<AudioSource>();
+		audioSource = GetComponent<AudioSource> ();
+		if (p1Active) {
+			//Be careful modifying the code below, please ensure that you understand how it works.
+			for (int i = 0; i < Globals.NUM_KEYS_PER_PLAYER; i++) {
+				//Reduce key cooldown
+				lockOutP1 [i] -= Time.deltaTime;
 
-		for(int i = 0; i < 6; i++){
-			lockOutP1[i] -= Time.deltaTime;
-			if(Input.GetKeyDown(p1Keys[i])){
-				if(lockOutP1[i] < 0){
-					KeyScript targetKs1 = null;
-					foreach(KeyScript ks in StateManager.activeKeysDirectory[1] ){
-						if(ks.keyCode == p1Keys[i]){
-							Instantiate(p1EffectPrefab, ks.targetPlanet.xyz, Quaternion.identity);
-							ks.targetPlanet.GetComponent<MaskScript>().wearer.owner = 1;
-							if(!ks.targetPlanet.GetComponent<MaskScript>().wearer.home){
-								audioSource.clip = p1Audio;
-								audioSource.Play();
-								targetKs1 = ks;
-								//planetsToClear.Add(ks.targetPlanet.GetComponent<MaskScript>());
-							}
-						}
-					}
-
-
-					//bool deletedAll = false;
-					if(targetKs1 != null){
-						foreach(KeyScript ksTemp in StateManager.activeKeysDirectory[1]) {
-							if(ksTemp.targetPlanet.gameObject.Equals(targetKs1.targetPlanet.gameObject) ){
-								ksToClear.Add(ksTemp);
-							}
-							if(ksTemp.sourcePlanet.gameObject.Equals(targetKs1.targetPlanet.gameObject) ){
-								ksToClear.Add(ksTemp);
-							}
-						}
-						
-						foreach(KeyScript kstc in ksToClear){
-							StateManager.activeKeysDirectory[1].Remove(kstc);
-							kstc.alphaDim = -1;
-							kstc.alpha = 0f;
-							kstc.timer = 0f;
-						}
-						ksToClear.Clear();
-
-						foreach(KeyScript ksTemp in StateManager.activeKeysDirectory[2]) {
-							if(ksTemp.targetPlanet.gameObject.Equals(targetKs1.targetPlanet.gameObject) ){
-								ksToClear.Add(ksTemp);
-							}
-							if(ksTemp.sourcePlanet.gameObject.Equals(targetKs1.targetPlanet.gameObject) ){
-								ksToClear.Add(ksTemp);
-							}
-						}
-						
-						foreach(KeyScript kstc in ksToClear){
-							StateManager.activeKeysDirectory[2].Remove(kstc);
-							kstc.alphaDim = -1;
-							kstc.alpha = 0f;
-							kstc.timer = 0f;
-						}
-						ksToClear.Clear();
-					}
-
-					/*
-					if(targetKs1 != null){
-						while(deletedAll == false){
-							KeyCode deleteKc = targetKs1.keyCode;
-							bool found = false;
-							foreach(KeyScript ksTemp in StateManager.activeKeysDirectory[1]) {
-								if(ksTemp.keyCode == deleteKc){
-									targetKs1 = ksTemp;
-									found = true;
+				//If a key is pressed for player 1
+				if (Input.GetKeyDown (p1Keys [i])) {
+					if (lockOutP1 [i] < 0) { //If not under cooldown
+						KeyScript targetKs1 = null;
+						foreach (KeyScript ks in StateManager.activeKeysList[1]) {
+							if (ks.keyCode == p1Keys [i]) { //Try finding the key in the list of active keys
+								Instantiate (p1EffectPrefab, ks.targetPlanet.xyz, Quaternion.identity);
+								ks.targetPlanet.GetComponent<MaskScript> ().wearer.currentOwner = 1;
+								if (!ks.targetPlanet.GetComponent<MaskScript> ().wearer.home) {
+									audioSource.clip = p1Audio;
+									audioSource.Play ();
+									targetKs1 = ks;
 								}
 							}
-							if(found == true){
-								StateManager.activeKeysDirectory[1].Remove(targetKs1);
-								targetKs1.alpha = 0f;
-								targetKs1.alphaDim = -1f;
-							}else{
-								deletedAll = true;
+						}
+
+						if (targetKs1 != null) {
+							//If found, clear all keyScripts currently associated with that planet (since the planet will convert)
+							foreach (KeyScript ksTemp in StateManager.activeKeysList[1]) {
+								if (ksTemp.targetPlanet.gameObject.Equals (targetKs1.targetPlanet.gameObject)) {
+									ksToClear.Add (ksTemp);
+								}
+								if (ksTemp.sourcePlanet.gameObject.Equals (targetKs1.targetPlanet.gameObject)) {
+									ksToClear.Add (ksTemp);
+								}
+							}
+						
+							foreach (KeyScript kstc in ksToClear) {
+								//Make the key scripts invisible, reset other values
+								StateManager.activeKeysList [1].Remove (kstc);
+								kstc.alphaDim = -1;
+								kstc.alpha = 0f;
+								kstc.timer = 0f;
+							}
+							ksToClear.Clear ();
+
+							//Same must be done for planet 2.
+							foreach (KeyScript ksTemp in StateManager.activeKeysList[2]) {
+								if (ksTemp.targetPlanet.gameObject.Equals (targetKs1.targetPlanet.gameObject)) {
+									ksToClear.Add (ksTemp);
+								}
+								if (ksTemp.sourcePlanet.gameObject.Equals (targetKs1.targetPlanet.gameObject)) {
+									ksToClear.Add (ksTemp);
+								}
+							}
+						
+							foreach (KeyScript kstc in ksToClear) {
+								StateManager.activeKeysList [2].Remove (kstc);
+								kstc.alphaDim = -1;
+								kstc.alpha = 0f;
+								kstc.timer = 0f;
+							}
+							ksToClear.Clear ();
+						} else {
+							//At least one key is wrong, set universal timeout
+							//Set cooldown for all keys
+							for (int j = 0; j < Globals.NUM_KEYS_PER_PLAYER; j++) {
+								lockOutP1 [j] = LOCKOUT_TIME;
+								keyUIP1 [j].SetCooldown ();
 							}
 						}
-					}*/
-					lockOutP1[i] = LOCKOUT_TIME;
-					keyUIP1[i].SetCooldown();
+					}
 				}
 			}
 		}
 
-		for(int i = 0; i < 6; i++){
-			lockOutP2[i] -= Time.deltaTime;
-			if(Input.GetKeyDown(p2Keys[i])){
-				if(lockOutP2[i] < 0){
-					KeyScript targetKs2 = null;
-					foreach(KeyScript ks in StateManager.activeKeysDirectory[2] ){
-						if(ks.keyCode == p2Keys[i]){
-							Instantiate(p2EffectPrefab, ks.targetPlanet.xyz, Quaternion.identity);
-							ks.targetPlanet.GetComponent<MaskScript>().wearer.owner = 2;
-							if(!ks.targetPlanet.GetComponent<MaskScript>().wearer.home){
-								targetKs2 = ks;
-								audioSource.clip = p2Audio;
-								audioSource.Play();
-							}
-						}
-					}
-
-					if(targetKs2 != null){
-						foreach(KeyScript ksTemp in StateManager.activeKeysDirectory[1]) {
-							if(ksTemp.targetPlanet.gameObject.Equals(targetKs2.targetPlanet.gameObject) ){
-								ksToClear.Add(ksTemp);
-							}
-							if(ksTemp.sourcePlanet.gameObject.Equals(targetKs2.targetPlanet.gameObject) ){
-								ksToClear.Add(ksTemp);
-							}
-						}
-						
-						foreach(KeyScript kstc in ksToClear){
-							StateManager.activeKeysDirectory[1].Remove(kstc);
-							kstc.alphaDim = -1;
-							kstc.alpha = 0f;
-							kstc.timer = 0f;
-						}
-						ksToClear.Clear();
-
-						
-						foreach(KeyScript ksTemp in StateManager.activeKeysDirectory[2]) {
-							if(ksTemp.targetPlanet.gameObject.Equals(targetKs2.targetPlanet.gameObject) ){
-								ksToClear.Add(ksTemp);
-							}
-							if(ksTemp.sourcePlanet.gameObject.Equals(targetKs2.targetPlanet.gameObject) ){
-								ksToClear.Add(ksTemp);
-							}
-						}
-
-						foreach(KeyScript kstc in ksToClear){
-							kstc.alphaDim = -1;
-							kstc.alpha = 0f;
-							kstc.timer = 0f;
-							StateManager.activeKeysDirectory[2].Remove(kstc);
-						}
-						ksToClear.Clear();
-					}
-
-
-					//bool deletedAll = false;
-					/*
-					if(targetKs2 != null){						
-						while(deletedAll == false){
-							KeyCode deleteKc = targetKs2.keyCode;
-							bool found = false;
-							foreach(KeyScript ksTemp in StateManager.activeKeysDirectory[2]) {
-								if(ksTemp.keyCode == deleteKc){
-									targetKs2 = ksTemp;
-									found = true;
+		if (p2Active) {
+			//This half is the same as first half, except for second player
+			for (int i = 0; i < Globals.NUM_KEYS_PER_PLAYER; i++) {
+				lockOutP2 [i] -= Time.deltaTime;
+				if (Input.GetKeyDown (p2Keys [i])) {
+					if (lockOutP2 [i] < 0) {
+						KeyScript targetKs2 = null;
+						foreach (KeyScript ks in StateManager.activeKeysList[2]) {
+							if (ks.keyCode == p2Keys [i]) {
+								Instantiate (p2EffectPrefab, ks.targetPlanet.xyz, Quaternion.identity);
+								ks.targetPlanet.GetComponent<MaskScript> ().wearer.currentOwner = 2;
+								if (!ks.targetPlanet.GetComponent<MaskScript> ().wearer.home) {
+									targetKs2 = ks;
+									audioSource.clip = p2Audio;
+									audioSource.Play ();
 								}
 							}
-							if(found == true){
-								StateManager.activeKeysDirectory[2].Remove(targetKs2);
-								targetKs2.alpha = 0f;
-								targetKs2.alphaDim = -1f;
-							}else{
-								deletedAll = true;
+						}
+
+						if (targetKs2 != null) {
+							foreach (KeyScript ksTemp in StateManager.activeKeysList[1]) {
+								if (ksTemp.targetPlanet.gameObject.Equals (targetKs2.targetPlanet.gameObject)) {
+									ksToClear.Add (ksTemp);
+								}
+								if (ksTemp.sourcePlanet.gameObject.Equals (targetKs2.targetPlanet.gameObject)) {
+									ksToClear.Add (ksTemp);
+								}
+							}
+						
+							foreach (KeyScript kstc in ksToClear) {
+								StateManager.activeKeysList [1].Remove (kstc);
+								kstc.alphaDim = -1;
+								kstc.alpha = 0f;
+								kstc.timer = 0f;
+							}
+							ksToClear.Clear ();
+
+						
+							foreach (KeyScript ksTemp in StateManager.activeKeysList[2]) {
+								if (ksTemp.targetPlanet.gameObject.Equals (targetKs2.targetPlanet.gameObject)) {
+									ksToClear.Add (ksTemp);
+								}
+								if (ksTemp.sourcePlanet.gameObject.Equals (targetKs2.targetPlanet.gameObject)) {
+									ksToClear.Add (ksTemp);
+								}
+							}
+
+							foreach (KeyScript kstc in ksToClear) {
+								kstc.alphaDim = -1;
+								kstc.alpha = 0f;
+								kstc.timer = 0f;
+								StateManager.activeKeysList [2].Remove (kstc);
+							}
+							ksToClear.Clear ();
+						} else {	
+							//At least one key is wrong, set universal timeout
+							//Set cooldown for all keys
+							for (int j = 0; j < Globals.NUM_KEYS_PER_PLAYER; j++) {
+								lockOutP2 [j] = LOCKOUT_TIME;
+								keyUIP2 [j].SetCooldown ();
 							}
 						}
 					}
-					*/
-					lockOutP2[i] = LOCKOUT_TIME;
-					keyUIP2[i].SetCooldown();
 				}
 			}
 		}

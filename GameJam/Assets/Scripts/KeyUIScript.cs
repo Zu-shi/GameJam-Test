@@ -6,18 +6,16 @@ public class KeyUIScript : _Mono {
 	//public Sprite dark;
 	public float timer{get; set;}
 	private _Mono shadow;
-	public Sprite keyQ;
-	public Sprite keyW;
-	public Sprite keyE;
-	public Sprite keyA;
-	public Sprite keyS;
-	public Sprite keyD;
-	public Sprite keyI;
-	public Sprite keyO;
-	public Sprite keyP;
-	public Sprite keyJ;
-	public Sprite keyK;
-	public Sprite keyL;
+	public Sprite key1;
+	public Sprite key2;
+	public Sprite key3;
+	public Sprite key4;
+	public Sprite key5;
+	public Sprite key6;
+	public Sprite key7;
+	public Sprite key8;
+	public Sprite key9;
+	public Sprite key0;
 	public KeyCode keyCode;
 
 	void Start(){
@@ -40,41 +38,35 @@ public class KeyUIScript : _Mono {
 	public void setSprite(KeyCode keyCode) {
 		this.keyCode = keyCode;
 		switch (keyCode) {
-		case(KeyCode.Q) :
-			spriteRenderer.sprite = keyQ;
+		case(KeyCode.BackQuote) :
+			spriteRenderer.sprite = key1;
 			break;
-		case(KeyCode.W) :
-			spriteRenderer.sprite = keyW;
+		case(KeyCode.Alpha1) :
+			spriteRenderer.sprite = key2;
 			break;
-		case(KeyCode.E) :
-			spriteRenderer.sprite = keyE;
+		case(KeyCode.Alpha2) :
+			spriteRenderer.sprite = key3;
 			break;
-		case(KeyCode.A) :
-			spriteRenderer.sprite = keyA;
+		case(KeyCode.Alpha3) :
+			spriteRenderer.sprite = key4;
 			break;
-		case(KeyCode.S) :
-			spriteRenderer.sprite = keyS;
+		case(KeyCode.Alpha4) :
+			spriteRenderer.sprite = key5;
 			break;
-		case(KeyCode.D) :
-			spriteRenderer.sprite = keyD;
+		case(KeyCode.Alpha6) :
+			spriteRenderer.sprite = key6;
 			break;
-		case(KeyCode.I) :
-			spriteRenderer.sprite = keyI;
+		case(KeyCode.Alpha7) :
+			spriteRenderer.sprite = key7;
 			break;
-		case(KeyCode.O) :
-			spriteRenderer.sprite = keyO;
+		case(KeyCode.Alpha8) :
+			spriteRenderer.sprite = key8;
 			break;
-		case(KeyCode.P) :
-			spriteRenderer.sprite = keyP;
+		case(KeyCode.Alpha9) :
+			spriteRenderer.sprite = key9;
 			break;
-		case(KeyCode.J) :
-			spriteRenderer.sprite = keyJ;
-			break;
-		case(KeyCode.K) :
-			spriteRenderer.sprite = keyK;
-			break;
-		case(KeyCode.L) :
-			spriteRenderer.sprite = keyL;
+		case(KeyCode.Alpha0) :
+			spriteRenderer.sprite = key0;
 			break;
 		}	
 	}
