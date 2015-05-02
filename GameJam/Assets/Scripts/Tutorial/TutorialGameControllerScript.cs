@@ -92,8 +92,10 @@ public class TutorialGameControllerScript : _Mono
 	{
 
 		// change startSpeed depending of if player changes speed manually
-		if (os.speedAdjust < pauseSpeed)
+		if (os.speedAdjust < pauseSpeed && os.speedAdjust != startSpeed) {
 			startSpeed = os.speedAdjust;
+			Debug.Log ("Start Speed Changed = " +startSpeed);
+		}
 	
 		// start game on "1" press
 		if (!sceneComplete [0]) {
@@ -112,16 +114,18 @@ public class TutorialGameControllerScript : _Mono
 		// game then have UI box appear with instructions
 		if (sceneComplete [1]) {
 			if (!sceneComplete [2]) {
-				im.p2Active = false; //disable p2 input
+				//im.p2Active = false; //disable p2 input
 				p1 ();
 
 				// if player 2's button appears first then show this message
-				if (StateManager.P2ActiveKeys.Count > 0) {
+				/*if (StateManager.P2ActiveKeys.Count > 0) {
 					p2Text.activate ();
 					p2Text.setText ("Player 2, you have to wait :( it's Player 1's turn first (just for the tutorial)!");
-				}
-			} else if (!sceneComplete [3]) {
-				im.p1Active = false; //disable p1 input
+				}*/
+			}
+
+			if (!sceneComplete [3]) {
+				//im.p1Active = false; //disable p1 input
 				p2 ();
 			
 			}
@@ -138,7 +142,7 @@ public class TutorialGameControllerScript : _Mono
 	public void startGame ()
 	{
 		paused = false;
-		Debug.Log ("game started");
+		Debug.Log ("game started, game speed = "+startSpeed);
 		os.speedAdjust = startSpeed;
 
 	}
@@ -239,8 +243,7 @@ public class TutorialGameControllerScript : _Mono
 			
 			// tell player 1 which button to press to capture planet
 			p1Text.setText ("Player 1, press the \"" + str + "\" key to capture the planet!");
-			
-			
+				
 		}
 		
 		if (StateManager.P1ActiveKeys.Count == 0 && p1Instruct.activeSelf) {
