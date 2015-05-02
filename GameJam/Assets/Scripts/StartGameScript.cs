@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class StartGameScript : MonoBehaviour {
-
+	public GameObject Fader;
 	// Use this for initialization
 	void Start () {
 	
@@ -14,7 +14,9 @@ public class StartGameScript : MonoBehaviour {
 	}
 
 	void loadLevel1(){
+		Fader.GetComponent<Fading> ().BeginFade (1);
 		Application.LoadLevel ("Level1");
+		Fader.GetComponent<Fading> ().BeginFade (-1);
 	}
 
 	void loadLevel2(){
