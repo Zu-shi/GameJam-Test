@@ -7,7 +7,7 @@ public class OptionsScript : MonoBehaviour {
 
 	private bool menuEnabled = false;
 
-	public float speedAdjust = 1;
+	public float speedAdjust = 1f;
 
 	// Use this for initialization
 	void Start () {

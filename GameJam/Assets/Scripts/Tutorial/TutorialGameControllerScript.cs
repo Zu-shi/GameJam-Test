@@ -31,7 +31,7 @@ public class TutorialGameControllerScript : _Mono
 
 	// speeds to pause/start the game
 	float pauseSpeed = 1000;
-	float startSpeed = Globals.GAME_SPEED;
+	float startSpeed;
 
 	// keep track of if game is paused
 	public bool paused { get; set; } 
@@ -44,7 +44,7 @@ public class TutorialGameControllerScript : _Mono
 
 	void Awake ()
 	{
-
+		
 		// initialize sceneComplete array
 		// 0 = opening screen
 		// 1 = introduce the keys for each player
@@ -76,6 +76,8 @@ public class TutorialGameControllerScript : _Mono
 		orbScript = GetComponent<OrbitingScript> ();
 		os = GameObject.Find ("Options").GetComponent<OptionsScript> ();
 		im = GameObject.Find ("InputManager").GetComponent<InputManagerScript> ();
+
+		startSpeed = os.speedAdjust;
 
 		// pause game until player clicks enter button to start
 		pauseGame ();
