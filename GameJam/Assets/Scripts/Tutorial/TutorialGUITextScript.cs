@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-/* Date Modified: 04/27/2015
+/* Date Modified: 05/02/2015
  * 
  * Description: Manages the Text component on object it is attached to.
  * Also resizes the gameobject in respect to its parent. If the parent
@@ -31,12 +31,12 @@ public class TutorialGUITextScript : _Mono
 	{
 
 		// Get the #hexcode form of each players' color
-		p1HexColor = "#" + colorToHex (Color.blue);
-		p2HexColor = "#" + colorToHex (Color.yellow);
+		p1HexColor = "#" + colorToHex (Globals.PLAYER_ONE_COLOR);
+		p2HexColor = "#" + colorToHex (Globals.PLAYER_TWO_COLOR);
 
 		// Get title's #hexcode
 		Color orange = new Color (255.0f / 255, 140.0f / 255, 0f / 255);
-		titleHexColor = "#" + colorToHex (orange);
+		titleHexColor = "#" + colorToHex (Globals.PLAYER_NEUTRAL_COLOR);
 
 		thisRect = GetComponent<RectTransform> ();
 		parentRect = GetComponentInParent<RectTransform> ();
@@ -123,7 +123,7 @@ public class TutorialGUITextScript : _Mono
 
 		// this can definitely be improved (somehow)...
 		float aspectRatio = screenH / screenW; // width * ratio = height
-		float w = screenW * 0.68f;
+		float w = screenW * 0.7f;
 		thisRect.sizeDelta = new Vector2 (w, w * aspectRatio);
 			
 	}
