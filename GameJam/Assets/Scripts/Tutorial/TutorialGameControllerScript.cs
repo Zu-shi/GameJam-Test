@@ -50,7 +50,8 @@ public class TutorialGameControllerScript : _Mono
 		// 1 = introduce the keys for each player
 		// 2 = player 1 instruction
 		// 3 = player 2 instruction
-		sceneComplete = new bool[4];
+		// 4 = battle :O!!!!
+		sceneComplete = new bool[5];
 
 		// since nothing has been completed
 		for (int i = 0; i < sceneComplete.Length; i ++)
@@ -131,6 +132,10 @@ public class TutorialGameControllerScript : _Mono
 				p2 ();
 			
 			}
+
+			if (sceneComplete[2] && sceneComplete[3] && !sceneComplete[4]) {
+				battle();
+			}
 		}
 	}
 
@@ -158,14 +163,15 @@ public class TutorialGameControllerScript : _Mono
 			introRect.localScale = new Vector3 (0.7f, 0.8f, 0);
 
 			// get a bigger font for the title and smaller font for less important things
-			int bigFontSize = (int)(introText.theText.fontSize * 1.4);
+			int bigFontSize = (int)(introText.theText.fontSize * 1.5);
 			int smallFontSize = (int)(introText.theText.fontSize * 0.7);
 
 			// scary but just a bunch of text formatted via rich text (HTML-like styling) - not all HTML styles permitted
 			introText.setText ("<size=" + bigFontSize + "><color=green>WELCOME TO</color> STELLAR LEAP</size>\n"
 				+ "This is a 2-player game.  Player 1 and Player 2.\n"
-				+ "<size=" + smallFontSize + ">(i.e. You should <color=red>have a friend</color> to play this with)</size>\n\n"
-				+ "When the planets get close together, <color=red>a key will appear</color>.\n"
+				+ "<size=" + smallFontSize + ">(i.e. You should have a friend to play this with)</size>\n\n"
+			    + "The planets will move in their orbits then "
+				+ "when the planets get close together, <color=red>a key will appear</color>.\n"
 				+ "<color=red>Press that key</color> (if it's in your color) to capture the planet.\n\n"
 				+ "<color=green>To win:</color> <color=red>Capture</color> your opponent's <color=red>home planet</color>\n"
 				+ "<size=" + smallFontSize + ">(and protect your own)</size>\n\n"
@@ -234,14 +240,7 @@ public class TutorialGameControllerScript : _Mono
 			
 			p1Text.activate ();
 			// get whichever key is showing and convert to string
-			string str = StateManager.P1ActiveKeys [0].keyCode.ToString ();
-			
-			// handle weirdly named keycodes
-			if (str.Contains ("Alpha"))
-				str = str [5].ToString ();
-			
-			if (str.Equals ("BackQuote"))
-				str = "~";
+			string str = p1Text.keycodeToString(StateManager.P1ActiveKeys [0].keyCode);
 			
 			// tell player 1 which button to press to capture planet
 			p1Text.setText ("Player 1, press the \"" + str + "\" key to capture the planet!");
@@ -271,19 +270,13 @@ public class TutorialGameControllerScript : _Mono
 			}
 			
 			p2Text.activate ();
+
 			// get whichever key is showing and convert to string
-			string str = StateManager.P2ActiveKeys [0].keyCode.ToString ();
-			
-			// handle weirdly named keycodes
-			if (str.Contains ("Alpha"))
-				str = str [5].ToString ();
-			
-			if (str.Equals ("BackQuote"))
-				str = "~";
+			string str = p2Text.keycodeToString(StateManager.P2ActiveKeys[0].keyCode);
 			
 			// tell player 1 which button to press to capture planet
 			p2Text.setText ("Player 2, press the \"" + str + "\" key to capture the planet!");
-			
+		
 			
 		}
 		
@@ -301,10 +294,73 @@ public class TutorialGameControllerScript : _Mono
 		}
 	}
 
+	void battle() {
+
+		bool p1Pressed = false;
+		bool p2Pressed = false;
+
+		if (StateManager.P2ActiveKeys.Count > 0 && StateManager.P1ActiveKeys.Count > 0) {
+
+			// using p1 text obj instead of making new game object because I can
+			p1Text.activate();
+			p1Text.setText("Both planets are owned!!!!!!\n P1 vs P2 BATTLE TIME!!!!!!!!!!!");
+
+			if (!paused) {
+				
+				pauseGame ();
+			}
+			
+			KeyCode p1Code = StateManager.P1ActiveKeys [0].keyCode; 
+			KeyCode p2Code = StateManager.P2ActiveKeys [0].keyCode; 
+
+			p1Pressed = Input.GetKeyDown (p1Code);
+			p2Pressed = Input.GetKeyDown (p2Code);
+
+			Debug.Log(p1Pressed + "   " +p2Pressed);
+		}
+
+		if (p1Pressed || p2Pressed) { 
+
+			if (p1Pressed) {
+
+				p1Text.setText("Player 1 captured the planet!!\n Player 2, protect your home planet!");
+
+			}
+
+			if (p2Pressed) {
+				
+				p1Text.setText("Player 2 captured the planet!!\n Player 1, protect your home planet!");
+				
+			}
+
+			StartCoroutine(p1DisappearAfter2());
+
+
+			sceneComplete[4] = true;
+
+		}
+	}
+
 	void showArrows (bool show)
 	{
 		p1Arrow.GetComponent<BlinkingAnimationScript> ().show = show;
 		p2Arrow.GetComponent<BlinkingAnimationScript> ().show = show;
 
+	}
+
+	// used only for p1Text or p2Text
+	public IEnumerator p1DisappearAfter2() {
+		yield return new WaitForSeconds (2);
+		p1Text.deactivate ();
+		startGame ();
+		StopCoroutine (p1DisappearAfter2 ());
+
+	}
+
+	private IEnumerator p2DisappearAfter2() {
+		yield return new WaitForSeconds (2);
+		p2Text.deactivate ();
+		startGame ();
+		StopCoroutine (p2DisappearAfter2 ());
 	}
 }

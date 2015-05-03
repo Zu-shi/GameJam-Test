@@ -104,6 +104,14 @@ public class TutorialGUITextScript : _Mono
 			string replacement = "<color=" + titleHexColor + ">STELLAR LEAP</color>";
 			txt = txt.ToUpper ().Replace ("STELLAR LEAP", replacement);
 		}
+		if (txt.Contains ("P1")) {
+			string replacement = "<color=" + p1HexColor + ">P1</color>";
+			txt = txt.Replace ("P1", replacement);
+		}
+		if (txt.Contains ("P2")) {
+			string replacement = "<color=" + p2HexColor + ">P2</color>";
+			txt = txt.Replace ("P2", replacement);
+		}
 
 
 		theText.text = txt;
@@ -131,10 +139,26 @@ public class TutorialGUITextScript : _Mono
 	// Takes in a color parameter and returns a string representation of the color in XXXXXX form
 	// Color32 is used instead of Color because a Color.r returns a float rather than a byte,
 	// which can't be converted into a hexidecimal string
-	string colorToHex (Color32 color)
+	public string colorToHex (Color32 color)
 	{
 		// the "X2" parameter converts the given number to a two digit hexidecimal string
 		string hex = color.r.ToString ("X2") + color.g.ToString ("X2") + color.b.ToString ("X2");
 		return hex;
+	}
+
+	// converts keycode to string and handles special cases
+	// feel free to add more special cases
+	public string keycodeToString(KeyCode keyCode) {
+
+		string str = keyCode.ToString();
+		
+		// handle weirdly named keycodes
+		if (str.Contains ("Alpha"))
+			str = str [5].ToString ();
+		
+		if (str.Equals ("BackQuote"))
+			str = "~";
+
+		return str;
 	}
 }

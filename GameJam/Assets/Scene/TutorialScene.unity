@@ -1013,9 +1013,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .56078434, g: .65882355, b: .945098042, a: 1}
+  m_Color: {r: .368627459, g: .694117665, b: .917647064, a: .784313738}
   m_FontData:
-    m_Font: {fileID: 12800000, guid: f2f094ab8dda346f8974fb4ef96212b4, type: 3}
+    m_Font: {fileID: 12800000, guid: 8e39d667a8c034fc283ae0034ba6c465, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 1
@@ -1138,7 +1138,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1188a29ab9f6ca458a51ee9a31428ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedAdjust: 1
 --- !u!1 &1406636803
 GameObject:
   m_ObjectHideFlags: 0
@@ -1322,7 +1321,7 @@ Transform:
   m_Children:
   - {fileID: 452269416}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 12
 --- !u!81 &1508641696
 AudioListener:
   m_ObjectHideFlags: 0
