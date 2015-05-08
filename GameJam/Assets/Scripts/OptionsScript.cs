@@ -3,7 +3,7 @@ using System.Collections;
 
 public class OptionsScript : MonoBehaviour {
 
-
+	public static OptionsScript i;
 
 	private bool menuEnabled = false;
 
@@ -46,7 +46,11 @@ public class OptionsScript : MonoBehaviour {
 	}
 
 	void Awake(){
-		DontDestroyOnLoad (transform.gameObject);
+		if (!i) {
+			i = this;
+			DontDestroyOnLoad (gameObject);
+		} else
+			Destroy (this);
 	}
 
 	void OpenCredits() {
