@@ -7,16 +7,17 @@ public class AudioPersist : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		if(GameObject.FindGameObjectsWithTag("Audio").Length > 1){
-			this.GetComponent<AudioSource>().Stop();
-			Destroy(this.gameObject);
+		if (GameObject.FindGameObjectsWithTag ("Audio").Length > 1) {
+			this.GetComponent<AudioSource> ().Stop ();
+			Destroy (this.gameObject);
 		}
+		audio = GetComponent<AudioSource> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		if (Input.GetKeyDown (KeyCode.m)) {
+		if (Input.GetKeyDown (KeyCode.M)) {
 			if (audio.mute)
 				audio.mute = false;
 			else
