@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-/* Date Modified: 04/27/2015
+/* Date Modified: 05/02/2015
  * 
  * Description: Manages the Text component on object it is attached to.
  * Also resizes the gameobject in respect to its parent. If the parent
@@ -31,12 +31,12 @@ public class TutorialGUITextScript : _Mono
 	{
 
 		// Get the #hexcode form of each players' color
-		p1HexColor = "#" + colorToHex (Color.blue);
-		p2HexColor = "#" + colorToHex (Color.yellow);
+		p1HexColor = "#" + colorToHex (Globals.PLAYER_ONE_COLOR);
+		p2HexColor = "#" + colorToHex (Globals.PLAYER_TWO_COLOR);
 
 		// Get title's #hexcode
 		Color orange = new Color (255.0f / 255, 140.0f / 255, 0f / 255);
-		titleHexColor = "#" + colorToHex (orange);
+		titleHexColor = "#" + colorToHex (Globals.PLAYER_NEUTRAL_COLOR);
 
 		thisRect = GetComponent<RectTransform> ();
 		parentRect = GetComponentInParent<RectTransform> ();
@@ -104,6 +104,14 @@ public class TutorialGUITextScript : _Mono
 			string replacement = "<color=" + titleHexColor + ">STELLAR LEAP</color>";
 			txt = txt.ToUpper ().Replace ("STELLAR LEAP", replacement);
 		}
+		if (txt.Contains ("P1")) {
+			string replacement = "<color=" + p1HexColor + ">P1</color>";
+			txt = txt.Replace ("P1", replacement);
+		}
+		if (txt.Contains ("P2")) {
+			string replacement = "<color=" + p2HexColor + ">P2</color>";
+			txt = txt.Replace ("P2", replacement);
+		}
 
 
 		theText.text = txt;
@@ -123,7 +131,7 @@ public class TutorialGUITextScript : _Mono
 
 		// this can definitely be improved (somehow)...
 		float aspectRatio = screenH / screenW; // width * ratio = height
-		float w = screenW * 0.68f;
+		float w = screenW * 0.7f;
 		thisRect.sizeDelta = new Vector2 (w, w * aspectRatio);
 			
 	}
@@ -131,10 +139,26 @@ public class TutorialGUITextScript : _Mono
 	// Takes in a color parameter and returns a string representation of the color in XXXXXX form
 	// Color32 is used instead of Color because a Color.r returns a float rather than a byte,
 	// which can't be converted into a hexidecimal string
-	string colorToHex (Color32 color)
+	public string colorToHex (Color32 color)
 	{
 		// the "X2" parameter converts the given number to a two digit hexidecimal string
 		string hex = color.r.ToString ("X2") + color.g.ToString ("X2") + color.b.ToString ("X2");
 		return hex;
+	}
+
+	// converts keycode to string and handles special cases
+	// feel free to add more special cases
+	public string keycodeToString(KeyCode keyCode) {
+
+		string str = keyCode.ToString();
+		
+		// handle weirdly named keycodes
+		if (str.Contains ("Alpha"))
+			str = str [5].ToString ();
+		
+		if (str.Equals ("BackQuote"))
+			str = "~";
+
+		return str;
 	}
 }

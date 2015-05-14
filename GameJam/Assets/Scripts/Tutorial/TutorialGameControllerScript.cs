@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-/* Date Modified: 04/27/2015
+/* Date Modified: 05/8/2015
  * 
  * Description: This script initially pauses the TutorialScene so
- * that initial instructions can be shown. On pressing a button ("1" 
- * for now), the game starts up and is then controlled by
+ * that initial instructions can be shown. On pressing any button
+ * other than "b", the game starts up and is then controlled by
  * TutorialPlanetScript. This script also contains public functions
  * to pause and start the game.
  * 
@@ -31,7 +31,7 @@ public class TutorialGameControllerScript : _Mono
 
 	// speeds to pause/start the game
 	float pauseSpeed = 1000;
-	float startSpeed = Globals.GAME_SPEED;
+	float startSpeed;
 
 	// keep track of if game is paused
 	public bool paused { get; set; } 
@@ -42,15 +42,24 @@ public class TutorialGameControllerScript : _Mono
 	// if panel is scaled
 	bool scaled;
 
+	// if p1 or p2 press first during battleeelelelelel
+	bool p1Pressed, p2Pressed;
+	// keycodes for the battleeellelelellele
+	KeyCode p1Code, p2Code;
+
+	float timer = 3f;
+
 	void Awake ()
 	{
-
+		
 		// initialize sceneComplete array
 		// 0 = opening screen
 		// 1 = introduce the keys for each player
 		// 2 = player 1 instruction
 		// 3 = player 2 instruction
-		sceneComplete = new bool[4];
+		// 4 = battle :O!!!!
+		// 5 = end battle text
+		sceneComplete = new bool[6];
 
 		// since nothing has been completed
 		for (int i = 0; i < sceneComplete.Length; i ++)
@@ -60,6 +69,8 @@ public class TutorialGameControllerScript : _Mono
 	// Use this for initialization
 	void Start ()
 	{
+		p1Code = new KeyCode ();
+		p2Code = new KeyCode ();
 		// initially hide player instructions
 		p1Text = p1Instruct.GetComponent<TutorialGUITextScript> ();
 		p1Text.deactivate ();
@@ -76,6 +87,8 @@ public class TutorialGameControllerScript : _Mono
 		orbScript = GetComponent<OrbitingScript> ();
 		os = GameObject.Find ("Options").GetComponent<OptionsScript> ();
 		im = GameObject.Find ("InputManager").GetComponent<InputManagerScript> ();
+
+		startSpeed = os.speedAdjust;
 
 		// pause game until player clicks enter button to start
 		pauseGame ();
@@ -114,20 +127,18 @@ public class TutorialGameControllerScript : _Mono
 		// game then have UI box appear with instructions
 		if (sceneComplete [1]) {
 			if (!sceneComplete [2]) {
-				//im.p2Active = false; //disable p2 input
-				p1 ();
-
-				// if player 2's button appears first then show this message
-				/*if (StateManager.P2ActiveKeys.Count > 0) {
-					p2Text.activate ();
-					p2Text.setText ("Player 2, you have to wait :( it's Player 1's turn first (just for the tutorial)!");
-				}*/
+				p1 (); //p1 instruction
 			}
 
 			if (!sceneComplete [3]) {
-				//im.p1Active = false; //disable p1 input
-				p2 ();
+				p2 (); //p2 instruction
 			
+			}
+
+			if (sceneComplete[2] && sceneComplete[3] && !sceneComplete[4]) {
+				battle(); //when p1 and p2 have to fight for a planet
+			} else if (!sceneComplete[5]) {
+				setEndBattleText(); //set text of thing under certain conditions
 			}
 		}
 	}
@@ -156,14 +167,15 @@ public class TutorialGameControllerScript : _Mono
 			introRect.localScale = new Vector3 (0.7f, 0.8f, 0);
 
 			// get a bigger font for the title and smaller font for less important things
-			int bigFontSize = (int)(introText.theText.fontSize * 1.4);
+			int bigFontSize = (int)(introText.theText.fontSize * 1.5);
 			int smallFontSize = (int)(introText.theText.fontSize * 0.7);
 
 			// scary but just a bunch of text formatted via rich text (HTML-like styling) - not all HTML styles permitted
 			introText.setText ("<size=" + bigFontSize + "><color=green>WELCOME TO</color> STELLAR LEAP</size>\n"
 				+ "This is a 2-player game.  Player 1 and Player 2.\n"
-				+ "<size=" + smallFontSize + ">(i.e. You should <color=red>have a friend</color> to play this with)</size>\n\n"
-				+ "When the planets get close together, <color=red>a key will appear</color>.\n"
+				+ "<size=" + smallFontSize + ">(i.e. You should have a friend to play this with)</size>\n\n"
+			    + "The planets will move in their orbits then "
+				+ "when the planets get close together, <color=red>a key will appear</color>.\n"
 				+ "<color=red>Press that key</color> (if it's in your color) to capture the planet.\n\n"
 				+ "<color=green>To win:</color> <color=red>Capture</color> your opponent's <color=red>home planet</color>\n"
 				+ "<size=" + smallFontSize + ">(and protect your own)</size>\n\n"
@@ -232,14 +244,7 @@ public class TutorialGameControllerScript : _Mono
 			
 			p1Text.activate ();
 			// get whichever key is showing and convert to string
-			string str = StateManager.P1ActiveKeys [0].keyCode.ToString ();
-			
-			// handle weirdly named keycodes
-			if (str.Contains ("Alpha"))
-				str = str [5].ToString ();
-			
-			if (str.Equals ("BackQuote"))
-				str = "~";
+			string str = p1Text.keycodeToString(StateManager.P1ActiveKeys [0].keyCode);
 			
 			// tell player 1 which button to press to capture planet
 			p1Text.setText ("Player 1, press the \"" + str + "\" key to capture the planet!");
@@ -269,19 +274,13 @@ public class TutorialGameControllerScript : _Mono
 			}
 			
 			p2Text.activate ();
+
 			// get whichever key is showing and convert to string
-			string str = StateManager.P2ActiveKeys [0].keyCode.ToString ();
-			
-			// handle weirdly named keycodes
-			if (str.Contains ("Alpha"))
-				str = str [5].ToString ();
-			
-			if (str.Equals ("BackQuote"))
-				str = "~";
+			string str = p2Text.keycodeToString(StateManager.P2ActiveKeys[0].keyCode);
 			
 			// tell player 1 which button to press to capture planet
 			p2Text.setText ("Player 2, press the \"" + str + "\" key to capture the planet!");
-			
+		
 			
 		}
 		
@@ -299,10 +298,88 @@ public class TutorialGameControllerScript : _Mono
 		}
 	}
 
+	void battle() {
+
+		if (StateManager.P2ActiveKeys.Count > 0 && StateManager.P1ActiveKeys.Count > 0) {
+
+			// using p1 text obj instead of making new game object because I can
+			p1Text.activate ();
+			p1Text.setText ("Both planets are owned!!!\nP1 vs P2 BATTLE TIME baaaabyyyyyyy!!!!!!");
+
+			if (!paused) {
+				
+				pauseGame ();
+			}
+			
+			p1Code = StateManager.P1ActiveKeys [0].keyCode; 
+			p2Code = StateManager.P2ActiveKeys [0].keyCode; 
+
+			Debug.Log (p1Code + "   " + p2Code);
+
+		} else {
+			
+			p1Pressed = Input.GetKeyDown (p1Code);
+			p2Pressed = Input.GetKeyDown (p2Code);
+			
+			Debug.Log(p1Pressed + "   " +p2Pressed);
+		
+		}
+
+
+		if (p1Pressed || p2Pressed) { 
+
+			StartCoroutine(p1DisappearAfterX());
+			sceneComplete[4] = true;
+		
+		}
+	}
+
+	void setEndBattleText() {
+
+
+		int countDown = (int)Mathf.Floor (timer + 0.5f) + 1;
+
+		if (p1Pressed || p2Pressed) timer -= Time.deltaTime;
+		
+		if (p1Pressed) {
+			
+			p1Text.setText ("Player 1 captured the planet!!\n Player 2, protect your home planet!\n"+countDown);
+			
+		}
+		
+		else if (p2Pressed) {
+			
+			p1Text.setText ("Player 2 captured the planet!!\n Player 1, protect your home planet!\n"+countDown);
+			
+		}
+
+
+		if (countDown == 0)
+			sceneComplete[5] = true;
+
+	}
+
 	void showArrows (bool show)
 	{
 		p1Arrow.GetComponent<BlinkingAnimationScript> ().show = show;
 		p2Arrow.GetComponent<BlinkingAnimationScript> ().show = show;
 
+	}
+
+	// used only for p1Text or p2Text
+	public IEnumerator p1DisappearAfterX() {
+		yield return new WaitForSeconds (timer);
+		p1Text.deactivate ();
+		startGame ();
+		StopCoroutine (p1DisappearAfterX ());
+
+
+	}
+
+	public IEnumerator p2DisappearAfterX() {
+		yield return new WaitForSeconds (timer);
+		p2Text.deactivate ();
+		startGame ();
+		StopCoroutine (p2DisappearAfterX ());
 	}
 }

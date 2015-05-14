@@ -7,10 +7,11 @@ public class OptionsScript : MonoBehaviour {
 
 	private bool menuEnabled = false;
 
-	public float speedAdjust = 1;
+	public float speedAdjust { get; set; }
 
 	// Use this for initialization
 	void Start () {
+		speedAdjust = 1f;
 		StateManager.P1ActiveKeys.Clear();
 		StateManager.P2ActiveKeys.Clear();
 	}
