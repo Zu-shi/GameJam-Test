@@ -19,7 +19,7 @@ public class InputManagerScript : MonoBehaviour {
 	public AudioClip p2Audio;
 	private List<KeyScript> ksToClear; //Temporarily tracks the key scripts that need to be removed due to a transaction.
 
-	public bool p1Active { get; set;}
+	public bool p1Active {get; set;}
 	public bool p2Active {get; set;}
 
 	void Start () {
@@ -65,7 +65,7 @@ public class InputManagerScript : MonoBehaviour {
 
 	void Update () {
 		audioSource = GetComponent<AudioSource> ();
-		if (p1Active) {
+		if (p1Active && !Globals.gameOverManager.gameOver) {
 			//Be careful modifying the code below, please ensure that you understand how it works.
 			for (int i = 0; i < Globals.NUM_KEYS_PER_PLAYER; i++) {
 				//Reduce key cooldown
@@ -137,7 +137,7 @@ public class InputManagerScript : MonoBehaviour {
 			}
 		}
 
-		if (p2Active) {
+		if (p2Active && !Globals.gameOverManager.gameOver) {
 			//This half is the same as first half, except for second player
 			for (int i = 0; i < Globals.NUM_KEYS_PER_PLAYER; i++) {
 				lockOutP2 [i] -= Time.deltaTime;
