@@ -13,7 +13,7 @@ public class BlinkingAnimationScript : _Mono
 	// show this game object?
 	public bool show { set; get; }
 
-	float startWait = 0f; // time before blinking starts
+	//float startWait = 0f; // time before blinking starts
 	float blinkWait = 0.5f; // time b/t disappearing/reappearing
 
 	// blinking animation started?
