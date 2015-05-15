@@ -1558,11 +1558,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11457772, guid: f5fa1c8595b96444ca0f3fe09ba5dbbe, type: 2}
       propertyPath: spriteScale.x
-      value: 80
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 11457772, guid: f5fa1c8595b96444ca0f3fe09ba5dbbe, type: 2}
       propertyPath: spriteScale.y
-      value: 80
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 11457772, guid: f5fa1c8595b96444ca0f3fe09ba5dbbe, type: 2}
       propertyPath: spriteScale.z
