@@ -54,7 +54,7 @@ public class MenuKeys : MonoBehaviour {
 			}else{
 				if(trackPresses != i)
 				{
-//					previewsPrefab.generatePreview(i);
+					previewsPrefab.generatePreview(i);
 				}
 				trackPresses = i;
 				

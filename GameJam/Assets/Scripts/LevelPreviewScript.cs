@@ -11,7 +11,7 @@ public class LevelPreviewScript : _Mono {
 	public Sprite level5Sprite;
 	private GameObject levelPreview;
 	//Sprite[] levelPreviews = new Sprite[6];
-	Vector3 previewPosition = new Vector3(-175,10,0);
+	//Vector3 previewPosition = new Vector3(-175,10,0);
 	//Sprite[] levelPreviews = new Sprite[6];
 
 	// Use this for initialization
