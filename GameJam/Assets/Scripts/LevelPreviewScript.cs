@@ -38,22 +38,23 @@ public class LevelPreviewScript : _Mono {
 	{
 		Debug.Log("Case 2");
 	switch(currentIndex){
-			case (0):
+			// Case 0 is ignored because of the initial value of i in MenuKeys
+			case (1):
 				spriteRenderer.sprite = tutorialSprite;
 			break;
-			case (1):	
+			case (2):	
 				spriteRenderer.sprite = level1Sprite;
 			break;
-			case (2):
+			case (3):
 				spriteRenderer.sprite = level2Sprite;
 			break;
-			case (3):
+			case (4):
 				spriteRenderer.sprite = level3Sprite;
 			break;
-			case (4):
+			case (5):
 				spriteRenderer.sprite = level4Sprite;
 			break;
-			case (5):
+			case (6):
 				spriteRenderer.sprite = level5Sprite;
 			break;
 

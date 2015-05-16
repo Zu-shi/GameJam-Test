@@ -8,8 +8,8 @@ public class MenuKeys : MonoBehaviour {
 	private KeyScript newKey;
 	private LevelPreviewScript spriteGetter;
 	public LevelPreviewScript previewsPrefab;
-	KeyCode[] inputKey = new KeyCode[6];
-	string[] levelNames = new string[6];
+	KeyCode[] inputKey = new KeyCode[7];
+	string[] levelNames = new string[7];
 	// For keeping track of whether or not the preview should be up
 	int trackPresses;
 	// Use this for initialization
@@ -18,19 +18,20 @@ public class MenuKeys : MonoBehaviour {
 		newKey.setSprite(newKeyCode);
 		newKey.keyCode = newKeyCode;
 		newKey.timer = 2f;
-		inputKey [0] = KeyCode.BackQuote;
-		inputKey [1] = KeyCode.Alpha1;
-		inputKey [2] = KeyCode.Alpha2;
-		inputKey [3] = KeyCode.Alpha3;
-		inputKey [4] = KeyCode.Alpha4;
-		inputKey [5] = KeyCode.Alpha5;
+		// 0 is skipped because tutorialScene wouldn't give a preview
+		inputKey [1] = KeyCode.BackQuote;
+		inputKey [2] = KeyCode.Alpha1;
+		inputKey [3] = KeyCode.Alpha2;
+		inputKey [4] = KeyCode.Alpha3;
+		inputKey [5] = KeyCode.Alpha4;
+		inputKey [6] = KeyCode.Alpha5;
 		
-		levelNames [0] = "TutorialScene";
-		levelNames [1] = "Level1";
-		levelNames [2] = "Level2";
-		levelNames [3] = "Level3";
-		levelNames [4] = "Level4";
-		levelNames [5] = "Level5";
+		levelNames [1] = "TutorialScene";
+		levelNames [2] = "Level1";
+		levelNames [3] = "Level2";
+		levelNames [4] = "Level3";
+		levelNames [5] = "Level4";
+		levelNames [6] = "Level5";
 		
 		
 	}
