@@ -4,6 +4,7 @@ using System.Collections;
 public class KeyScript : _Mono {
 	
 	public static readonly float TIMER_MAX = 1.5f; //Minimum time a planet may stay alive
+	public Sprite keyBackQuote;
 	public Sprite key1;
 	public Sprite key2;
 	public Sprite key3;
@@ -14,6 +15,7 @@ public class KeyScript : _Mono {
 	public Sprite key8;
 	public Sprite key9;
 	public Sprite key0;
+	public Vector3 spriteScale;
 	public _Mono targetPlanet{ get; set; } //
 	public _Mono sourcePlanet{ get; set; } //
 	public KeyCode keyCode{ get; set; }
@@ -33,20 +35,24 @@ public class KeyScript : _Mono {
 	
 	public void setSprite(KeyCode keyCode) {
 		this.keyCode = keyCode;
+		transform.localScale = spriteScale;
 		switch (keyCode) {
 		case(KeyCode.BackQuote) :
-			spriteRenderer.sprite = key1;
+			spriteRenderer.sprite = keyBackQuote;
 			break;
 		case(KeyCode.Alpha1) :
-			spriteRenderer.sprite = key2;
+			spriteRenderer.sprite = key1;
 			break;
 		case(KeyCode.Alpha2) :
-			spriteRenderer.sprite = key3;
+			spriteRenderer.sprite = key2;
 			break;
 		case(KeyCode.Alpha3) :
-			spriteRenderer.sprite = key4;
+			spriteRenderer.sprite = key3;
 			break;
 		case(KeyCode.Alpha4) :
+			spriteRenderer.sprite = key4;
+			break;
+		case(KeyCode.Alpha5) :
 			spriteRenderer.sprite = key5;
 			break;
 		case(KeyCode.Alpha6) :

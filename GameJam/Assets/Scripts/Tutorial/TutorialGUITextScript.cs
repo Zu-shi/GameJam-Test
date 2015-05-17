@@ -22,7 +22,9 @@ public class TutorialGUITextScript : _Mono
 	public Text theText { get; private set; }
 
 	// holds this recttransform and parent's recttransform
-	RectTransform parentRect, thisRect;
+	RectTransform thisRect;
+
+	//RectTransform parentRect;
 
 	// keep track of screen resize
 	float screenW, screenH;
@@ -34,12 +36,12 @@ public class TutorialGUITextScript : _Mono
 		p1HexColor = "#" + colorToHex (Globals.PLAYER_ONE_COLOR);
 		p2HexColor = "#" + colorToHex (Globals.PLAYER_TWO_COLOR);
 
-		// Get title's #hexcode
-		Color orange = new Color (255.0f / 255, 140.0f / 255, 0f / 255);
+		// Get title's #hexcode right now it is just neutral color  T^T
+		// feel free to make a global variable for title color and change this
 		titleHexColor = "#" + colorToHex (Globals.PLAYER_NEUTRAL_COLOR);
 
 		thisRect = GetComponent<RectTransform> ();
-		parentRect = GetComponentInParent<RectTransform> ();
+		//parentRect = GetComponentInParent<RectTransform> ();
 		theText = GetComponent<Text> ();
 
 	}
@@ -124,10 +126,7 @@ public class TutorialGUITextScript : _Mono
 	// resize intro text based on screen size & parent panel scale
 	void resize ()
 	{
-		
-		RectTransform thisRect = gameObject.GetComponent<RectTransform> ();
-		RectTransform parentRect = gameObject.GetComponentInParent<RectTransform> ();
-		Vector2 parentSize = parentRect.rect.size;
+		//Vector2 parentSize = parentRect.rect.size;
 
 		// this can definitely be improved (somehow)...
 		float aspectRatio = screenH / screenW; // width * ratio = height

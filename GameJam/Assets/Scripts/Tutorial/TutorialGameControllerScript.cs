@@ -25,7 +25,6 @@ public class TutorialGameControllerScript : _Mono
 	bool p1Complete, p2Complete;
 	
 	// all needed to access certain variables
-	OrbitingScript orbScript;
 	OptionsScript os;
 	InputManagerScript im;
 
@@ -84,7 +83,6 @@ public class TutorialGameControllerScript : _Mono
 		p2Arrow = GameObject.Find ("p2Arrow");
 
 		// get necessary components
-		orbScript = GetComponent<OrbitingScript> ();
 		os = GameObject.Find ("Options").GetComponent<OptionsScript> ();
 		im = GameObject.Find ("InputManager").GetComponent<InputManagerScript> ();
 
