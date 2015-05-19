@@ -292,7 +292,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &452269415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1073,7 +1073,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: .368627459, g: .694117665, b: .917647064, a: .784313738}
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 8e39d667a8c034fc283ae0034ba6c465, type: 3}
+    m_Font: {fileID: 12800000, guid: c451a0006dd8e41dc9899271b87b89c3, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 1
@@ -1196,6 +1196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1188a29ab9f6ca458a51ee9a31428ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speedAdjust: 1
 --- !u!1001 &1251095947
 Prefab:
   m_ObjectHideFlags: 0

@@ -170,18 +170,29 @@ public class TutorialGameControllerScript : _Mono
 
 			// scary but just a bunch of text formatted via rich text (HTML-like styling) - not all HTML styles permitted
 			introText.setText ("<size=" + bigFontSize + "><color=green>WELCOME TO</color> STELLAR LEAP</size>\n"
-				+ "This is a 2-player game.  Player 1 and Player 2.\n"
-				+ "<size=" + smallFontSize + ">(i.e. You should have a friend to play this with)</size>\n\n"
-			    + "The planets will move in their orbits then "
-				+ "when the planets get close together, <color=red>a key will appear</color>.\n"
-				+ "<color=red>Press that key</color> (if it's in your color) to capture the planet.\n\n"
+				+ "This is a 2 player game. Player 1 and Player 2.\n"
+				+ "<size=" + smallFontSize + ">(so play this with friend!)</size>\n\n"
+			    + "Each player has a home planet. From that planet, you capture other planets, "
+			    + "with the goal of getting to your opponent's home planet.\n"
+				+ "When an occupied planet approaches another planet, <color=red>a key will appear</color>.\n"
+				+ "The key will be next to the planet you are GOING to capture.\n"
+			    + "If the key is in your color (P1 or P2), press it on the keyboard!\n\n"
 				+ "<color=green>To win:</color> <color=red>Capture</color> your opponent's <color=red>home planet</color>\n"
-				+ "<size=" + smallFontSize + ">(and protect your own)</size>\n\n"
+				+ "while protecting your own.\n\n"
 				+ "<color=grey><size=" + smallFontSize + ">press any key to continue</size></color>");
 			scaled = true;
 		}
 
-		if (Input.anyKeyDown) {
+		//check for input of any keyboard key
+		if (Input.anyKeyDown 
+		    && !Input.GetKeyDown(KeyCode.Mouse0)
+		    && !Input.GetKeyDown(KeyCode.Mouse1)
+		    && !Input.GetKeyDown(KeyCode.Mouse2)
+		    && !Input.GetKeyDown(KeyCode.Mouse3)
+		    && !Input.GetKeyDown(KeyCode.Mouse4)
+		    && !Input.GetKeyDown(KeyCode.Mouse5)
+		    && !Input.GetKeyDown(KeyCode.Mouse6)) {
+
 			scaled = false;
 			sceneComplete [0] = true;
 		}
@@ -209,7 +220,15 @@ public class TutorialGameControllerScript : _Mono
 			scaled = true;
 		}
 
-		if (Input.anyKeyDown) {
+		// check for input of any keyboard key
+		if (Input.anyKeyDown 
+		    && !Input.GetKeyDown(KeyCode.Mouse0)
+		    && !Input.GetKeyDown(KeyCode.Mouse1)
+		    && !Input.GetKeyDown(KeyCode.Mouse2)
+		    && !Input.GetKeyDown(KeyCode.Mouse3)
+		    && !Input.GetKeyDown(KeyCode.Mouse4)
+		    && !Input.GetKeyDown(KeyCode.Mouse5)
+		    && !Input.GetKeyDown(KeyCode.Mouse6)) {
 
 			// stop blinking arrows
 			showArrows (false);
@@ -302,7 +321,8 @@ public class TutorialGameControllerScript : _Mono
 
 			// using p1 text obj instead of making new game object because I can
 			p1Text.activate ();
-			p1Text.setText ("Both planets are owned!!!\nP1 vs P2 BATTLE TIME baaaabyyyyyyy!!!!!!");
+			p1Text.setText ("Now <color=green>both</color> players can capture a planet."
+			                +"\n<color=red>Capture it as fast as you can!</color>");
 
 			if (!paused) {
 				
@@ -341,13 +361,13 @@ public class TutorialGameControllerScript : _Mono
 		
 		if (p1Pressed) {
 			
-			p1Text.setText ("Player 1 captured the planet!!\n Player 2, protect your home planet!\n"+countDown);
+			p1Text.setText ("Player 1 captured the planet!!\n Player 2, protect your home planet!\n<color=red>"+countDown+"</color>");
 			
 		}
 		
 		else if (p2Pressed) {
 			
-			p1Text.setText ("Player 2 captured the planet!!\n Player 1, protect your home planet!\n"+countDown);
+			p1Text.setText ("Player 2 captured the planet!!\n Player 1, protect your home planet!\n<color=red>"+countDown+"</color>");
 			
 		}
 

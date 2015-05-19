@@ -4,14 +4,13 @@ using System.Collections;
 public class OptionsScript : MonoBehaviour {
 
 
-
+	public static OptionsScript i;
 	private bool menuEnabled = false;
 
-	public float speedAdjust { get; set; }
+	public float speedAdjust = 1;
 
 	// Use this for initialization
 	void Start () {
-		speedAdjust = 1f;
 		StateManager.P1ActiveKeys.Clear();
 		StateManager.P2ActiveKeys.Clear();
 	}
@@ -47,7 +46,11 @@ public class OptionsScript : MonoBehaviour {
 	}
 
 	void Awake(){
-		DontDestroyOnLoad (transform.gameObject);
+		if(i==null) {
+			i = this;
+			DontDestroyOnLoad(gameObject);
+		}else 
+			Destroy(this);
 	}
 
 	void OpenCredits() {
