@@ -388,7 +388,7 @@ Camera:
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 540
   m_Depth: -1
   m_CullingMask:
@@ -1566,11 +1566,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11457772, guid: f5fa1c8595b96444ca0f3fe09ba5dbbe, type: 2}
       propertyPath: spriteScale.x
-      value: 90
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 11457772, guid: f5fa1c8595b96444ca0f3fe09ba5dbbe, type: 2}
       propertyPath: spriteScale.y
-      value: 90
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 11457772, guid: f5fa1c8595b96444ca0f3fe09ba5dbbe, type: 2}
       propertyPath: spriteScale.z

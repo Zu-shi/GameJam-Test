@@ -5,6 +5,7 @@ using System;
 public class MenuKeys : MonoBehaviour {
 	public KeyScript keyPrefab;
 	public KeyCode newKeyCode;
+	//public Vector3 keySize;
 	private KeyScript newKey;
 	private LevelPreviewScript spriteGetter;
 	public LevelPreviewScript previewsPrefab;
@@ -18,6 +19,7 @@ public class MenuKeys : MonoBehaviour {
 		newKey.setSprite(newKeyCode);
 		newKey.keyCode = newKeyCode;
 		newKey.timer = 2f;
+		newKey.transform.localScale = new Vector3(50f, 50f, 1f);
 		// 0 is skipped because tutorialScene wouldn't give a preview
 		inputKey [1] = KeyCode.BackQuote;
 		inputKey [2] = KeyCode.Alpha1;
@@ -42,8 +44,13 @@ public class MenuKeys : MonoBehaviour {
 		GameObject thisPlanet = this.GetComponent <OrbitingScript> ().mask.gameObject;
 		newKey.sourcePlanet = thisPlanet.GetComponent<_Mono> ();
 		newKey.alpha = 1f;
-		Vector2 keyPosition = gameObject.GetComponent<_Mono>().xy + (-1.5f) * -2f * new Vector2 (gameObject.GetComponent<Renderer>().bounds.size.x/2, 0f) * 2f;
+
+		Vector2 keyPosition = thisPlanet.GetComponent<_Mono>().xy + new Vector2 (thisPlanet.GetComponent<Renderer>().bounds.size.x/2, 0f) * 3f;
 		newKey.xy = keyPosition;
+
+		//Vector2 keyPosition = otherPosition + (thisOwner - 1.5f) * -2f * new Vector2 (planets[i].GetComponent<Renderer>().bounds.size.x/2, 0f) * 2f;
+		//planetToKeysMap[potentialPlanet].xy = keyPosition;
+
 		// For each array value, check to see if it was pressed
 		for (int i = 0; i < inputKey.Length; i++)
 		if (Input.GetKeyDown (inputKey [i])) {

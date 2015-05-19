@@ -15,7 +15,6 @@ public class KeyScript : _Mono {
 	public Sprite key8;
 	public Sprite key9;
 	public Sprite key0;
-	public Vector3 spriteScale;
 	public _Mono targetPlanet{ get; set; } //
 	public _Mono sourcePlanet{ get; set; } //
 	public KeyCode keyCode{ get; set; }
@@ -35,7 +34,6 @@ public class KeyScript : _Mono {
 	
 	public void setSprite(KeyCode keyCode) {
 		this.keyCode = keyCode;
-		transform.localScale = spriteScale;
 		switch (keyCode) {
 		case(KeyCode.BackQuote) :
 			spriteRenderer.sprite = keyBackQuote;

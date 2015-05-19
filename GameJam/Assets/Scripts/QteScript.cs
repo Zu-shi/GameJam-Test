@@ -16,7 +16,7 @@ public class QteScript : _Mono {
 	public List<KeyCode[]> keys; //A list that contalys p1keys and p2keys. Allows the referencing of the keycodes by player id. 
 	Dictionary<GameObject, KeyScript> planetToKeysMap; //Maps each planet to it's usually invisble key.
 	bool generateKeyMap = true; //Flag to delay the generation of a list of keys until after all planets called Start()
-	bool customDistance = false; //To be checked to allow detection for custom distances.
+	public bool customDistance = false; //To be checked to allow detection for custom distances.
 	public float MAX_DISTANCE_FOR_DETECTION = 575f; 
 
 	// Use this for initialization
@@ -61,6 +61,7 @@ public class QteScript : _Mono {
 					//Sets each key to be invisible initially
 					KeyScript newKey = GameObject.Instantiate(keyPrefab);
 					newKey.alpha = 0f;
+					//keyPrefab.GetComponent<KeyScript>().spriteScale = new Vector3(30f, 30f, 1f);
 					planetToKeysMap.Add(planet, newKey);
 					newKey.sourcePlanet = thisPlanet.GetComponent<_Mono>();
 					newKey.targetPlanet = planet.GetComponent<_Mono>();
@@ -121,7 +122,9 @@ public class QteScript : _Mono {
 
 						//TODO
 						// make button picture on right side of the planet (this code should be dependent on the size of planet but is possibly not
-						Vector2 keyPosition = otherPosition + (thisOwner - 1.5f) * -2f * new Vector2 (planets[i].GetComponent<Renderer>().bounds.size.x/2, 0f) * 2f;
+						//Vector2 keyPosition = otherPosition + (thisOwner - 1.5f) * -2f * new Vector2 (planets[i].GetComponent<Renderer>().bounds.extents.x, 0f) * 2f;
+						float spriteHalfWidth = planetToKeysMap[potentialPlanet].spriteRenderer.bounds.extents.x;
+						Vector2 keyPosition = otherPosition + (thisOwner - 1.5f) * -2f * (new Vector2 (planets[i].GetComponent<Renderer>().bounds.extents.x, 0f) + new Vector2(spriteHalfWidth, 0f) * 1.5f);
 						planetToKeysMap[potentialPlanet].xy = keyPosition;
 					}else{
 						bool canRemoveKey = false;
@@ -141,7 +144,9 @@ public class QteScript : _Mono {
 							StateManager.activeKeysList[thisOwner].Remove(planetToKeysMap[planets[i]]);
 						}else{
 							//If the keyScript is not ready to be removed yet, update it's position as usual.
-							Vector2 keyPosition = otherPosition + (thisOwner - 1.5f) * -2f * new Vector2 (planets[i].GetComponent<Renderer>().bounds.size.x/2, 0f) * 2f;
+							float spriteHalfWidth = planetToKeysMap[potentialPlanet].spriteRenderer.bounds.extents.x;
+							//Vector2 keyPosition = otherPosition + (thisOwner - 1.5f) * -2f * new Vector2 (planets[i].GetComponent<Renderer>().bounds.size.x/2, 0f) * 2f;
+							Vector2 keyPosition = otherPosition + (thisOwner - 1.5f) * -2f * (new Vector2 (planets[i].GetComponent<Renderer>().bounds.extents.x, 0f) + new Vector2(spriteHalfWidth, 0f) * 1.5f);
 							planetToKeysMap[potentialPlanet].xy = keyPosition;
 						}
 					}
