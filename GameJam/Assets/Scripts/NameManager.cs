@@ -124,7 +124,7 @@ public class NameManager : MonoBehaviour {
 				// relate planet to name label object and set name label text
 				planetToName.Add(planet, obj); 
 				TextMesh textMesh = planetToName[planet].GetComponentInChildren<TextMesh>();
-				textMesh.text = planet.name; // set text of name label to current planet name
+				textMesh.text = planet.name.ToUpper(); // set text of name label to current planet name
 
 				// if fontSize has been manually set, change fontSize of name label
 				if (fontSize > 0) {
