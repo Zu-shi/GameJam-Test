@@ -3,6 +3,7 @@ using System.Collections;
 
 public class AudioPersist : MonoBehaviour {
 
+	AudioPersist i;
 	AudioSource audio;
 
 	// Use this for initialization
@@ -20,6 +21,10 @@ public class AudioPersist : MonoBehaviour {
 	}
 
 	void Awake(){
-		DontDestroyOnLoad (transform.gameObject);
+		if(i==null) {
+			i = this;
+			DontDestroyOnLoad(gameObject);
+		}else 
+			Destroy(this);
 	}
 }
