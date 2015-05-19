@@ -170,7 +170,7 @@ public class TutorialGameControllerScript : _Mono
 
 			// scary but just a bunch of text formatted via rich text (HTML-like styling) - not all HTML styles permitted
 			introText.setText ("<size=" + bigFontSize + "><color=green>WELCOME TO</color> STELLAR LEAP</size>\n"
-				+ "This is a 2-player game.  Player 1 and Player 2.\n"
+				+ "This is a 2 player game. Player 1 and Player 2.\n"
 				+ "<size=" + smallFontSize + ">(i.e. You should have a friend to play this with)</size>\n\n"
 			    + "Each player has a home planet. From that planet, you capture other planets, "
 			    + "with the goal of getting to your opponent's home planet.\n"
