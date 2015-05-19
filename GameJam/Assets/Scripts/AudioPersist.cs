@@ -16,19 +16,21 @@ public class AudioPersist : MonoBehaviour {
 	float combo9;
 	public AudioClip mainClip;
 	public AudioClip otherclip;
+	double otherplaytime;
 
 	// Use this for initialization
 	void Start () {
 		audio = GetComponent<AudioSource>();
+		otherplaytime = 0.0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.M))
-		if (audio.mute)
-			audio.mute = false;
-		else
-			audio.mute = true;
+			if (audio.mute)
+				audio.mute = false;
+			else
+				audio.mute = true;
 
 		if (Input.GetKeyDown (KeyCode.UpArrow))
 			combo1 = Time.time + 1;
@@ -49,14 +51,17 @@ public class AudioPersist : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.B) && (Time.time<combo8))
 			combo9 = Time.time + 1;
 		if (Input.GetKeyDown (KeyCode.A) && (Time.time<combo9)) {
-			if (audio.clip=mainClip) {
-				audio.clip = otherclip;
-				audio.Play();
-			}
-			else {
-				audio.clip = mainClip;
-				audio.Play();
-			}
+			audio.clip = otherclip;
+			audio.Play();
+			otherplaytime = Time.time + 210.0;
+
+		}
+
+		if (otherplaytime < Time.time && otherplaytime != 0.0) {
+			audio.clip = mainClip;
+			audio.Play ();
+			otherplaytime = 0.0;
+
 		}
 	}
 
