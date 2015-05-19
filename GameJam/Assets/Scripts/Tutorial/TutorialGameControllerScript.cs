@@ -181,7 +181,16 @@ public class TutorialGameControllerScript : _Mono
 			scaled = true;
 		}
 
-		if (Input.anyKeyDown) {
+		//check for input of any keyboard key
+		if (Input.anyKeyDown 
+		    && !Input.GetKeyDown(KeyCode.Mouse0)
+		    && !Input.GetKeyDown(KeyCode.Mouse1)
+		    && !Input.GetKeyDown(KeyCode.Mouse2)
+		    && !Input.GetKeyDown(KeyCode.Mouse3)
+		    && !Input.GetKeyDown(KeyCode.Mouse4)
+		    && !Input.GetKeyDown(KeyCode.Mouse5)
+		    && !Input.GetKeyDown(KeyCode.Mouse6)) {
+
 			scaled = false;
 			sceneComplete [0] = true;
 		}
@@ -209,7 +218,15 @@ public class TutorialGameControllerScript : _Mono
 			scaled = true;
 		}
 
-		if (Input.anyKeyDown) {
+		// check for input of any keyboard key
+		if (Input.anyKeyDown 
+		    && !Input.GetKeyDown(KeyCode.Mouse0)
+		    && !Input.GetKeyDown(KeyCode.Mouse1)
+		    && !Input.GetKeyDown(KeyCode.Mouse2)
+		    && !Input.GetKeyDown(KeyCode.Mouse3)
+		    && !Input.GetKeyDown(KeyCode.Mouse4)
+		    && !Input.GetKeyDown(KeyCode.Mouse5)
+		    && !Input.GetKeyDown(KeyCode.Mouse6)) {
 
 			// stop blinking arrows
 			showArrows (false);
@@ -302,7 +319,8 @@ public class TutorialGameControllerScript : _Mono
 
 			// using p1 text obj instead of making new game object because I can
 			p1Text.activate ();
-			p1Text.setText ("Both planets are owned!!!\nP1 vs P2 BATTLE TIME baaaabyyyyyyy!!!!!!");
+			p1Text.setText ("Now <color=green>both</color> players can capture a planet."+
+			                "\n<color=red>Capture it as fast as you can!</color>");
 
 			if (!paused) {
 				
@@ -341,13 +359,13 @@ public class TutorialGameControllerScript : _Mono
 		
 		if (p1Pressed) {
 			
-			p1Text.setText ("Player 1 captured the planet!!\n Player 2, protect your home planet!\n"+countDown);
+			p1Text.setText ("Player 1 captured the planet!!\n Player 2, protect your home planet!\n<color=red>"+countDown+"</color>");
 			
 		}
 		
 		else if (p2Pressed) {
 			
-			p1Text.setText ("Player 2 captured the planet!!\n Player 1, protect your home planet!\n"+countDown);
+			p1Text.setText ("Player 2 captured the planet!!\n Player 1, protect your home planet!\n<color=red>"+countDown+"</color>");
 			
 		}
 
