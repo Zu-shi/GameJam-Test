@@ -41,8 +41,8 @@ public class Fading : MonoBehaviour {
 	}
 
 	void OnDestroy(){
-		AudioSource audio = GetComponent<AudioSource>();
-		audio.Stop ();
+		//AudioSource audio = GetComponent<AudioSource>();
+		//audio.Stop ();
 	}
 }	
 
