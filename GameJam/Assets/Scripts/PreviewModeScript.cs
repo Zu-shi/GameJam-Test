@@ -4,6 +4,7 @@ using System.Collections;
 public class PreviewModeScript : MonoBehaviour {
 	static bool previewMode;
 	public Camera mainCam;
+	//public float setTrailTime;
 	// Use this for initialization
 	void Start () {
 		previewMode = true;
@@ -30,9 +31,38 @@ public class PreviewModeScript : MonoBehaviour {
 			{
 				nameLabels[i].enabled = false;
 			}
-
+			InputManagerScript[] inputs = FindObjectsOfType(typeof(InputManagerScript)) as InputManagerScript[];
+			for(int i = 0; i < inputs.Length; i++)
+			{
+				inputs[i].enabled = false;
+			}
+			QteScript[] keyDisabling = FindObjectsOfType(typeof(QteScript)) as QteScript[];
+			for(int i = 0; i < keyDisabling.Length; i++)
+			{
+				keyDisabling[i].enabled = false;
+			}
+			//Debug.Log(keyDisabling.Length);
 			//mainCam = GetComponent<Camera>();
 			mainCam.backgroundColor = Color.black;
+			/*TrailRenderer[] trails = FindObjectsOfType(typeof(TrailRenderer)) as TrailRenderer[];
+			for(int i = 0; i < trails.Length; i++)
+			{
+			trails[i].time = setTrailTime;
+			}
+			*/
+			//InputManagerScript inputScript = GetComponent<InputManagerScript>();
+			//inputScript.enabled = false;
+
+
+
+			/*
+			InputManagerScript[] inputTracker = FindObjectsOfType(typeof(InputManagerScript)) as InputManagerScript;
+			for(int i = 0; i < inputTracker.Length; i++)
+			{
+				inputScript = GetComponent(InputManagerScript);
+				inputTracker[i].enabled = false;
+			}
+			*/
 			//main.backgroundColor = Color.black;
 			//Camera mainCamera = GetComponent<Camera>();
 			//mainCamera.backgroundColor = Color.black;
