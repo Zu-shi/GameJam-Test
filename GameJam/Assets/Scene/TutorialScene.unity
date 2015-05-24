@@ -577,6 +577,23 @@ Prefab:
       propertyPath: m_Pivot.y
       value: .5
       objectReference: {fileID: 0}
+    - target: {fileID: 11430990, guid: 808bec305029248ebaaca698641ea17f, type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: c451a0006dd8e41dc9899271b87b89c3,
+        type: 3}
+    - target: {fileID: 22436426, guid: 808bec305029248ebaaca698641ea17f, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 22436426, guid: 808bec305029248ebaaca698641ea17f, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1.60000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 22409198, guid: 808bec305029248ebaaca698641ea17f, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 170
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 808bec305029248ebaaca698641ea17f, type: 2}
   m_IsPrefabParent: 0
@@ -731,7 +748,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1265042691
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 88b4c386c279d40e19d271eec643273e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 848c039e532324ba795814380250961e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &823083297
 Transform:
@@ -887,7 +904,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1265042691
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 57dca14f968da429987159a2ceb74008, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 54ff6264adf88437ab97304e12dfe638, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &891823645
 Transform:
@@ -1594,7 +1611,20 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22409198, guid: 808bec305029248ebaaca698641ea17f, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 180
+      value: 170
+      objectReference: {fileID: 0}
+    - target: {fileID: 11430990, guid: 808bec305029248ebaaca698641ea17f, type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: c451a0006dd8e41dc9899271b87b89c3,
+        type: 3}
+    - target: {fileID: 22436426, guid: 808bec305029248ebaaca698641ea17f, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 22436426, guid: 808bec305029248ebaaca698641ea17f, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1.60000002
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 808bec305029248ebaaca698641ea17f, type: 2}
