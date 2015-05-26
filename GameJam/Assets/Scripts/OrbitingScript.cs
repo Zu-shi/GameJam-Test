@@ -57,12 +57,16 @@ public class OrbitingScript : _Mono {
 				//Player 1 wins, we clear all keys currently used to prevent future bugs with keys
 				StateManager.P1ActiveKeys.Clear();
 				StateManager.P2ActiveKeys.Clear();
-				Application.LoadLevel("GameOver1");
+				if(!Globals.gameOverManager.gameOver){
+					Globals.gameOverManager.GameOver (1);
+				}
 			}else{
 				//Player 2 wins, we clear all keys currently used to prevent future bugs with keys
 				StateManager.P1ActiveKeys.Clear();
 				StateManager.P2ActiveKeys.Clear();
-				Application.LoadLevel("GameOver2");
+				if(!Globals.gameOverManager.gameOver){
+					Globals.gameOverManager.GameOver (2);
+				}
 			}
 		}
 
@@ -79,6 +83,7 @@ public class OrbitingScript : _Mono {
 		}
 		mask.xy = xy; //sets its position
 		float frameRate = 1.0f / Time.deltaTime;
+		if(Globals.Debug){Debug.Log (frameRate);}
 		t += Mathf.PI * 2  / (realPeriod * frameRate) * Globals.GAME_SPEED;
 		localY = Mathf.Sin (t) * orbitRadius;
 		localX = Mathf.Cos (t) * orbitRadius;

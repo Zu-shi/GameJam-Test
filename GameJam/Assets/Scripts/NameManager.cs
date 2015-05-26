@@ -101,8 +101,13 @@ public class NameManager : MonoBehaviour {
 	// Update is called once per frame
 	void LateUpdate ()
 	{
+
 		// fills planetToName dictionary and assigns name connectors' textfields
 		if (!generatedList) {	
+			
+			// (Ask Zuoming) but it does instantiate homeConnector prefabs =D
+			homeConnectorP1 = Instantiate(homeConnectorP1prefab);
+			homeConnectorP2 = Instantiate(homeConnectorP2prefab);
 
 			int i = 0;
 			foreach (GameObject planet in GameObject.FindGameObjectsWithTag("Planet")) {
@@ -131,35 +136,34 @@ public class NameManager : MonoBehaviour {
 
 					textMesh.fontSize = fontSize;
 				}
+
+				// Check for which home planets are on screen and
+				// enable/disable home label connectors correspondingly
+				bool homes = false;
+				int homesInt = 0;
+				if (wearer.home) {
+					homes = true;
+					homesInt += wearer.currentOwner;
+					if(wearer.currentOwner == 1){
+						Globals.PLAYER_ONE_HOME_NAME = planet.name.Replace(" Home", "");
+					}else if(wearer.currentOwner == 2){
+						Globals.PLAYER_TWO_HOME_NAME = planet.name.Replace(" Home", "");
+					}
+				}
+				
+				
+				if (!homes) {
+					homeConnectorP1.gameObject.SetActive(false);
+					homeConnectorP2.gameObject.SetActive(false);
+				} else if (homesInt == 1) 
+					homeConnectorP2.gameObject.SetActive(false);
+				else if (homesInt == 2)
+					homeConnectorP1.gameObject.SetActive(false);
 			}
 
 			// create positions array to hold offsets for each name label  
 			positions = new Vector3[planetCount];
 			generatedList = true;
-
-			// (Ask Zuoming) but it does instantiate homeConnector prefabs =D
-			homeConnectorP1 = Instantiate(homeConnectorP1prefab);
-			homeConnectorP2 = Instantiate(homeConnectorP2prefab);
-
-			// Check for which home planets are on screen and
-			// enable/disable home label connectors correspondingly
-			bool homes = false;
-			int homesInt = 0;
-			foreach (GameObject planet in GameObject.FindGameObjectsWithTag("Planet")) {
-				OrbitingScript wearer = planet.GetComponent<MaskScript>().wearer;
-				if (wearer.home) {
-					homes = true;
-					homesInt += wearer.currentOwner;
-				}
-			}
-
-			if (!homes) {
-				homeConnectorP1.gameObject.SetActive(false);
-				homeConnectorP2.gameObject.SetActive(false);
-			} else if (homesInt == 1) 
-				homeConnectorP2.gameObject.SetActive(false);
-			else if (homesInt == 2)
-				homeConnectorP1.gameObject.SetActive(false);
 		}
 
 		// used in generating positions[] values

@@ -24,30 +24,38 @@ public class GameOverManager : _Mono {
 		menu.color = new Color(1f, 1f, 1f, 0f);
 		Color c = new Color(1f, 1f, 1f, 0.7f);
 		menu.DOColor(c, 3f);
-		
+		string winnerPlanetName = "";
+
 		if(winner == 1){
-			text.color = new Color(Globals.PLAYER_TWO_COLOR.r, Globals.PLAYER_TWO_COLOR.g, Globals.PLAYER_TWO_COLOR.b, 0f);
+			winnerPlanetName = Globals.PLAYER_ONE_HOME_NAME;
+			text.color = new Color(Globals.PLAYER_ONE_COLOR.r, Globals.PLAYER_ONE_COLOR.g, Globals.PLAYER_ONE_COLOR.b, 0f);
 		}else if(winner == 2){
+			winnerPlanetName = Globals.PLAYER_TWO_HOME_NAME;
 			text.color = new Color(Globals.PLAYER_TWO_COLOR.r, Globals.PLAYER_TWO_COLOR.g, Globals.PLAYER_TWO_COLOR.b, 0f);
 		}
 
 		//text.color = new Color(1f, 1f, 1f, 0f);
-		Color textc = new Color(text.color.r, text.color.g, text.color.b, 1f);
+		Color textc = new Color(text.color.r, text.color.g, text.color.b, 0.8f);
 		text.DOColor(textc, 3f);
 
-		text.text = "Player " + winner + " wins!\n Press SPACE to return to main menu";
+		text.text = winnerPlanetName + " wins!\nPress space to continue.";
+
+		foreach (KeyScript ks in Object.FindObjectsOfType<KeyScript>()){
+			ks.alphaDim = 1f;
+		}
 	}
 
 	void Start() {
 	}
 
 	public void Update(){
-
+		/*
 		if(Input.GetKeyDown(KeyCode.Z)){
 			if(!_gameOver)
 				GameOver (1);
 			else
 				Application.LoadLevel("MainMenu");
 		}
+		*/
 	}
 }
