@@ -102,10 +102,13 @@ public class TutorialGUITextScript : _Mono
 			txt = txt.Replace ("Player 2", replacement);
 		}
 
+		/*
 		if (txt.ToUpper ().Contains ("STELLAR LEAP")) {
 			string replacement = "<color=" + titleHexColor + ">STELLAR LEAP</color>";
 			txt = txt.ToUpper ().Replace ("STELLAR LEAP", replacement);
 		}
+		*/
+
 		if (txt.Contains ("P1")) {
 			string replacement = "<color=" + p1HexColor + ">P1</color>";
 			txt = txt.Replace ("P1", replacement);

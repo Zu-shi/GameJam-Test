@@ -165,11 +165,11 @@ public class TutorialGameControllerScript : _Mono
 			introRect.localScale = new Vector3 (0.7f, 0.8f, 0);
 
 			// get a bigger font for the title and smaller font for less important things
-			int bigFontSize = (int)(introText.theText.fontSize * 1.5);
+			int bigFontSize = (int)(introText.theText.fontSize * 1.5 - 1f);
 			int smallFontSize = (int)(introText.theText.fontSize * 0.7);
 
 			// scary but just a bunch of text formatted via rich text (HTML-like styling) - not all HTML styles permitted
-			introText.setText ("<size=" + bigFontSize + "><color=green>WELCOME TO</color> STELLAR LEAP</size>\n"
+			introText.setText ("<size=" + bigFontSize + ">WELCOME TO STELLAR LEAP</size>\n"
 				+ "This is a 2 player game. Player 1 and Player 2.\n"
 				+ "<size=" + smallFontSize + ">(so play this with a friend!)</size>\n\n"
 			    + "Each player has a home planet. From that planet, you capture other planets, "
@@ -204,7 +204,7 @@ public class TutorialGameControllerScript : _Mono
 
 		if (!scaled) {
 			
-			int bigFontSize = (int)(introText.theText.fontSize * 1.4);
+			int bigFontSize = (int)(introText.theText.fontSize * 1.4 - 1f);
 
 			RectTransform introRect = introPanel.GetComponent<RectTransform> ();
 			introRect.localScale = introRect.localScale * 0.7f;
