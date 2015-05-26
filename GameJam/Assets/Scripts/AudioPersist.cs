@@ -17,6 +17,7 @@ public class AudioPersist : MonoBehaviour {
 	public AudioClip mainClip;
 	public AudioClip otherclip;
 	double otherplaytime;
+	static bool created = false;
 
 	// Use this for initialization
 	void Start () {
@@ -66,10 +67,16 @@ public class AudioPersist : MonoBehaviour {
 	}
 
 	void Awake(){
-		if(i==null) {
-			i = this;
-			DontDestroyOnLoad(gameObject);
-		}else 
-			Destroy(this);
+		if (!created) {
+			DontDestroyOnLoad (gameObject);
+			created = true;
+		} else {
+			Destroy (gameObject);
+		}
+		//if(i==null) {
+		//	i = this;
+		//	DontDestroyOnLoad(gameObject);
+		//}else 
+		//	Destroy(gameObject);
 	}
 }
