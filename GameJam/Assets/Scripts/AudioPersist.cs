@@ -3,8 +3,10 @@ using System.Collections;
 
 public class AudioPersist : MonoBehaviour {
 
+
+
 	AudioPersist i;
-	AudioSource audio;
+	AudioSource myaudio;
 	float combo1;
 	float combo2;
 	float combo3;
@@ -21,17 +23,17 @@ public class AudioPersist : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		audio = GetComponent<AudioSource>();
+		myaudio = GetComponent<AudioSource>();
 		otherplaytime = 0.0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.M))
-			if (audio.mute)
-				audio.mute = false;
+			if (myaudio.mute)
+				myaudio.mute = false;
 			else
-				audio.mute = true;
+				myaudio.mute = true;
 
 		if (Input.GetKeyDown (KeyCode.UpArrow))
 			combo1 = Time.time + 1;
@@ -52,15 +54,15 @@ public class AudioPersist : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.B) && (Time.time<combo8))
 			combo9 = Time.time + 1;
 		if (Input.GetKeyDown (KeyCode.A) && (Time.time<combo9)) {
-			audio.clip = otherclip;
-			audio.Play();
+			myaudio.clip = otherclip;
+			myaudio.Play();
 			otherplaytime = Time.time + 210.0;
 
 		}
 
 		if (otherplaytime < Time.time && otherplaytime != 0.0) {
-			audio.clip = mainClip;
-			audio.Play ();
+			myaudio.clip = mainClip;
+			myaudio.Play ();
 			otherplaytime = 0.0;
 
 		}
@@ -78,5 +80,12 @@ public class AudioPersist : MonoBehaviour {
 		//	DontDestroyOnLoad(gameObject);
 		//}else 
 		//	Destroy(gameObject);
+	}
+
+	void muteButton(){
+		if (myaudio.mute)
+			myaudio.mute = false;
+		else
+			myaudio.mute = true;
 	}
 }

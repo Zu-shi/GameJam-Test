@@ -43,7 +43,8 @@ public class PreviewModeScript : MonoBehaviour {
 			}
 			//Debug.Log(keyDisabling.Length);
 			//mainCam = GetComponent<Camera>();
-			mainCam.backgroundColor = Color.black;
+			mainCam.backgroundColor = new Color(0.02f, 0, 0.02f, 1);
+
 			/*TrailRenderer[] trails = FindObjectsOfType(typeof(TrailRenderer)) as TrailRenderer[];
 			for(int i = 0; i < trails.Length; i++)
 			{

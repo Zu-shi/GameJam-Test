@@ -11,7 +11,7 @@ public class BacktoMain : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKey (KeyCode.Space)) {
-			Destroy( GameObject.FindGameObjectWithTag ("Audio"));
+
 			Application.LoadLevel("MainMenu");
 		}
 	}
