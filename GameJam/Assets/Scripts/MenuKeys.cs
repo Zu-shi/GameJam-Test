@@ -44,9 +44,12 @@ public class MenuKeys : MonoBehaviour {
 		GameObject thisPlanet = this.GetComponent <OrbitingScript> ().mask.gameObject;
 		newKey.sourcePlanet = thisPlanet.GetComponent<_Mono> ();
 		newKey.alpha = 1f;
-
+		//Debug.Log (thisPlanet.GetComponent<Renderer>().bounds.size.x);
 		Vector2 keyPosition = thisPlanet.GetComponent<_Mono>().xy + new Vector2 (thisPlanet.GetComponent<Renderer>().bounds.size.x/2, 0f) * 3f;
 		newKey.xy = keyPosition;
+		
+		//float spriteHalfWidth = planetToKeysMap[potentialPlanet].spriteRenderer.bounds.extents.x;
+		//Vector2 keyPosition = otherPosition + (thisOwner - 1.5f) * -2f * (new Vector2 (planets[i].GetComponent<Renderer>().bounds.extents.x, 0f) + new Vector2(spriteHalfWidth, 0f) * 1.5f);
 
 		//Vector2 keyPosition = otherPosition + (thisOwner - 1.5f) * -2f * new Vector2 (planets[i].GetComponent<Renderer>().bounds.size.x/2, 0f) * 2f;
 		//planetToKeysMap[potentialPlanet].xy = keyPosition;
