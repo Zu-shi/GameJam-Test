@@ -15,6 +15,7 @@ public class OrbitingScript : _Mono {
 	float t;
 	float speedAdjust;
 	public float period = 2f; //How long it takes for the planet to circle around
+	//private float time;
 	public _Mono mask { get; set; }
 	_Mono keyObject;
 
@@ -38,6 +39,12 @@ public class OrbitingScript : _Mono {
 		mask = _Mono.Instantiate(planetMask);
 		mask.GetComponent<MaskScript>().wearer = this;
 		mask.tag = "Planet";
+
+		//Time = period / 4f * 3f
+		//Debug.Log (mask.GetComponent<TrailRenderer>().time);
+		//mask.GetComponent<TrailRenderer>().time = (period / 4f) * 3f;
+		//mask.GetComponentInChildren<TrailRenderer>().time = (period / 4f) * 3f;
+		// Absolute value for planets going clockwise, that have negative periods............ 1 / game speed
 
 		//keeps track of the default radius from observing where the planet is placed in relation to the orbit.
 		orbitRadius = Mathf.Sqrt(Mathf.Pow(localX, 2f) + Mathf.Pow(localY, 2f));
@@ -67,7 +74,7 @@ public class OrbitingScript : _Mono {
 		}
 
 		float realPeriod = period * persistentOptions.speedAdjust;
-
+		//mask.GetComponentInChildren<TrailRenderer>().time = (Mathf.Abs(realPeriod * 2) / 4f) * 3f;
 		//This dynamically controls the size of the "mask", that is, the visual appearance of the object
 		if(mask.GetComponent<SpriteRenderer>() != null){
 			//2D image
