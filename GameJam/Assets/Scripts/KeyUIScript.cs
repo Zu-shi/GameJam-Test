@@ -29,6 +29,8 @@ public class KeyUIScript : _Mono {
 		shadow.x = x;
 		shadow.y = y - shadow.spriteRenderer.sprite.bounds.center.y * ys;
 		shadow.ys = timer / InputManagerScript.LOCKOUT_TIME;
+		//alpha = 3f;
+		//Debug.Log(alpha);
 	}
 
 	public void SetCooldown(){

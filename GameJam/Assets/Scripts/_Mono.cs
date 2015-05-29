@@ -128,7 +128,6 @@ public class _Mono : MonoBehaviour {
 
 	public float angle {
 		set {
-			//transform.rotation = Quaternion.AngleAxis(value % 360, Vector3.forward);
 			Quaternion rotation = Quaternion.identity;
 			rotation.eulerAngles = new Vector3(0, 0, value);
 			transform.rotation = rotation;
@@ -183,14 +182,14 @@ public class _Mono : MonoBehaviour {
         }
     }
 
-	public SpriteRenderer spriteRenderer{
-		get{
-			if(_spriteRenderer == null){
-				_spriteRenderer = GetComponent<SpriteRenderer>();
-			}
-			return _spriteRenderer;
+public SpriteRenderer spriteRenderer{
+	get{
+		if(_spriteRenderer == null){
+			_spriteRenderer = GetComponent<SpriteRenderer>();
 		}
+		return _spriteRenderer;
 	}
+}
 
 	public void Destroy(){
 		Destroy (this.gameObject);
