@@ -636,6 +636,11 @@ Prefab:
       propertyPath: m_SizeDelta.y
       value: 170
       objectReference: {fileID: 0}
+    - target: {fileID: 11473552, guid: 808bec305029248ebaaca698641ea17f, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ce578a6ce0054736a9a0fe8d3590912,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 808bec305029248ebaaca698641ea17f, type: 2}
   m_IsPrefabParent: 0
@@ -975,6 +980,21 @@ MonoBehaviour:
 Transform:
   m_PrefabParentObject: {fileID: 468356, guid: 23ef9d52ceac84945b018843d4974603, type: 2}
   m_PrefabInternal: {fileID: 1061835132}
+--- !u!1 &1005373766
+GameObject:
+  m_PrefabParentObject: {fileID: 190822, guid: 808bec305029248ebaaca698641ea17f, type: 2}
+  m_PrefabInternal: {fileID: 506254472}
+--- !u!114 &1005373769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1005373766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a0ff4c371c9c4b558f23e77e822d667, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1034182176
 Prefab:
   m_ObjectHideFlags: 0
@@ -1328,6 +1348,7 @@ GameObject:
   - 224: {fileID: 1406636804}
   - 222: {fileID: 1406636806}
   - 114: {fileID: 1406636805}
+  - 114: {fileID: 1406636807}
   m_Layer: 5
   m_Name: IntroPanel
   m_TagString: Untagged
@@ -1366,7 +1387,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300000, guid: d88f8d33f69eb4709a9fb40acb53a7f9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5ce578a6ce0054736a9a0fe8d3590912, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1380,6 +1401,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1406636803}
+--- !u!114 &1406636807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1406636803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a0ff4c371c9c4b558f23e77e822d667, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1481797565
 GameObject:
   m_ObjectHideFlags: 0
@@ -1470,6 +1502,21 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
+--- !u!1 &1494835064
+GameObject:
+  m_PrefabParentObject: {fileID: 190822, guid: 808bec305029248ebaaca698641ea17f, type: 2}
+  m_PrefabInternal: {fileID: 1738459692}
+--- !u!114 &1494835067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1494835064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a0ff4c371c9c4b558f23e77e822d667, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1508641694
 GameObject:
   m_ObjectHideFlags: 0
@@ -1668,6 +1715,11 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 1.60000002
       objectReference: {fileID: 0}
+    - target: {fileID: 11473552, guid: 808bec305029248ebaaca698641ea17f, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ce578a6ce0054736a9a0fe8d3590912,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 808bec305029248ebaaca698641ea17f, type: 2}
   m_IsPrefabParent: 0
