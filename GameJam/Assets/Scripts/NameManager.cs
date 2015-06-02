@@ -196,15 +196,22 @@ public class NameManager : MonoBehaviour {
 			textObj.transform.position = planet.transform.position + new Vector3(40f, 0f, 0f) + positions[j];
 
 			// if home planet, also set position of home label
-			if(os.home && os.currentOwner == 1) {
-				homeConnectorP1.xyz = planet.transform.position + new Vector3(-30f, 0f, 0f) + positions[j];
-			} else if(os.home && os.currentOwner == 2) {
-				homeConnectorP2.xyz = planet.transform.position + new Vector3(-30f, 0f, 0f) + positions[j];
+			if(!Globals.gameOverManager.gameOver){
+				if(os.home && os.currentOwner == 1) {
+					homeConnectorP1.xyz = planet.transform.position + new Vector3(-30f, 0f, 0f) + positions[j];
+				} else if(os.home && os.currentOwner == 2) {
+					homeConnectorP2.xyz = planet.transform.position + new Vector3(-30f, 0f, 0f) + positions[j];
+				}
 			}
 
 			// get next position to generate (doesn't matter after positions[] are generated)
 			j++;
 		}
+	}
+
+	public void DestroyHomeConnectors(){
+		Destroy(homeConnectorP1.gameObject);
+		Destroy(homeConnectorP2.gameObject);
 	}
 
 	// returns vector3 which gives the approximate vector which when

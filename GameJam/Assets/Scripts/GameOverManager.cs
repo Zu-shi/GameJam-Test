@@ -38,11 +38,13 @@ public class GameOverManager : _Mono {
 		Color textc = new Color(text.color.r, text.color.g, text.color.b, 0.8f);
 		text.DOColor(textc, 3f);
 
-		text.text = winnerPlanetName + " wins!\nPress space to continue.";
+		text.text = winnerPlanetName + " wins!\nPress enter to continue.";
 
 		foreach (KeyScript ks in Object.FindObjectsOfType<KeyScript>()){
 			ks.alphaDim = 1f;
 		}
+
+		Globals.nameManager.DestroyHomeConnectors();
 	}
 
 	void Start() {
