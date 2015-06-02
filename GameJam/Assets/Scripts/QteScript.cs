@@ -52,6 +52,7 @@ public class QteScript : _Mono {
 	
 	// Update is called once per frame
 	void Update () {
+
 		//Gets the mask of this orbiting planet
 		GameObject thisPlanet = this.GetComponent<OrbitingScript>().mask.gameObject;
 
@@ -94,7 +95,7 @@ public class QteScript : _Mono {
 				}
 				
 				//TODO: logic here may be convoluted
-				if(!alreadyShowingKey){
+				if(!alreadyShowingKey && !Globals.gameOverManager.gameOver){
 					if(distance <= MAX_DISTANCE_FOR_DETECTION && distance > 0)
 					{  
 						bool alreadyInList = false;
