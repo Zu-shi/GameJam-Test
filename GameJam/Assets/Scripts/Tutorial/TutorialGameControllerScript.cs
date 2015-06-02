@@ -321,8 +321,8 @@ public class TutorialGameControllerScript : _Mono
 
 			// using p1 text obj instead of making new game object because I can
 			p1Text.activate ();
-			p1Text.setText ("<color=green>Both</color> players can capture a planet."
-			                +"\n<color=red>Capture it as fast as you can!</color>");
+			p1Text.setText ("<color=green>Both</color> players can capture a planet"
+			                +"\n<color=red>Do it as fast as you can!</color>");
 
 			if (!paused) {
 				
