@@ -79,11 +79,11 @@ public class InputManagerScript : MonoBehaviour {
 							if (ks.keyCode == p1Keys [i]) { //Try finding the key in the list of active keys
 								Instantiate (p1EffectPrefab, ks.targetPlanet.xyz, Quaternion.identity);
 								ks.targetPlanet.GetComponent<MaskScript> ().wearer.currentOwner = 1;
-								if (!ks.targetPlanet.GetComponent<MaskScript> ().wearer.home) {
+								//if (!ks.targetPlanet.GetComponent<MaskScript> ().wearer.home) {
 									audioSource.clip = p1Audio;
 									audioSource.Play ();
 									targetKs1 = ks;
-								}
+								//}
 							}
 						}
 
@@ -148,11 +148,11 @@ public class InputManagerScript : MonoBehaviour {
 							if (ks.keyCode == p2Keys [i]) {
 								Instantiate (p2EffectPrefab, ks.targetPlanet.xyz, Quaternion.identity);
 								ks.targetPlanet.GetComponent<MaskScript> ().wearer.currentOwner = 2;
-								if (!ks.targetPlanet.GetComponent<MaskScript> ().wearer.home) {
+								//if (!ks.targetPlanet.GetComponent<MaskScript> ().wearer.home) {
 									targetKs2 = ks;
 									audioSource.clip = p2Audio;
 									audioSource.Play ();
-								}
+								//}
 							}
 						}
 
