@@ -108,7 +108,9 @@ public class NameManager : MonoBehaviour {
 			// (Ask Zuoming) but it does instantiate homeConnector prefabs =D
 			homeConnectorP1 = Instantiate(homeConnectorP1prefab);
 			homeConnectorP2 = Instantiate(homeConnectorP2prefab);
-
+			
+			bool homes = false;
+			int homesInt = 0;
 			int i = 0;
 			foreach (GameObject planet in GameObject.FindGameObjectsWithTag("Planet")) {
 				planetCount++;
@@ -139,8 +141,6 @@ public class NameManager : MonoBehaviour {
 
 				// Check for which home planets are on screen and
 				// enable/disable home label connectors correspondingly
-				bool homes = false;
-				int homesInt = 0;
 				if (wearer.home) {
 					homes = true;
 					homesInt += wearer.currentOwner;
@@ -150,16 +150,15 @@ public class NameManager : MonoBehaviour {
 						Globals.PLAYER_TWO_HOME_NAME = planet.name.Replace(" Home", "");
 					}
 				}
-				
-				
-				if (!homes) {
-					homeConnectorP1.gameObject.SetActive(false);
-					homeConnectorP2.gameObject.SetActive(false);
-				} else if (homesInt == 1) 
-					homeConnectorP2.gameObject.SetActive(false);
-				else if (homesInt == 2)
-					homeConnectorP1.gameObject.SetActive(false);
 			}
+			
+			if (!homes) {
+				homeConnectorP1.gameObject.SetActive(false);
+				homeConnectorP2.gameObject.SetActive(false);
+			} else if (homesInt == 1) 
+				homeConnectorP2.gameObject.SetActive(false);
+			else if (homesInt == 2)
+				homeConnectorP1.gameObject.SetActive(false);
 
 			// create positions array to hold offsets for each name label  
 			positions = new Vector3[planetCount];
