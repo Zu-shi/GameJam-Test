@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 public class MuteButton : MonoBehaviour {
 
+	public static MuteButton i;
 	public Sprite square;
 	public Sprite triangle;
 	public bool condition;
-	private bool created;
+	static bool created;
 
 
 	private Button mybutton;
@@ -34,6 +35,8 @@ public class MuteButton : MonoBehaviour {
 	}
 
 	void Awake(){
+
+
 		if (!created) {
 			DontDestroyOnLoad (gameObject);
 			created = true;

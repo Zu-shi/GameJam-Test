@@ -78,12 +78,17 @@ public class InputManagerScript : MonoBehaviour {
 						foreach (KeyScript ks in StateManager.activeKeysList[1]) {
 							if (ks.keyCode == p1Keys [i]) { //Try finding the key in the list of active keys
 								Instantiate (p1EffectPrefab, ks.targetPlanet.xyz, Quaternion.identity);
-								ks.targetPlanet.GetComponent<MaskScript> ().wearer.currentOwner = 1;
-								if (!ks.targetPlanet.GetComponent<MaskScript> ().wearer.home) {
-									audioSource.clip = p1Audio;
-									audioSource.Play ();
-									targetKs1 = ks;
-								}
+								
+								MaskScript mask = ks.targetPlanet.GetComponent<MaskScript> ();
+								mask.wearer.currentOwner = 1;
+								mask.gameObject.GetComponent<MeshRenderer>().material.color = Globals.PLAYER_ONE_COLOR; 
+								mask.gameObject.GetComponentInChildren<TrailRenderer>().material.SetColor("_TintColor", Globals.PLAYER_ONE_COLOR);
+
+								audioSource.clip = p1Audio;
+								audioSource.Play ();
+								targetKs1 = ks;
+								
+								ksToClear.Add (ks);
 							}
 						}
 
@@ -100,6 +105,14 @@ public class InputManagerScript : MonoBehaviour {
 						
 							foreach (KeyScript kstc in ksToClear) {
 								//Make the key scripts invisible, reset other values
+								StateManager.activeKeysList [1].Remove (kstc);
+								kstc.alphaDim = -1;
+								kstc.alpha = 0f;
+								kstc.timer = 0f;
+							}
+							ksToClear.Clear ();
+
+							foreach (KeyScript kstc in ksToClear) {
 								StateManager.activeKeysList [1].Remove (kstc);
 								kstc.alphaDim = -1;
 								kstc.alpha = 0f;
@@ -147,15 +160,29 @@ public class InputManagerScript : MonoBehaviour {
 						foreach (KeyScript ks in StateManager.activeKeysList[2]) {
 							if (ks.keyCode == p2Keys [i]) {
 								Instantiate (p2EffectPrefab, ks.targetPlanet.xyz, Quaternion.identity);
-								ks.targetPlanet.GetComponent<MaskScript> ().wearer.currentOwner = 2;
-								if (!ks.targetPlanet.GetComponent<MaskScript> ().wearer.home) {
-									targetKs2 = ks;
-									audioSource.clip = p2Audio;
-									audioSource.Play ();
-								}
+
+								MaskScript mask = ks.targetPlanet.GetComponent<MaskScript> ();
+								mask.wearer.currentOwner = 2;
+								mask.gameObject.GetComponent<MeshRenderer>().material.color = Globals.PLAYER_TWO_COLOR; 
+								mask.gameObject.GetComponentInChildren<TrailRenderer>().material.SetColor("_TintColor", Globals.PLAYER_TWO_COLOR);
+
+								targetKs2 = ks;
+								audioSource.clip = p2Audio;
+								audioSource.Play ();
+
+								ksToClear.Add (ks);
 							}
 						}
 
+						foreach (KeyScript kstc in ksToClear) {
+							StateManager.activeKeysList [2].Remove (kstc);
+							kstc.alphaDim = -1;
+							kstc.alpha = 0f;
+							kstc.timer = 0f;
+						}
+						ksToClear.Clear ();
+
+						//
 						if (targetKs2 != null) {
 							foreach (KeyScript ksTemp in StateManager.activeKeysList[1]) {
 								if (ksTemp.targetPlanet.gameObject.Equals (targetKs2.targetPlanet.gameObject)) {

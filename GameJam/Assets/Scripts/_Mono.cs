@@ -68,7 +68,7 @@ public class _Mono : MonoBehaviour {
 			transform.position = new Vector3(value.x, value.y, transform.position.z);
 		}
 		get {
-			return new Vector2(x, y);
+			return new Vector2(transform.position.x, transform.position.y);
 		}
 	}
 
@@ -77,7 +77,7 @@ public class _Mono : MonoBehaviour {
 			transform.position = new Vector3(value.x, value.y, value.z);
 		}
 		get {
-			return new Vector3(x, y, z);
+			return new Vector3(transform.position.x, transform.position.y, transform.position.z);
 		}
 	}
 
@@ -128,7 +128,6 @@ public class _Mono : MonoBehaviour {
 
 	public float angle {
 		set {
-			//transform.rotation = Quaternion.AngleAxis(value % 360, Vector3.forward);
 			Quaternion rotation = Quaternion.identity;
 			rotation.eulerAngles = new Vector3(0, 0, value);
 			transform.rotation = rotation;
@@ -183,14 +182,14 @@ public class _Mono : MonoBehaviour {
         }
     }
 
-	public SpriteRenderer spriteRenderer{
-		get{
-			if(_spriteRenderer == null){
-				_spriteRenderer = GetComponent<SpriteRenderer>();
-			}
-			return _spriteRenderer;
+public SpriteRenderer spriteRenderer{
+	get{
+		if(_spriteRenderer == null){
+			_spriteRenderer = GetComponent<SpriteRenderer>();
 		}
+		return _spriteRenderer;
 	}
+}
 
 	public void Destroy(){
 		Destroy (this.gameObject);

@@ -108,7 +108,9 @@ public class NameManager : MonoBehaviour {
 			// (Ask Zuoming) but it does instantiate homeConnector prefabs =D
 			homeConnectorP1 = Instantiate(homeConnectorP1prefab);
 			homeConnectorP2 = Instantiate(homeConnectorP2prefab);
-
+			
+			bool homes = false;
+			int homesInt = 0;
 			int i = 0;
 			foreach (GameObject planet in GameObject.FindGameObjectsWithTag("Planet")) {
 				planetCount++;
@@ -139,8 +141,6 @@ public class NameManager : MonoBehaviour {
 
 				// Check for which home planets are on screen and
 				// enable/disable home label connectors correspondingly
-				bool homes = false;
-				int homesInt = 0;
 				if (wearer.home) {
 					homes = true;
 					homesInt += wearer.currentOwner;
@@ -150,16 +150,15 @@ public class NameManager : MonoBehaviour {
 						Globals.PLAYER_TWO_HOME_NAME = planet.name.Replace(" Home", "");
 					}
 				}
-				
-				
-				if (!homes) {
-					homeConnectorP1.gameObject.SetActive(false);
-					homeConnectorP2.gameObject.SetActive(false);
-				} else if (homesInt == 1) 
-					homeConnectorP2.gameObject.SetActive(false);
-				else if (homesInt == 2)
-					homeConnectorP1.gameObject.SetActive(false);
 			}
+			
+			if (!homes) {
+				homeConnectorP1.gameObject.SetActive(false);
+				homeConnectorP2.gameObject.SetActive(false);
+			} else if (homesInt == 1) 
+				homeConnectorP2.gameObject.SetActive(false);
+			else if (homesInt == 2)
+				homeConnectorP1.gameObject.SetActive(false);
 
 			// create positions array to hold offsets for each name label  
 			positions = new Vector3[planetCount];
@@ -197,15 +196,22 @@ public class NameManager : MonoBehaviour {
 			textObj.transform.position = planet.transform.position + new Vector3(40f, 0f, 0f) + positions[j];
 
 			// if home planet, also set position of home label
-			if(os.home && os.currentOwner == 1) {
-				homeConnectorP1.xyz = planet.transform.position + new Vector3(-30f, 0f, 0f) + positions[j];
-			} else if(os.home && os.currentOwner == 2) {
-				homeConnectorP2.xyz = planet.transform.position + new Vector3(-30f, 0f, 0f) + positions[j];
+			if(!Globals.gameOverManager.gameOver){
+				if(os.home && os.currentOwner == 1) {
+					homeConnectorP1.xyz = planet.transform.position + new Vector3(-30f, 0f, 0f) + positions[j];
+				} else if(os.home && os.currentOwner == 2) {
+					homeConnectorP2.xyz = planet.transform.position + new Vector3(-30f, 0f, 0f) + positions[j];
+				}
 			}
 
 			// get next position to generate (doesn't matter after positions[] are generated)
 			j++;
 		}
+	}
+
+	public void DestroyHomeConnectors(){
+		Destroy(homeConnectorP1.gameObject);
+		Destroy(homeConnectorP2.gameObject);
 	}
 
 	// returns vector3 which gives the approximate vector which when

@@ -212,7 +212,7 @@ public class TutorialGameControllerScript : _Mono
 			TutorialGUITextScript textScript = introPanel.transform.GetChild (0).GetComponent<TutorialGUITextScript> ();
 			textScript.setText ("Each player has their own set of keys. The keys that appear on the screen "
 				+ "to capture a planet are randomly generated from your set so make sure to press the correct one!\n\n"
-				+ "If you don't, you'll have to wait a while before you can click another key.\n\n"
+				+ "If you don't, you'll have to wait a while before you can press another key.\n\n"
 				+ "<size=" + bigFontSize + "><color=red>READY?!</color></size>\n\n"
 				+ "Press 'B' to go back to the previous instruction or\nPress any other key to begin!");
 			// start blinking arrows
@@ -321,8 +321,8 @@ public class TutorialGameControllerScript : _Mono
 
 			// using p1 text obj instead of making new game object because I can
 			p1Text.activate ();
-			p1Text.setText ("Now <color=green>both</color> players can capture a planet."
-			                +"\n<color=red>Capture it as fast as you can!</color>");
+			p1Text.setText ("<color=green>Both</color> players can capture a planet"
+			                +"\n<color=red>Do it as fast as you can!</color>");
 
 			if (!paused) {
 				
@@ -361,13 +361,13 @@ public class TutorialGameControllerScript : _Mono
 		
 		if (p1Pressed) {
 			
-			p1Text.setText ("Player 1 captured the planet!!\n Player 2, protect your home planet!\n<color=red>"+countDown+"</color>");
+			p1Text.setText ("P1 captured the planet!\n P2, protect your home!\n<color=red>"+countDown+"</color>");
 			
 		}
 		
 		else if (p2Pressed) {
 			
-			p1Text.setText ("Player 2 captured the planet!!\n Player 1, protect your home planet!\n<color=red>"+countDown+"</color>");
+			p1Text.setText ("P2 captured the planet!\n P1, protect your home!\n<color=red>"+countDown+"</color>");
 			
 		}
 

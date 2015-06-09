@@ -37,12 +37,14 @@ public class GameOverManager : _Mono {
 		//text.color = new Color(1f, 1f, 1f, 0f);
 		Color textc = new Color(text.color.r, text.color.g, text.color.b, 0.8f);
 		text.DOColor(textc, 3f);
-
-		text.text = winnerPlanetName + " wins!\nPress space to continue.";
+		float smallerFont = text.fontSize * 0.7f;
+		text.text = winnerPlanetName + " wins!\n<size="+smallerFont+">Press enter to continue.</size>";
 
 		foreach (KeyScript ks in Object.FindObjectsOfType<KeyScript>()){
 			ks.alphaDim = 1f;
 		}
+
+		Globals.nameManager.DestroyHomeConnectors();
 	}
 
 	void Start() {

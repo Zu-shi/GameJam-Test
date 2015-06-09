@@ -52,6 +52,7 @@ public class QteScript : _Mono {
 	
 	// Update is called once per frame
 	void Update () {
+
 		//Gets the mask of this orbiting planet
 		GameObject thisPlanet = this.GetComponent<OrbitingScript>().mask.gameObject;
 
@@ -68,9 +69,10 @@ public class QteScript : _Mono {
 				}
 			}
 			generateKeyMap = false;
+		 	StateManager.planets = GameObject.FindGameObjectsWithTag ("Planet");
 		}
 
-		GameObject[] planets =  GameObject.FindGameObjectsWithTag ("Planet");
+		GameObject[] planets = StateManager.planets;
 		//Debug.Log(planets.Length);
 		for (int i = 0; i < planets.Length; i++) {
 			Vector2 otherPosition = planets[i].GetComponent<_Mono>().xy;
@@ -94,7 +96,7 @@ public class QteScript : _Mono {
 				}
 				
 				//TODO: logic here may be convoluted
-				if(!alreadyShowingKey){
+				if(!alreadyShowingKey && !Globals.gameOverManager.gameOver){
 					if(distance <= MAX_DISTANCE_FOR_DETECTION && distance > 0)
 					{  
 						bool alreadyInList = false;
@@ -110,7 +112,7 @@ public class QteScript : _Mono {
 						if(!alreadyInList){
 							//If the keyScript is not showing yet, we generate a keyCode that has not be used and assign it to the keyscript
 							KeyCode kc = generateNonClashingKey(thisOwner);
-							Debug.Log("starting keycode " + kc);
+//							Debug.Log("starting keycode " + kc);
 							KeyScript newKey = planetToKeysMap[potentialPlanet];
 							//Make keyscript visible and set it's timer so that it does not fade immediately
 							newKey.alpha = 1;

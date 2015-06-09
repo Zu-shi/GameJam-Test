@@ -21,6 +21,10 @@ public class KeyScript : _Mono {
 	public float alphaDim; //Controls the dimming of the planet (will decrease to 0 and bring alpha along)
 	public float timer = 0f; //stay-alive timer (when this is above one, the key will not fade out)
 
+	void Start () {
+		z = -100;
+	}
+
 	// Update is called once per frame
 	void Update () {
 		timer -= Time.deltaTime;
@@ -28,8 +32,7 @@ public class KeyScript : _Mono {
 			//TODO: better fading system
 			alpha -= 0.08f;
 			alphaDim -= 0.08f;
-		}
-		z = -100; //required for camera projection
+		} //required for camera projection
 	}
 	
 	public void setSprite(KeyCode keyCode) {
