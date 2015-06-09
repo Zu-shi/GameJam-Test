@@ -9,9 +9,11 @@ public class StateManager{
 		null, P1ActiveKeys, P2ActiveKeys
 	};
 
+	public static GameObject[] planets;
+
 	public static void ClearActiveKeys(){
-		P1ActiveKeys = new List<KeyScript>();
-		P2ActiveKeys = new List<KeyScript>();
+		P1ActiveKeys.Clear ();
+		P2ActiveKeys.Clear ();
 		activeKeysList[0] = null;
 	}
 }

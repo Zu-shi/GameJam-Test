@@ -69,9 +69,10 @@ public class QteScript : _Mono {
 				}
 			}
 			generateKeyMap = false;
+		 	StateManager.planets = GameObject.FindGameObjectsWithTag ("Planet");
 		}
 
-		GameObject[] planets =  GameObject.FindGameObjectsWithTag ("Planet");
+		GameObject[] planets = StateManager.planets;
 		//Debug.Log(planets.Length);
 		for (int i = 0; i < planets.Length; i++) {
 			Vector2 otherPosition = planets[i].GetComponent<_Mono>().xy;
@@ -111,7 +112,7 @@ public class QteScript : _Mono {
 						if(!alreadyInList){
 							//If the keyScript is not showing yet, we generate a keyCode that has not be used and assign it to the keyscript
 							KeyCode kc = generateNonClashingKey(thisOwner);
-							Debug.Log("starting keycode " + kc);
+//							Debug.Log("starting keycode " + kc);
 							KeyScript newKey = planetToKeysMap[potentialPlanet];
 							//Make keyscript visible and set it's timer so that it does not fade immediately
 							newKey.alpha = 1;

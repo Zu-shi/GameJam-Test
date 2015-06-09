@@ -36,7 +36,7 @@ public class LevelPreviewScript : _Mono {
 	}
 	public void generatePreview(int currentIndex)
 	{
-		Debug.Log("Case 2");
+//		Debug.Log("Case 2");
 	switch(currentIndex){
 			// Case 0 is ignored because of the initial value of i in MenuKeys
 			case (1):

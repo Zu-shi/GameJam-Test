@@ -68,7 +68,7 @@ public class _Mono : MonoBehaviour {
 			transform.position = new Vector3(value.x, value.y, transform.position.z);
 		}
 		get {
-			return new Vector2(x, y);
+			return new Vector2(transform.position.x, transform.position.y);
 		}
 	}
 
@@ -77,7 +77,7 @@ public class _Mono : MonoBehaviour {
 			transform.position = new Vector3(value.x, value.y, value.z);
 		}
 		get {
-			return new Vector3(x, y, z);
+			return new Vector3(transform.position.x, transform.position.y, transform.position.z);
 		}
 	}
 
