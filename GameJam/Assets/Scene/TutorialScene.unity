@@ -87,7 +87,7 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &42532891
+--- !u!1 &42532891 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 151770, guid: 808bec305029248ebaaca698641ea17f, type: 2}
   m_PrefabInternal: {fileID: 1738459692}
@@ -204,7 +204,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 87130a17553ef427d8ff0b37e1ea7d95, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &409960639
+--- !u!1 &409960639 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 151770, guid: 808bec305029248ebaaca698641ea17f, type: 2}
   m_PrefabInternal: {fileID: 506254472}
@@ -478,7 +478,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &487292914
+--- !u!4 &487292914 stripped
 Transform:
   m_PrefabParentObject: {fileID: 494866, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
   m_PrefabInternal: {fileID: 102303657}
@@ -634,12 +634,12 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22409198, guid: 808bec305029248ebaaca698641ea17f, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 175
+      value: 170
       objectReference: {fileID: 0}
     - target: {fileID: 11473552, guid: 808bec305029248ebaaca698641ea17f, type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: d8c19182b9e8346448ad4e67de422bc3,
+      objectReference: {fileID: 21300000, guid: 394c5cdc816264b7d89e605a09516c97,
         type: 3}
     - target: {fileID: 22409198, guid: 808bec305029248ebaaca698641ea17f, type: 2}
       propertyPath: m_SizeDelta.x
@@ -649,10 +649,26 @@ Prefab:
       propertyPath: m_FontData.m_Alignment
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 11430990, guid: 808bec305029248ebaaca698641ea17f, type: 2}
+      propertyPath: m_Color.r
+      value: .372549027
+      objectReference: {fileID: 0}
+    - target: {fileID: 11430990, guid: 808bec305029248ebaaca698641ea17f, type: 2}
+      propertyPath: m_Color.g
+      value: .725490212
+      objectReference: {fileID: 0}
+    - target: {fileID: 11430990, guid: 808bec305029248ebaaca698641ea17f, type: 2}
+      propertyPath: m_Color.b
+      value: .921568632
+      objectReference: {fileID: 0}
+    - target: {fileID: 11430990, guid: 808bec305029248ebaaca698641ea17f, type: 2}
+      propertyPath: m_Color.a
+      value: .784313738
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 808bec305029248ebaaca698641ea17f, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &527312391
+--- !u!4 &527312391 stripped
 Transform:
   m_PrefabParentObject: {fileID: 429394, guid: 301431158b3fe4ba0a57c2efb8edbc50, type: 2}
   m_PrefabInternal: {fileID: 1893445064}
@@ -889,7 +905,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!4 &868014721
+--- !u!4 &868014721 stripped
 Transform:
   m_PrefabParentObject: {fileID: 432630, guid: f5fa1c8595b96444ca0f3fe09ba5dbbe, type: 2}
   m_PrefabInternal: {fileID: 1251095947}
@@ -976,15 +992,15 @@ MonoBehaviour:
   b: 0
   a: 0
   colorString: player2
---- !u!4 &908180693
+--- !u!4 &908180693 stripped
 Transform:
   m_PrefabParentObject: {fileID: 401966, guid: 87130a17553ef427d8ff0b37e1ea7d95, type: 2}
   m_PrefabInternal: {fileID: 298099784}
---- !u!4 &928798882
+--- !u!4 &928798882 stripped
 Transform:
   m_PrefabParentObject: {fileID: 468356, guid: 23ef9d52ceac84945b018843d4974603, type: 2}
   m_PrefabInternal: {fileID: 1061835132}
---- !u!1 &1005373766
+--- !u!1 &1005373766 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 190822, guid: 808bec305029248ebaaca698641ea17f, type: 2}
   m_PrefabInternal: {fileID: 506254472}
@@ -1002,7 +1018,7 @@ MonoBehaviour:
   r: 0
   g: 110
   b: 155
-  a: 150
+  a: 180
   colorString: 
 --- !u!1001 &1034182176
 Prefab:
@@ -1159,7 +1175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .368627459, g: .694117665, b: .917647064, a: .784313738}
+  m_Color: {r: .372549027, g: .725490212, b: .921568632, a: .784313738}
   m_FontData:
     m_Font: {fileID: 12800000, guid: c451a0006dd8e41dc9899271b87b89c3, type: 3}
     m_FontSize: 14
@@ -1190,7 +1206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c62b281abe477494f909f98b1c6875d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &1166772600
+--- !u!224 &1166772600 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22436426, guid: 808bec305029248ebaaca698641ea17f,
     type: 2}
@@ -1396,7 +1412,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: .996078491, g: .996078491, b: .996078491, a: 1}
-  m_Sprite: {fileID: 21300000, guid: 882ec966d6856418892d6700c8905274, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d8c19182b9e8346448ad4e67de422bc3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1424,7 +1440,7 @@ MonoBehaviour:
   r: 0
   g: 110
   b: 155
-  a: 150
+  a: 180
   colorString: 
 --- !u!1 &1481797565
 GameObject:
@@ -1516,7 +1532,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!1 &1494835064
+--- !u!1 &1494835064 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 190822, guid: 808bec305029248ebaaca698641ea17f, type: 2}
   m_PrefabInternal: {fileID: 1738459692}
@@ -1534,7 +1550,7 @@ MonoBehaviour:
   r: 0
   g: 110
   b: 155
-  a: 150
+  a: 180
   colorString: 
 --- !u!1 &1508641694
 GameObject:
@@ -1621,11 +1637,11 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
---- !u!4 &1532124905
+--- !u!4 &1532124905 stripped
 Transform:
   m_PrefabParentObject: {fileID: 494866, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
   m_PrefabInternal: {fileID: 458165377}
---- !u!224 &1647909004
+--- !u!224 &1647909004 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22436426, guid: 808bec305029248ebaaca698641ea17f,
     type: 2}
@@ -1719,7 +1735,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22409198, guid: 808bec305029248ebaaca698641ea17f, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 175
+      value: 170
       objectReference: {fileID: 0}
     - target: {fileID: 11430990, guid: 808bec305029248ebaaca698641ea17f, type: 2}
       propertyPath: m_FontData.m_Font
@@ -1737,7 +1753,7 @@ Prefab:
     - target: {fileID: 11473552, guid: 808bec305029248ebaaca698641ea17f, type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: d8c19182b9e8346448ad4e67de422bc3,
+      objectReference: {fileID: 21300000, guid: 394c5cdc816264b7d89e605a09516c97,
         type: 3}
     - target: {fileID: 11430990, guid: 808bec305029248ebaaca698641ea17f, type: 2}
       propertyPath: m_FontData.m_Alignment
@@ -1746,6 +1762,22 @@ Prefab:
     - target: {fileID: 11430990, guid: 808bec305029248ebaaca698641ea17f, type: 2}
       propertyPath: m_Text
       value: Player X, Do things pls and thanks yolo
+      objectReference: {fileID: 0}
+    - target: {fileID: 11430990, guid: 808bec305029248ebaaca698641ea17f, type: 2}
+      propertyPath: m_Color.r
+      value: .372549027
+      objectReference: {fileID: 0}
+    - target: {fileID: 11430990, guid: 808bec305029248ebaaca698641ea17f, type: 2}
+      propertyPath: m_Color.g
+      value: .725490212
+      objectReference: {fileID: 0}
+    - target: {fileID: 11430990, guid: 808bec305029248ebaaca698641ea17f, type: 2}
+      propertyPath: m_Color.b
+      value: .921568632
+      objectReference: {fileID: 0}
+    - target: {fileID: 11430990, guid: 808bec305029248ebaaca698641ea17f, type: 2}
+      propertyPath: m_Color.a
+      value: .784313738
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 808bec305029248ebaaca698641ea17f, type: 2}
@@ -2146,7 +2178,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &1967051916
+--- !u!114 &1967051916 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11457772, guid: f5fa1c8595b96444ca0f3fe09ba5dbbe,
     type: 2}
