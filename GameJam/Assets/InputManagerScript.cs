@@ -84,11 +84,9 @@ public class InputManagerScript : MonoBehaviour {
 								mask.gameObject.GetComponent<MeshRenderer>().material.color = Globals.PLAYER_ONE_COLOR; 
 								mask.gameObject.GetComponentInChildren<TrailRenderer>().material.SetColor("_TintColor", Globals.PLAYER_ONE_COLOR);
 
-								if (!ks.targetPlanet.GetComponent<MaskScript> ().wearer.home) {
-									audioSource.clip = p1Audio;
-									audioSource.Play ();
-									targetKs1 = ks;
-								}
+								audioSource.clip = p1Audio;
+								audioSource.Play ();
+								targetKs1 = ks;
 								
 								ksToClear.Add (ks);
 							}
@@ -168,11 +166,9 @@ public class InputManagerScript : MonoBehaviour {
 								mask.gameObject.GetComponent<MeshRenderer>().material.color = Globals.PLAYER_TWO_COLOR; 
 								mask.gameObject.GetComponentInChildren<TrailRenderer>().material.SetColor("_TintColor", Globals.PLAYER_TWO_COLOR);
 
-								if (!ks.targetPlanet.GetComponent<MaskScript> ().wearer.home) {
-									targetKs2 = ks;
-									audioSource.clip = p2Audio;
-									audioSource.Play ();
-								}
+								targetKs2 = ks;
+								audioSource.clip = p2Audio;
+								audioSource.Play ();
 
 								ksToClear.Add (ks);
 							}
