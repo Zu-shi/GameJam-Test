@@ -45,21 +45,30 @@ public class InputManagerScript : MonoBehaviour {
 		p2Keys [3] = KeyCode.Alpha9;
 		p2Keys [4] = KeyCode.Alpha0;
 
+		float refrenceSize = 1500f;
+		float seperation = 200f / refrenceSize;
+		float xstartLeft = -2550f / refrenceSize;
+		float xstartRight = 1750f / refrenceSize;
+		float ystart = -1300f / refrenceSize;
+		float camSize = Camera.main.orthographicSize;
+
 		//Code to place and scale the graphics for keys
 		for(int i = 0; i < Globals.NUM_KEYS_PER_PLAYER; i++){
 			KeyUIScript kui = Instantiate(keyUIPrefab);
 			keyUIP1[i] = kui;
 			kui.setSprite(p1Keys[i]);
-			kui.x = -2450 + i % 5 * 200;
-			kui.y = -1300;
+			kui.x = xstartLeft * camSize + i % 5 * seperation * camSize;
+			kui.y = ystart * camSize;
+			kui.z = -100;
 		}
 		
 		for(int i = 0; i < Globals.NUM_KEYS_PER_PLAYER; i++){
 			KeyUIScript kui = Instantiate(keyUIPrefab);
 			keyUIP2[i] = kui;
 			kui.setSprite(p2Keys[i]);
-			kui.x = 1650 + i % 5 * 200;
-			kui.y = -1300;
+			kui.x = xstartRight * camSize + i % 5 * seperation * camSize;
+			kui.y = ystart * camSize;
+			kui.z = -100;
 		}
 	}
 
