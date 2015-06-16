@@ -16,7 +16,9 @@ public class InputManagerScript : MonoBehaviour {
 	KeyCode[] p2Keys;
 	AudioSource audioSource;
 	public AudioClip p1Audio;
+	public AudioClip p1AudioIncorrect;
 	public AudioClip p2Audio;
+	public AudioClip p2AudioIncorrect;
 	private List<KeyScript> ksToClear; //Temporarily tracks the key scripts that need to be removed due to a transaction.
 
 	public bool p1Active {get; set;}
@@ -93,9 +95,10 @@ public class InputManagerScript : MonoBehaviour {
 								mask.gameObject.GetComponent<MeshRenderer>().material.color = Globals.PLAYER_ONE_COLOR; 
 								mask.gameObject.GetComponentInChildren<TrailRenderer>().material.SetColor("_TintColor", Globals.PLAYER_ONE_COLOR);
 
+								targetKs1 = ks;
+
 								audioSource.clip = p1Audio;
 								audioSource.Play ();
-								targetKs1 = ks;
 								
 								ksToClear.Add (ks);
 							}
@@ -150,6 +153,8 @@ public class InputManagerScript : MonoBehaviour {
 							//At least one key is wrong, set universal timeout
 							//Set cooldown for all keys
 							for (int j = 0; j < Globals.NUM_KEYS_PER_PLAYER; j++) {
+								audioSource.clip = p1AudioIncorrect;
+								audioSource.Play ();
 								lockOutP1 [j] = LOCKOUT_TIME;
 								keyUIP1 [j].SetCooldown ();
 							}
@@ -176,8 +181,9 @@ public class InputManagerScript : MonoBehaviour {
 								mask.gameObject.GetComponentInChildren<TrailRenderer>().material.SetColor("_TintColor", Globals.PLAYER_TWO_COLOR);
 
 								targetKs2 = ks;
+
 								audioSource.clip = p2Audio;
-								audioSource.Play ();
+								audioSource.Play();
 
 								ksToClear.Add (ks);
 							}
@@ -231,6 +237,8 @@ public class InputManagerScript : MonoBehaviour {
 							//At least one key is wrong, set universal timeout
 							//Set cooldown for all keys
 							for (int j = 0; j < Globals.NUM_KEYS_PER_PLAYER; j++) {
+								audioSource.clip = p2AudioIncorrect;
+								audioSource.Play();
 								lockOutP2 [j] = LOCKOUT_TIME;
 								keyUIP2 [j].SetCooldown ();
 							}
