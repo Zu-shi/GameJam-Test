@@ -1,12 +1,19 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class StateManager {
+public class StateManager{
 	public static List<KeyScript> P1ActiveKeys = new List<KeyScript>();
 	public static List<KeyScript> P2ActiveKeys = new List<KeyScript>();
-	public static List<KeyScript>[] activeKeysDirectory = {
+	public static List<KeyScript>[] activeKeysList = {
 		null, P1ActiveKeys, P2ActiveKeys
 	};
 
+	public static GameObject[] planets;
+
+	public static void ClearActiveKeys(){
+		P1ActiveKeys.Clear ();
+		P2ActiveKeys.Clear ();
+		activeKeysList[0] = null;
+	}
 }

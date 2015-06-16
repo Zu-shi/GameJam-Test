@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 473100}
   - 212: {fileID: 21251092}
-  - 114: {fileID: 11437354}
+  - 114: {fileID: 11477578}
   m_Layer: 0
   m_Name: Keys_UI
   m_TagString: Untagged
@@ -26,7 +26,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 478190}
   - 212: {fileID: 21234898}
-  - 114: {fileID: 11477578}
+  - 114: {fileID: 11409270}
   m_Layer: 0
   m_Name: shadow
   m_TagString: Untagged
@@ -59,31 +59,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 473100}
   m_RootOrder: 0
---- !u!114 &11437354
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 145352}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8c8295a96945451d8a960461c12da36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyQ: {fileID: 21300000, guid: 0b5757da61a7a4cb98bd2b25c57775ab, type: 3}
-  keyW: {fileID: 21300000, guid: 4a07c32b8bc7d48a696ed3eb7a1a42db, type: 3}
-  keyE: {fileID: 21300000, guid: f5b81dfcce118482fb724d475e4cefc7, type: 3}
-  keyA: {fileID: 21300000, guid: 430b44323dd47444f8d3770c0db08f88, type: 3}
-  keyS: {fileID: 21300000, guid: 275c52c8a8ca64a008cc1bbf75273818, type: 3}
-  keyD: {fileID: 21300000, guid: c8c696b9dd4574eb7997b7485fea8ae9, type: 3}
-  keyI: {fileID: 21300000, guid: 250812f7d04e942b2b9e3f8894fe4be5, type: 3}
-  keyO: {fileID: 21300000, guid: 62dcf18bece92427daccfbdfc0b3bcd1, type: 3}
-  keyP: {fileID: 21300000, guid: 31cce68cf40fc41c58ae7ce27916b5a1, type: 3}
-  keyJ: {fileID: 21300000, guid: b8222fa4b74d841e8bd3a7555f4ebee6, type: 3}
-  keyK: {fileID: 21300000, guid: f888260bcf420444f91b5e8b7f354798, type: 3}
-  keyL: {fileID: 21300000, guid: 471fa646943de480ea0d131060f322e1, type: 3}
-  keyCode: 0
---- !u!114 &11477578
+--- !u!114 &11409270
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -94,6 +70,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c994818648fc1417790695ed28907b1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11477578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 145352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8c8295a96945451d8a960461c12da36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key1: {fileID: 21300000, guid: 8ae50ea50d77f4d49aa43e0b3d2f974f, type: 3}
+  key2: {fileID: 21300000, guid: 86eafee304ba964449c8d0e4dd360137, type: 3}
+  key3: {fileID: 21300000, guid: c474c86c7cee07a4f97f4524789a156a, type: 3}
+  key4: {fileID: 21300000, guid: 8f59e31bde87c9d4590d075320932dc8, type: 3}
+  key5: {fileID: 21300000, guid: bf926a84598092944b65af020bb8df8c, type: 3}
+  key6: {fileID: 21300000, guid: e85dd68d9d42a184ea4912879e970f54, type: 3}
+  key7: {fileID: 21300000, guid: 364847bebfea3b642a1d251e544e71b7, type: 3}
+  key8: {fileID: 21300000, guid: d06ea418971f104469cff7d60e26fce8, type: 3}
+  key9: {fileID: 21300000, guid: 46ca34e0696e51e4b9e43b595ffe28df, type: 3}
+  key0: {fileID: 21300000, guid: f42ba5e6bad0d8246918fd29817496ea, type: 3}
+  keyCode: 0
 --- !u!212 &21234898
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -117,7 +115,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1265042691
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 52b23c997991f4bf6b69b85a881fea34, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21251092

@@ -10,8 +10,8 @@ public class BacktoMain : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKey (KeyCode.Space)) {
-			Destroy( GameObject.FindGameObjectWithTag ("Audio"));
+		if (Input.GetKey (KeyCode.Return)) {
+			StateManager.ClearActiveKeys();
 			Application.LoadLevel("MainMenu");
 		}
 	}

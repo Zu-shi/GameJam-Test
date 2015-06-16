@@ -2,6 +2,15 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
+/* Description: This script takes a name from an array of names and
+ * assigns the name to a planet mask. However, if the name of the planet's wearer has been 
+ * manually changed, that name is kept instead.
+ * In order to manually change planet name:
+ * 1. Drag "Orbit" prefab onto hierarchy (or use one already in hierarchy)
+ * 2. Click on the "Planet" child of the "Orbit"
+ * 3. Change name of "Planet" object
+ * And now you manually changed the planet name yay!
+ */
 public class NameManager : MonoBehaviour {
 
 	public GameObject connector;
@@ -9,18 +18,23 @@ public class NameManager : MonoBehaviour {
 	public _Mono homeConnectorP2prefab;
 	private _Mono homeConnectorP1;
 	private _Mono homeConnectorP2;
+	public int fontSize; // used to manually set font size. CHANGES FONT SIZE OF ALL PLANETS ON SCREEN
 	string[] planetNames;
 	Dictionary<GameObject, GameObject> planetToName;
 	Vector3[] positions;
 	bool generatedList = false;
 	bool generatedPosition = false;
 	int planetCount;
-	// Use this for initialization
+
 	void Start ()
 	{
+		// used to get total # of planets
 		planetCount = 0;
+
+		// relates a planet object to a name connector object
 		planetToName = new Dictionary<GameObject, GameObject> ();
 
+		// array of possible planet names
 	 	planetNames = new string[37];
 
 		planetNames [0] = "Hermes";
@@ -28,11 +42,11 @@ public class NameManager : MonoBehaviour {
 		planetNames [2] = "Helen";
 		planetNames [3] = "Kepler-20a";
 		planetNames [4] = "Kepler-20b";
-		planetNames [5] = "Uranus";
-		planetNames [6] = "Neptune";
+		planetNames [5] = "Ocampa";
+		planetNames [6] = "Minerva";
 		planetNames [8] = "Wilkening";
-		planetNames [7] = "Zuoming";
-		planetNames [9] = "Pluto";
+		planetNames [7] = "Zoom";
+		planetNames [9] = "Scilla";
 		planetNames [10] = "Ceres";
 		planetNames [11] = "Haumea";
 		planetNames [12] = "Eris";
@@ -41,14 +55,14 @@ public class NameManager : MonoBehaviour {
 		planetNames [15] = "Farm";
 		planetNames [16] = "Emerion";
 		planetNames [17] = "Andromeda";
-		planetNames [18] = "Charmander";
+		planetNames [18] = "Vega";
 		planetNames [19] = "Ire";
 		planetNames [20] = "Sarina";
 		planetNames [21] = "Lewis";
-		planetNames [22] = "0x00";
-		planetNames [23] = "Hades";
+		planetNames [22] = "Zarathustra";
+		planetNames [23] = "Onyx";
 		planetNames [24] = "Gilgamesh";
-		planetNames [25] = "Laos";
+		planetNames [25] = "Darwin";
 		planetNames [26] = "Media";
 		planetNames [27] = "Dune";
 		planetNames [28] = "Cookie";
@@ -60,65 +74,153 @@ public class NameManager : MonoBehaviour {
 		planetNames [34] = "Tattooine";
 		planetNames [35] = "Krypton";
 		planetNames [36] = "Qo'noS";
+	}
 
-		int i = 1;
-		// assign a name to each planet
-		// make a GUI text and sprite for each on right
+	void Update() {
+		// update name text color based on planet owner
+		// *Feel free to make colors more visually appealling*
+
+		if (generatedList) {
+
+			foreach (KeyValuePair<GameObject, GameObject> obj in planetToName) {
+
+				OrbitingScript wearer = obj.Key.GetComponent<MaskScript> ().wearer;
+				TextMesh textMesh = obj.Value.GetComponentInChildren<TextMesh> ();
+				
+				if (wearer.currentOwner == 1) {
+					textMesh.color = Globals.PLAYER_ONE_COLOR; // player 1 color
+				} else if (wearer.currentOwner == 2) {
+					textMesh.color = Globals.PLAYER_TWO_COLOR; // player 2 color
+				} else {
+					textMesh.color = Globals.PLAYER_NEUTRAL_NAME_COLOR; // neutral color
+				}
+
+			}
+		}
 
 	}
 	
 	// Update is called once per frame
 	void LateUpdate ()
 	{
+
+		// fills planetToName dictionary and assigns name connectors' textfields
 		if (!generatedList) {	
-			int i = 1;
-			foreach (GameObject planet in GameObject.FindGameObjectsWithTag("Planet")) {
-					planetCount++;
-					GameObject obj = Instantiate(connector, planet.transform.position, Quaternion.identity) as GameObject;
-					obj.transform.GetChild(0).GetComponent<_Mono>().alpha = 0.8f;
-					planet.name = planetNames[i];
-					planetToName.Add(planet, obj);
-					TextMesh textMesh = planetToName[planet].GetComponentInChildren<TextMesh>();
-					textMesh.text = planetNames[i];
-					i++;
-			}
-			positions = new Vector3[planetCount];
-			generatedList = true;
+			
+			// (Ask Zuoming) but it does instantiate homeConnector prefabs =D
 			homeConnectorP1 = Instantiate(homeConnectorP1prefab);
 			homeConnectorP2 = Instantiate(homeConnectorP2prefab);
+			
+			bool homes = false;
+			int homesInt = 0;
+			int i = 0;
+			foreach (GameObject planet in GameObject.FindGameObjectsWithTag("Planet")) {
+				planetCount++;
+				GameObject obj = Instantiate(connector, planet.transform.position, Quaternion.identity) as GameObject;
+				obj.transform.GetChild(0).GetComponent<_Mono>().alpha = 0.8f;
+
+				// Changes name of planet mask to a name in theif wearer name has not been manually changed
+				// If it has been changed, then planet name is set to wearer name 
+				OrbitingScript wearer = planet.GetComponent<MaskScript>().wearer;
+				if (wearer.name == "Planet") {
+					planet.name = planetNames[i];
+					i++; // to get next name in array
+				} else {
+					// assign wearer name to planet if it has been manually changed
+					planet.name = wearer.name;
+				}
+
+				// relate planet to name label object and set name label text
+				planetToName.Add(planet, obj); 
+				TextMesh textMesh = planetToName[planet].GetComponentInChildren<TextMesh>();
+				textMesh.text = planet.name.ToUpper(); // set text of name label to current planet name
+
+				// if fontSize has been manually set, change fontSize of name label
+				if (fontSize > 0) {
+
+					textMesh.fontSize = fontSize;
+				}
+
+				// Check for which home planets are on screen and
+				// enable/disable home label connectors correspondingly
+				if (wearer.home) {
+					homes = true;
+					homesInt += wearer.currentOwner;
+					if(wearer.currentOwner == 1){
+						Globals.PLAYER_ONE_HOME_NAME = planet.name.Replace(" Home", "");
+					}else if(wearer.currentOwner == 2){
+						Globals.PLAYER_TWO_HOME_NAME = planet.name.Replace(" Home", "");
+					}
+				}
+			}
+			
+			if (!homes) {
+				homeConnectorP1.gameObject.SetActive(false);
+				homeConnectorP2.gameObject.SetActive(false);
+			} else if (homesInt == 1) 
+				homeConnectorP2.gameObject.SetActive(false);
+			else if (homesInt == 2)
+				homeConnectorP1.gameObject.SetActive(false);
+
+			// create positions array to hold offsets for each name label  
+			positions = new Vector3[planetCount];
+			generatedList = true;
 		}
 
-		/*if (!generatedPosition) {	
-			foreach (GameObject planet in GameObject.FindGameObjectsWithTag("Planet")) {
-				Vector3 offset = getUpperRight (planet);
-				planetToPosition.Add (planet, offset);
-				
-			}
-			//generatedPosition = true;
-		//}*/
-
+		// used in generating positions[] values
 		int j = 0;
-		//keeps name a constant distance from planet
+
+		//keeps name label a constant distance from planet
 		foreach (GameObject planet in GameObject.FindGameObjectsWithTag("Planet")) {
+
+			// get the name label associated with current planet
 			GameObject textObj = planetToName[planet];
+
+			// (read comments of getUpperRight)
 			Vector3 offset = getUpperRight(planet);
-			if (j == planetCount)
+
+			// check if all positions[] have been set
+			if (j == planetCount && !generatedPosition) {
 				generatedPosition = true;
-			if (!generatedPosition && j < planetCount) {
+			}
+
+			// generate values for positions[] array 
+			// if all positions haven't been generated
+			if (!generatedPosition) {
 				positions[j] = offset;
 			}
-			textObj.transform.position = planet.transform.position + new Vector3(30f, 0f, 0f) + positions[j];
-			if(planet.GetComponent<MaskScript>().wearer.home && planet.GetComponent<MaskScript>().wearer.owner == 1){
-				homeConnectorP1.xyz = planet.transform.position + new Vector3(-30f, 0f, 0f) + positions[j];
-			}else if(planet.GetComponent<MaskScript>().wearer.home && planet.GetComponent<MaskScript>().wearer.owner == 2){
-				homeConnectorP2.xyz = planet.transform.position + new Vector3(-30f, 0f, 0f) + positions[j];
+
+			// used to check if planet is home & currentOwner
+			MaskScript ms = planet.GetComponent<MaskScript>();
+			OrbitingScript os = ms.wearer;
+
+			// set position of name label in respect to current planet position
+			textObj.transform.position = planet.transform.position + new Vector3(40f, 0f, 0f) + positions[j];
+
+			// if home planet, also set position of home label
+			if(!Globals.gameOverManager.gameOver){
+				if(os.home && os.currentOwner == 1) {
+					homeConnectorP1.xyz = planet.transform.position + new Vector3(-30f, 0f, 0f) + positions[j];
+				} else if(os.home && os.currentOwner == 2) {
+					homeConnectorP2.xyz = planet.transform.position + new Vector3(-30f, 0f, 0f) + positions[j];
+				}
 			}
+
+			// get next position to generate (doesn't matter after positions[] are generated)
+			j++;
 		}
 	}
 
+	public void DestroyHomeConnectors(){
+		Destroy(homeConnectorP1.gameObject);
+		Destroy(homeConnectorP2.gameObject);
+	}
+
+	// returns vector3 which gives the approximate vector which when
+	// added to the location vector3 of the GameObject parameter
+	// gives the vector3 corresponding to the location of the GameObj
 	Vector3 getUpperRight(GameObject obj) {
 		Bounds bnd = obj.GetComponent<Renderer> ().bounds;
-		//return (new Vector3 (2*bnd.extents.x/3 - bnd.size.x/7, 2*bnd.extents.y/3 - bnd.size.y/7, 0));
 		return (new Vector3 (bnd.size.x/2, bnd.size.y/2, 0));
 	}
 }

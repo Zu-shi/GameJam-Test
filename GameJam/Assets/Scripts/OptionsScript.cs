@@ -4,7 +4,7 @@ using System.Collections;
 public class OptionsScript : MonoBehaviour {
 
 
-
+	public static OptionsScript i;
 	private bool menuEnabled = false;
 
 	public float speedAdjust = 1;
@@ -46,7 +46,11 @@ public class OptionsScript : MonoBehaviour {
 	}
 
 	void Awake(){
-		DontDestroyOnLoad (transform.gameObject);
+		if(i==null) {
+			i = this;
+			DontDestroyOnLoad(gameObject);
+		}else 
+			Destroy(this);
 	}
 
 	void OpenCredits() {
