@@ -1614,7 +1614,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 191568, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_Name
-      value: Samsara
+      value: Orrery
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11455568, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
