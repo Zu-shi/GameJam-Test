@@ -16,7 +16,7 @@ public class TutorialGUITextScript : _Mono
 
 	// hold string reps of HTML form hexidecimal color
 	// form: #XXXXXX
-	string p1HexColor, p2HexColor, titleHexColor;
+	string p1HexColor, p2HexColor;
 
 	// the text component of this object
 	public Text theText { get; private set; }
@@ -38,7 +38,6 @@ public class TutorialGUITextScript : _Mono
 
 		// Get title's #hexcode right now it is just neutral color  T^T
 		// feel free to make a global variable for title color and change this
-		titleHexColor = "#" + colorToHex (Globals.PLAYER_NEUTRAL_COLOR);
 
 		thisRect = GetComponent<RectTransform> ();
 		//parentRect = GetComponentInParent<RectTransform> ();
@@ -101,13 +100,6 @@ public class TutorialGUITextScript : _Mono
 			string replacement = "<color=" + p2HexColor + ">Player 2</color>";
 			txt = txt.Replace ("Player 2", replacement);
 		}
-
-		/*
-		if (txt.ToUpper ().Contains ("STELLAR LEAP")) {
-			string replacement = "<color=" + titleHexColor + ">STELLAR LEAP</color>";
-			txt = txt.ToUpper ().Replace ("STELLAR LEAP", replacement);
-		}
-		*/
 
 		if (txt.Contains ("P1")) {
 			string replacement = "<color=" + p1HexColor + ">P1</color>";
