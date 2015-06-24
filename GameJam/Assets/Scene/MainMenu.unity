@@ -1335,16 +1335,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1241556920}
-        m_MethodName: OpenCredits
-        m_Mode: 1
+      - m_Target: {fileID: 1555682405}
+        m_MethodName: loadLevel
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Credits
           m_BoolArgument: 0
         m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -1551,48 +1551,7 @@ MonoBehaviour:
   keyPrefab: {fileID: 289198498}
   newKeyCode: 52
   previewsPrefab: {fileID: 1577319125}
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 401966, guid: 87130a17553ef427d8ff0b37e1ea7d95, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 423.383057
-      objectReference: {fileID: 0}
-    - target: {fileID: 401966, guid: 87130a17553ef427d8ff0b37e1ea7d95, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 5.95028687
-      objectReference: {fileID: 0}
-    - target: {fileID: 401966, guid: 87130a17553ef427d8ff0b37e1ea7d95, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 401966, guid: 87130a17553ef427d8ff0b37e1ea7d95, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 401966, guid: 87130a17553ef427d8ff0b37e1ea7d95, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 401966, guid: 87130a17553ef427d8ff0b37e1ea7d95, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 401966, guid: 87130a17553ef427d8ff0b37e1ea7d95, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 401966, guid: 87130a17553ef427d8ff0b37e1ea7d95, type: 2}
-      propertyPath: m_RootOrder
-      value: 15
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 87130a17553ef427d8ff0b37e1ea7d95, type: 2}
-  m_IsPrefabParent: 0
---- !u!1 &1479314916
+--- !u!1 &1479314916 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 191568, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
   m_PrefabInternal: {fileID: 1005729103}
@@ -1665,6 +1624,12 @@ Prefab:
 GameObject:
   m_PrefabParentObject: {fileID: 162286, guid: f6676b4203b85f74a8debbae832a0570, type: 2}
   m_PrefabInternal: {fileID: 1103805453}
+--- !u!114 &1555682405 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11439462, guid: f6676b4203b85f74a8debbae832a0570,
+    type: 2}
+  m_PrefabInternal: {fileID: 1103805453}
+  m_Script: {fileID: 11500000, guid: f1188a29ab9f6ca458a51ee9a31428ca, type: 3}
 --- !u!1 &1577319124 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 105768, guid: f5fa1c8595b96444ca0f3fe09ba5dbbe, type: 2}
