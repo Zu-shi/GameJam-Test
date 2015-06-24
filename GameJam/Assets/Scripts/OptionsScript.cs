@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class OptionsScript : MonoBehaviour {
@@ -53,7 +54,14 @@ public class OptionsScript : MonoBehaviour {
 			Destroy(this);
 	}
 
-	void OpenCredits() {
+	public void loadLevel( string name ){
+		Application.LoadLevel (name);
+	}
+
+	public void OpenCredits() {
+		print ("come on");
+		Debug.Log ("before load");
 		Application.LoadLevel ("Credits");
+		Debug.Log ("after load");
 	}
 }
