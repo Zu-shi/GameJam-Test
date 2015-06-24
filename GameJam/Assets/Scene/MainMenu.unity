@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .779411793, g: .568512142, b: .252162635, a: 1}
+  m_Color: {r: .992647052, g: .627703309, b: .0802876502, a: 1}
   m_FontData:
     m_Font: {fileID: 12800000, guid: f2f094ab8dda346f8974fb4ef96212b4, type: 3}
     m_FontSize: 35
@@ -204,7 +204,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 191568, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_Name
-      value: Bread Loaf
+      value: Pastry
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11455568, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
@@ -649,7 +649,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 191568, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
       propertyPath: m_Name
-      value: Eyeballs
+      value: Eyes
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11455568, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
@@ -1549,7 +1549,48 @@ MonoBehaviour:
   keyPrefab: {fileID: 289198498}
   newKeyCode: 52
   previewsPrefab: {fileID: 1577319125}
---- !u!1 &1479314916 stripped
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 401966, guid: 87130a17553ef427d8ff0b37e1ea7d95, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 423.383057
+      objectReference: {fileID: 0}
+    - target: {fileID: 401966, guid: 87130a17553ef427d8ff0b37e1ea7d95, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 5.95028687
+      objectReference: {fileID: 0}
+    - target: {fileID: 401966, guid: 87130a17553ef427d8ff0b37e1ea7d95, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 401966, guid: 87130a17553ef427d8ff0b37e1ea7d95, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 401966, guid: 87130a17553ef427d8ff0b37e1ea7d95, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 401966, guid: 87130a17553ef427d8ff0b37e1ea7d95, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 401966, guid: 87130a17553ef427d8ff0b37e1ea7d95, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 401966, guid: 87130a17553ef427d8ff0b37e1ea7d95, type: 2}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 87130a17553ef427d8ff0b37e1ea7d95, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &1479314916
 GameObject:
   m_PrefabParentObject: {fileID: 191568, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
   m_PrefabInternal: {fileID: 1005729103}
@@ -1926,7 +1967,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 470062, guid: cc399ba0399054798a40827dfe2b9acf, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -423
+      value: -420
       objectReference: {fileID: 0}
     - target: {fileID: 470062, guid: cc399ba0399054798a40827dfe2b9acf, type: 2}
       propertyPath: m_LocalPosition.y

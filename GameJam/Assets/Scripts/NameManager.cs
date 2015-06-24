@@ -119,6 +119,12 @@ public class NameManager : MonoBehaviour {
 				GameObject obj = Instantiate(connector, planet.transform.position, Quaternion.identity) as GameObject;
 				obj.transform.GetChild(0).GetComponent<_Mono>().alpha = 0.8f;
 
+				//Adjust the name label so that it is always in the right position
+				if(!Globals.inGame)
+				{
+					obj.transform.GetChild(0).GetComponent<_Mono>().localX = 0.55f;
+					obj.transform.GetChild(0).GetComponent<_Mono>().localY = 0.24f;
+				}
 				// Changes name of planet mask to a name in theif wearer name has not been manually changed
 				// If it has been changed, then planet name is set to wearer name 
 				OrbitingScript wearer = planet.GetComponent<MaskScript>().wearer;
