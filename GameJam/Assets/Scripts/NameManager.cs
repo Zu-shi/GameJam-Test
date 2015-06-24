@@ -79,6 +79,7 @@ public class NameManager : MonoBehaviour {
 	void Update() {
 		// update name text color based on planet owner
 		// *Feel free to make colors more visually appealling*
+
 		if (generatedList) {
 
 			foreach (KeyValuePair<GameObject, GameObject> obj in planetToName) {
@@ -96,6 +97,7 @@ public class NameManager : MonoBehaviour {
 
 			}
 		}
+
 	}
 	
 	// Update is called once per frame

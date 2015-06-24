@@ -665,6 +665,22 @@ Prefab:
       propertyPath: m_Name
       value: Middle Star
       objectReference: {fileID: 0}
+    - target: {fileID: 10806242, guid: cc399ba0399054798a40827dfe2b9acf, type: 2}
+      propertyPath: m_Color.r
+      value: .261461914
+      objectReference: {fileID: 0}
+    - target: {fileID: 10806242, guid: cc399ba0399054798a40827dfe2b9acf, type: 2}
+      propertyPath: m_Color.g
+      value: .911764681
+      objectReference: {fileID: 0}
+    - target: {fileID: 10806242, guid: cc399ba0399054798a40827dfe2b9acf, type: 2}
+      propertyPath: m_Color.b
+      value: .508128643
+      objectReference: {fileID: 0}
+    - target: {fileID: 10806242, guid: cc399ba0399054798a40827dfe2b9acf, type: 2}
+      propertyPath: m_Color.a
+      value: .686274529
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc399ba0399054798a40827dfe2b9acf, type: 2}
   m_IsPrefabParent: 0

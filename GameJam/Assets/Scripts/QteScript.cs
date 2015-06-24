@@ -52,7 +52,6 @@ public class QteScript : _Mono {
 	
 	// Update is called once per frame
 	void Update () {
-
 		//Gets the mask of this orbiting planet
 		GameObject thisPlanet = this.GetComponent<OrbitingScript>().mask.gameObject;
 
@@ -155,7 +154,7 @@ public class QteScript : _Mono {
 				}
 			}	
 		}
-		
+
 	}
 
 	KeyCode generateNonClashingKey(int owner){

@@ -13,6 +13,7 @@ public class OrbitingScript : _Mono {
 	GameObject orbit;
 	_Mono orbitMono;
 	float t;
+	public float startAngle;
 	float speedAdjust;
 	public float period = 2f; //How long it takes for the planet to circle around
 	//private float time;
@@ -24,6 +25,7 @@ public class OrbitingScript : _Mono {
 
 	// Use this for initialization
 	void Start () {
+
 		if(home){
 			ownerOfHome = currentOwner;
 		}
@@ -40,6 +42,15 @@ public class OrbitingScript : _Mono {
 		mask.GetComponent<MaskScript>().wearer = this;
 		mask.tag = "Planet";
 
+		if(mask.GetComponent<SpriteRenderer>() != null){
+			//2D image
+			mask.xys = xys * (orbitMono.xs + orbitMono.ys) / 2f;
+		}else{
+			//3D image
+			mask.xys = xys * (orbitMono.xs + orbitMono.ys) / 2f * CIRCLE_SIZE;
+			mask.zs = mask.xs;
+		}
+
 		//Time = period / 4f * 3f
 		//Debug.Log (mask.GetComponent<TrailRenderer>().time);
 		//mask.GetComponent<TrailRenderer>().time = (period / 4f) * 3f;
@@ -49,8 +60,7 @@ public class OrbitingScript : _Mono {
 		//keeps track of the default radius from observing where the planet is placed in relation to the orbit.
 		orbitRadius = Mathf.Sqrt(Mathf.Pow(localX, 2f) + Mathf.Pow(localY, 2f));
 		//Sets the starting t (time value for parametric function outputting position of planet at all frames
-		t = Mathf.Atan2(localY, localX);
-
+		t = Mathf.Atan2(localY, localX) + startAngle * Mathf.Deg2Rad;
 		//Options (ask Trevor)
 		GameObject optionsObj = GameObject.Find ("Options");
 		persistentOptions = optionsObj.GetComponent<OptionsScript> ();
@@ -80,14 +90,7 @@ public class OrbitingScript : _Mono {
 		float realPeriod = period * persistentOptions.speedAdjust;
 		//mask.GetComponentInChildren<TrailRenderer>().time = (Mathf.Abs(realPeriod * 2) / 4f) * 3f;
 		//This dynamically controls the size of the "mask", that is, the visual appearance of the object
-		if(mask.GetComponent<SpriteRenderer>() != null){
-			//2D image
-			mask.xys = xys * (orbitMono.xs + orbitMono.ys) / 2f;
-		}else{
-			//3D image
-			mask.xys = xys * (orbitMono.xs + orbitMono.ys) / 2f * CIRCLE_SIZE;
-			mask.zs = mask.xs;
-		}
+
 		mask.xy = xy; //sets its position
 		float frameRate = 1.0f / Time.deltaTime;
 		if(Globals.Debug){Debug.Log (frameRate);}
