@@ -18,9 +18,10 @@ public class QteScript : _Mono {
 	bool generateKeyMap = true; //Flag to delay the generation of a list of keys until after all planets called Start()
 	public bool customDistance = false; //To be checked to allow detection for custom distances.
 	public float MAX_DISTANCE_FOR_DETECTION = 575f; 
-
+	bool firstFrame;
 	// Use this for initialization
 	void Start () {
+		firstFrame = true;;
 		if(!customDistance){
 			MAX_DISTANCE_FOR_DETECTION = Globals.MAX_DISTANCE_FOR_DETECTION;
 		}
@@ -52,6 +53,11 @@ public class QteScript : _Mono {
 	
 	// Update is called once per frame
 	void Update () {
+		// Disable stuff for first frame so that keys don't appear where they shouldn't at frame 1
+		if (firstFrame) {
+			firstFrame = false;
+			return;
+		}
 		//Gets the mask of this orbiting planet
 		GameObject thisPlanet = this.GetComponent<OrbitingScript>().mask.gameObject;
 
