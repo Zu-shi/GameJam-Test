@@ -713,6 +713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1188a29ab9f6ca458a51ee9a31428ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menuEnabled: 0
   speedAdjust: 1
 --- !u!114 &947790777
 MonoBehaviour:
@@ -1251,6 +1252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1188a29ab9f6ca458a51ee9a31428ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menuEnabled: 0
   speedAdjust: 1
 --- !u!114 &1241556921
 MonoBehaviour:
