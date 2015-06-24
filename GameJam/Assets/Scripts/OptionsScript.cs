@@ -5,7 +5,7 @@ public class OptionsScript : MonoBehaviour {
 
 
 	public static OptionsScript i;
-	private bool menuEnabled = false;
+	public bool menuEnabled = false;
 
 	public float speedAdjust = 1;
 
