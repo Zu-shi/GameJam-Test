@@ -27,6 +27,7 @@ public class TutorialGameControllerScript : _Mono
 	// all needed to access certain variables
 	OptionsScript os;
 	InputManagerScript im;
+	BacktoMain btm;
 
 	// speeds to pause/start the game
 	float pauseSpeed = 1000;
@@ -85,8 +86,15 @@ public class TutorialGameControllerScript : _Mono
 		// get necessary components
 		os = GameObject.Find ("Options").GetComponent<OptionsScript> ();
 		im = GameObject.Find ("InputManager").GetComponent<InputManagerScript> ();
+		btm = GameObject.Find ("GameOverManager").GetComponent<BacktoMain> ();
+
+		// disable pressing 'enter' to go to main menu for opening screen
+		btm.enabled = false;
 
 		startSpeed = os.speedAdjust;
+
+		if (startSpeed >= pauseSpeed)
+			startSpeed = 1;
 
 		// pause game until player clicks enter button to start
 		pauseGame ();
@@ -101,6 +109,14 @@ public class TutorialGameControllerScript : _Mono
 	// Update is called once per frame
 	void Update ()
 	{
+		if (os.menuEnabled)
+			os.menuEnabled = false;
+
+		if (btm.enabled && Input.GetKeyDown (KeyCode.Return)) {
+
+			os.speedAdjust = startSpeed;
+
+		}
 
 		// change startSpeed depending of if player changes speed manually
 		if (os.speedAdjust < pauseSpeed && os.speedAdjust != startSpeed) {
@@ -108,10 +124,7 @@ public class TutorialGameControllerScript : _Mono
 			Debug.Log ("Start Speed Changed = " +startSpeed);
 		}
 	
-		// start game on "1" press
 		if (!sceneComplete [0]) {
-			// don't allow player to manually change game speed until after game starts
-			// can't do this^ yet because menuEnabled is private in OptionsScript but one day...
 			firstInstruct ();
 
 		} else {
@@ -124,6 +137,10 @@ public class TutorialGameControllerScript : _Mono
 		// When home-planet 1 gets close enough to planet pause
 		// game then have UI box appear with instructions
 		if (sceneComplete [1]) {
+
+			if (!btm.enabled)
+				btm.enabled = true;
+
 			if (!sceneComplete [2]) {
 				p1 (); //p1 instruction
 			}
@@ -204,7 +221,8 @@ public class TutorialGameControllerScript : _Mono
 
 		if (!scaled) {
 			
-			int bigFontSize = (int)(introText.theText.fontSize * 1.4 - 1f);
+			int bigFontSize = (int)(introText.theText.fontSize * 1.4f - 1f);
+			int smallFontSize = (int)(introText.theText.fontSize * 0.8f - 1f);
 
 			RectTransform introRect = introPanel.GetComponent<RectTransform> ();
 			introRect.localScale = introRect.localScale * 0.7f;
@@ -214,7 +232,9 @@ public class TutorialGameControllerScript : _Mono
 				+ "to capture a planet are randomly generated from your set so make sure to press the correct one!\n\n"
 				+ "If you don't, you'll have to wait a while before you can press another key.\n\n"
 				+ "<size=" + bigFontSize + "><color=red>READY?!</color></size>\n\n"
-				+ "Press 'B' to go back to the previous instruction or\nPress any other key to begin!");
+				+ "<size=" + smallFontSize + ">Press 'B' to go back to the previous instruction\n"
+			    + "Press 'Enter' at any time to return to the main menu</size>\n"
+			    + "<color=red>Press any other key to begin!</color>");
 			// start blinking arrows
 			showArrows (true);
 			scaled = true;
@@ -235,7 +255,7 @@ public class TutorialGameControllerScript : _Mono
 
 			// go back if 'b' else start game
 			if (Input.GetKey (KeyCode.B)) {
-				Debug.Log ("B pressed");
+
 				scaled = false;
 				sceneComplete [0] = false;
 				
