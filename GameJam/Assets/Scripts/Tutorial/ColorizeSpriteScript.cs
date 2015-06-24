@@ -18,10 +18,10 @@ public class ColorizeSpriteScript : _Mono {
 		switch(colorString) {
 			
 		case "player1":
-			spriteRenderer.color = Globals.PLAYER_ONE_COLOR;
+			spriteRenderer.color = Globals.PLAYER_ONE_ARROW_COLOR;
 			break;
 		case "player2":
-			spriteRenderer.color = Globals.PLAYER_TWO_COLOR;
+			spriteRenderer.color = Globals.PLAYER_TWO_ARROW_COLOR;
 			break;
 		case "neutral":
 			spriteRenderer.color = Globals.PLAYER_NEUTRAL_COLOR;

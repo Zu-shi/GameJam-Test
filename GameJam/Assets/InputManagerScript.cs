@@ -49,8 +49,8 @@ public class InputManagerScript : MonoBehaviour {
 
 		float refrenceSize = 1500f;
 		float seperation = 200f / refrenceSize;
-		float xstartLeft = -2550f / refrenceSize;
-		float xstartRight = 1750f / refrenceSize;
+		float xstartLeft = -2450f / refrenceSize;
+		float xstartRight = 1650f / refrenceSize;
 		float ystart = -1300f / refrenceSize;
 		float camSize = Camera.main.orthographicSize;
 
