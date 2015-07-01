@@ -153,7 +153,7 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 184255887}
---- !u!114 &289198498 stripped
+--- !u!114 &289198498
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11457772, guid: f5fa1c8595b96444ca0f3fe09ba5dbbe,
     type: 2}
@@ -252,7 +252,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 87130a17553ef427d8ff0b37e1ea7d95, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &552456809 stripped
+--- !u!1 &552456809
 GameObject:
   m_PrefabParentObject: {fileID: 191568, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
   m_PrefabInternal: {fileID: 1149833265}
@@ -789,7 +789,7 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 947790773}
---- !u!1 &951278693 stripped
+--- !u!1 &951278693
 GameObject:
   m_PrefabParentObject: {fileID: 191568, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
   m_PrefabInternal: {fileID: 452967455}
@@ -807,7 +807,7 @@ MonoBehaviour:
   keyPrefab: {fileID: 289198498}
   newKeyCode: 50
   previewsPrefab: {fileID: 1577319125}
---- !u!1 &978376298 stripped
+--- !u!1 &978376298
 GameObject:
   m_PrefabParentObject: {fileID: 191568, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
   m_PrefabInternal: {fileID: 930525960}
@@ -1533,7 +1533,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainClip: {fileID: 8300000, guid: 1985d5b0d667a484e80de11150522abe, type: 3}
   otherclip: {fileID: 8300000, guid: bfbf6a9c1717771409e2ad5510a85620, type: 3}
---- !u!1 &1385754711 stripped
+--- !u!1 &1385754711
 GameObject:
   m_PrefabParentObject: {fileID: 191568, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
   m_PrefabInternal: {fileID: 1552574826}
@@ -1551,7 +1551,7 @@ MonoBehaviour:
   keyPrefab: {fileID: 289198498}
   newKeyCode: 52
   previewsPrefab: {fileID: 1577319125}
---- !u!1 &1479314916 stripped
+--- !u!1 &1479314916
 GameObject:
   m_PrefabParentObject: {fileID: 191568, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
   m_PrefabInternal: {fileID: 1005729103}
@@ -1620,17 +1620,17 @@ Prefab:
     - {fileID: 11455568, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1555682403 stripped
+--- !u!1 &1555682403
 GameObject:
   m_PrefabParentObject: {fileID: 162286, guid: f6676b4203b85f74a8debbae832a0570, type: 2}
   m_PrefabInternal: {fileID: 1103805453}
---- !u!114 &1555682405 stripped
+--- !u!114 &1555682405
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11439462, guid: f6676b4203b85f74a8debbae832a0570,
     type: 2}
   m_PrefabInternal: {fileID: 1103805453}
   m_Script: {fileID: 11500000, guid: f1188a29ab9f6ca458a51ee9a31428ca, type: 3}
---- !u!1 &1577319124 stripped
+--- !u!1 &1577319124
 GameObject:
   m_PrefabParentObject: {fileID: 105768, guid: f5fa1c8595b96444ca0f3fe09ba5dbbe, type: 2}
   m_PrefabInternal: {fileID: 685352130}
@@ -1646,12 +1646,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialSprite: {fileID: 21300000, guid: c6945f18c82bc3343905041ea0b6ff2d, type: 3}
-  level1Sprite: {fileID: 21300000, guid: c474c86c7cee07a4f97f4524789a156a, type: 3}
-  level2Sprite: {fileID: 21300000, guid: 53e394f9fbd3248b9aba9a5cb7f77b5e, type: 3}
-  level3Sprite: {fileID: 21300000, guid: 57dca14f968da429987159a2ceb74008, type: 3}
-  level4Sprite: {fileID: 21300000, guid: 88b4c386c279d40e19d271eec643273e, type: 3}
+  level1Sprite: {fileID: 21300000, guid: c7806b3154198d843a67beba246e5214, type: 3}
+  level2Sprite: {fileID: 21300000, guid: 06813d3d120f09143af7890209876183, type: 3}
+  level3Sprite: {fileID: 21300000, guid: caa80aae39645004f81e406cdec2447b, type: 3}
+  level4Sprite: {fileID: 21300000, guid: 1e62062e3a0aa8544a8b48b626c2b5d9, type: 3}
   level5Sprite: {fileID: 21300000, guid: 2b864f195e7764f4188f3b3d6d591b71, type: 3}
---- !u!1 &1785231818 stripped
+--- !u!1 &1785231818
 GameObject:
   m_PrefabParentObject: {fileID: 191568, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
   m_PrefabInternal: {fileID: 1965359485}
