@@ -1445,11 +1445,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1241556916}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1188a29ab9f6ca458a51ee9a31428ca, type: 3}
+  m_Script: {fileID: 11500000, guid: 15dba85394d7137449fd48f49793f392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuEnabled: 0
-  speedAdjust: 1
 --- !u!114 &1241556921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1489,7 +1487,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 947790776}
+      - m_Target: {fileID: 1241556920}
         m_MethodName: loadLevel
         m_Mode: 5
         m_Arguments:
