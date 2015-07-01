@@ -1046,6 +1046,7 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
+  m_StereoMirrorMode: 0
 --- !u!4 &1074312998
 Transform:
   m_ObjectHideFlags: 0
@@ -1344,7 +1345,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc399ba0399054798a40827dfe2b9acf, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1650856404
+--- !u!1 &1650856404 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 105276, guid: cc399ba0399054798a40827dfe2b9acf, type: 2}
   m_PrefabInternal: {fileID: 1639234407}

@@ -4,6 +4,7 @@ using System.Collections;
 public class PreviewModeScript : MonoBehaviour {
 	static bool previewMode;
 	public Camera mainCam;
+	public KeyCode screenShotKey;
 	//public float setTrailTime;
 	// Use this for initialization
 	void Start () {
@@ -72,6 +73,22 @@ public class PreviewModeScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		MaskScript[] trails = FindObjectsOfType(typeof(MaskScript)) as MaskScript[];
+		for(int i = 0; i < trails.Length; i++)
+		{
+			TrailRenderer tr = trails[i].gameObject.GetComponentInChildren<TrailRenderer>();
+			tr.time = Mathf.Abs(trails[i].wearer.period * 4f);
+			tr.startWidth = 66f;
+			tr.endWidth = 33f;
+		}
+	if (Input.GetKeyDown (screenShotKey)) {
+			Application.CaptureScreenshot("C:/Screenshots/screenshot.png");
+		}
+		// Update is called once per frame
+
+			
+			
+			
+
 	}
 }
