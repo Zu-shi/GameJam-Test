@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using UnityEngine.UI;
 
 public class LevelPreviewScript : _Mono {
 	public Sprite tutorialSprite;
@@ -10,13 +11,14 @@ public class LevelPreviewScript : _Mono {
 	public Sprite level4Sprite;
 	public Sprite level5Sprite;
 	private GameObject levelPreview;
+	private GUIText previewText;
 	//Sprite[] levelPreviews = new Sprite[6];
 	//Vector3 previewPosition = new Vector3(-175,10,0);
 	//Sprite[] levelPreviews = new Sprite[6];
 
 	// Use this for initialization
 	void Start () {
-
+		previewText = GetComponentInChildren<GUIText> ();
 
 		//Vector2 previewPosition = new Vector2(70,-20);
 /*
@@ -41,6 +43,8 @@ public class LevelPreviewScript : _Mono {
 			// Case 0 is ignored because of the initial value of i in MenuKeys
 			case (1):
 				spriteRenderer.sprite = tutorialSprite;
+				previewText.text = "EYES /n" + "Press [1] to continue";
+			//Debug.Log(previewText.text);
 			break;
 			case (2):	
 				spriteRenderer.sprite = level1Sprite;

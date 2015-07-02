@@ -1,0 +1,13 @@
+﻿Changed PreviewScript
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch develop
+# Your branch is up-to-date with 'origin/develop'.
+#
+# Changes to be committed:
+#	modified:   GameJam/Assets/Scene/MainMenu.unity
+#	modified:   GameJam/Assets/Scripts/LevelPreviewScript.cs
+#	new file:   GameJam/Assets/Sprites/Previews/PreviewSetup.psd
+#	new file:   GameJam/Assets/Sprites/Previews/PreviewSetup.psd.meta
+#
+
