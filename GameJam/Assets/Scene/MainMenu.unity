@@ -480,7 +480,7 @@ GUIText:
   m_GameObject: {fileID: 747590946}
   m_Enabled: 1
   serializedVersion: 3
-  m_Text: This text refuses to change
+  m_Text: 
   m_Anchor: 0
   m_Alignment: 0
   m_PixelOffset: {x: 0, y: 0}
@@ -1689,10 +1689,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorialSprite: {fileID: 21300000, guid: c6945f18c82bc3343905041ea0b6ff2d, type: 3}
   level1Sprite: {fileID: 21300000, guid: 2b44335c3ac83e346a98d4fb85674b17, type: 3}
-  level2Sprite: {fileID: 21300000, guid: 06813d3d120f09143af7890209876183, type: 3}
-  level3Sprite: {fileID: 21300000, guid: caa80aae39645004f81e406cdec2447b, type: 3}
-  level4Sprite: {fileID: 21300000, guid: 1e62062e3a0aa8544a8b48b626c2b5d9, type: 3}
-  level5Sprite: {fileID: 21300000, guid: 2b864f195e7764f4188f3b3d6d591b71, type: 3}
+  level2Sprite: {fileID: 21300000, guid: 47920254864d0414e98c8cfcb0290320, type: 3}
+  level3Sprite: {fileID: 21300000, guid: c2796d57ae047524789e75cb7b541c84, type: 3}
+  level4Sprite: {fileID: 21300000, guid: 5d875d92fcb6ff549b74d7c989b90f7b, type: 3}
+  level5Sprite: {fileID: 21300000, guid: bfe1da1a55d77584a8e451a263d4df64, type: 3}
 --- !u!4 &1577319127 stripped
 Transform:
   m_PrefabParentObject: {fileID: 432630, guid: f5fa1c8595b96444ca0f3fe09ba5dbbe, type: 2}
