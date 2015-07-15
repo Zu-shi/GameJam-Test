@@ -333,7 +333,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 432630, guid: f5fa1c8595b96444ca0f3fe09ba5dbbe, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 595
+      value: 546
       objectReference: {fileID: 0}
     - target: {fileID: 432630, guid: f5fa1c8595b96444ca0f3fe09ba5dbbe, type: 2}
       propertyPath: m_LocalPosition.y
@@ -480,15 +480,17 @@ GUIText:
   m_GameObject: {fileID: 747590946}
   m_Enabled: 1
   serializedVersion: 3
-  m_Text: 
+  m_Text: 'Level Name
+
+    Press whatever'
   m_Anchor: 0
   m_Alignment: 0
   m_PixelOffset: {x: 0, y: 0}
-  m_LineSpacing: 1
+  m_LineSpacing: 1.20000005
   m_TabSize: 4
   m_Font: {fileID: 12800000, guid: c451a0006dd8e41dc9899271b87b89c3, type: 3}
   m_Material: {fileID: 0}
-  m_FontSize: 18
+  m_FontSize: 22
   m_FontStyle: 0
   m_Color:
     serializedVersion: 2
@@ -502,11 +504,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 747590946}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.95287514, y: .678250015, z: 0}
-  m_LocalScale: {x: .00833333377, y: .00833333377, z: 1}
+  m_LocalPosition: {x: .597000003, y: .275000006, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1577319127}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
 --- !u!1 &791411905
 GameObject:
   m_ObjectHideFlags: 0
@@ -1688,15 +1690,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialSprite: {fileID: 21300000, guid: a3b546f63face674b992f1cde88de73e, type: 3}
-  level1Sprite: {fileID: 21300000, guid: 2b44335c3ac83e346a98d4fb85674b17, type: 3}
+  level1Sprite: {fileID: 21300000, guid: 409cb8db69ca24f45abccf2043c7f3b6, type: 3}
   level2Sprite: {fileID: 21300000, guid: 47920254864d0414e98c8cfcb0290320, type: 3}
   level3Sprite: {fileID: 21300000, guid: c2796d57ae047524789e75cb7b541c84, type: 3}
   level4Sprite: {fileID: 21300000, guid: 5d875d92fcb6ff549b74d7c989b90f7b, type: 3}
   level5Sprite: {fileID: 21300000, guid: bfe1da1a55d77584a8e451a263d4df64, type: 3}
---- !u!4 &1577319127 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 432630, guid: f5fa1c8595b96444ca0f3fe09ba5dbbe, type: 2}
-  m_PrefabInternal: {fileID: 685352130}
 --- !u!1 &1785231818 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 191568, guid: c5e7f4e3cf40a46b99c895eb1312b853, type: 2}
