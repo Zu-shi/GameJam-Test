@@ -1687,7 +1687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e459b340586b646f2a68b8d122628b2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tutorialSprite: {fileID: 21300000, guid: c6945f18c82bc3343905041ea0b6ff2d, type: 3}
+  tutorialSprite: {fileID: 21300000, guid: a3b546f63face674b992f1cde88de73e, type: 3}
   level1Sprite: {fileID: 21300000, guid: 2b44335c3ac83e346a98d4fb85674b17, type: 3}
   level2Sprite: {fileID: 21300000, guid: 47920254864d0414e98c8cfcb0290320, type: 3}
   level3Sprite: {fileID: 21300000, guid: c2796d57ae047524789e75cb7b541c84, type: 3}
