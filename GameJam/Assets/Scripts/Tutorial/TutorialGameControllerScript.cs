@@ -84,14 +84,13 @@ public class TutorialGameControllerScript : _Mono
 		p2Arrow = GameObject.Find ("p2Arrow");
 
 		// get necessary components
-		os = GameObject.Find ("Options").GetComponent<OptionsScript> ();
 		im = GameObject.Find ("InputManager").GetComponent<InputManagerScript> ();
 		btm = GameObject.Find ("GameOverManager").GetComponent<BacktoMain> ();
 
 		// disable pressing 'enter' to go to main menu for opening screen
 		btm.enabled = false;
 
-		startSpeed = os.speedAdjust;
+		startSpeed = Globals.speedAdjust;
 
 		if (startSpeed >= pauseSpeed)
 			startSpeed = 1;
@@ -109,18 +108,19 @@ public class TutorialGameControllerScript : _Mono
 	// Update is called once per frame
 	void Update ()
 	{
-		if (os.menuEnabled)
-			os.menuEnabled = false;
-
+		/*
+		if (Globals.menuEnabled)
+			Globals.menuEnabled = false;
+		*/
 		if (btm.enabled && Input.GetKeyDown (KeyCode.Return)) {
 
-			os.speedAdjust = startSpeed;
+			Globals.speedAdjust = startSpeed;
 
 		}
 
 		// change startSpeed depending of if player changes speed manually
-		if (os.speedAdjust < pauseSpeed && os.speedAdjust != startSpeed) {
-			startSpeed = os.speedAdjust;
+		if (Globals.speedAdjust < pauseSpeed && Globals.speedAdjust != startSpeed) {
+			startSpeed = Globals.speedAdjust;
 			Debug.Log ("Start Speed Changed = " +startSpeed);
 		}
 	
@@ -162,14 +162,14 @@ public class TutorialGameControllerScript : _Mono
 	{
 		paused = true;
 		Debug.Log ("game paused");
-		os.speedAdjust = pauseSpeed;
+		Globals.speedAdjust = pauseSpeed;
 	}
 
 	public void startGame ()
 	{
 		paused = false;
 		Debug.Log ("game started, game speed = "+startSpeed);
-		os.speedAdjust = startSpeed;
+		Globals.speedAdjust = startSpeed;
 
 	}
 

@@ -9,6 +9,8 @@ public class MuteButton : MonoBehaviour {
 	public Sprite square;
 	public Sprite triangle;
 	public bool condition;
+	private AudioSource aus;
+	//private AudioListener al;
 	static bool created;
 
 
@@ -16,32 +18,14 @@ public class MuteButton : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		aus = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioSource>();
+		//al = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioListener>();
 		mybutton = GetComponent<Button> ();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+		mybutton.image.overrideSprite = aus.mute? square : triangle;
 	}
 
 	void changeButton(){
-		if (condition) {
-			mybutton.image.overrideSprite = triangle;
-			condition = !condition;
-		}else{
-			mybutton.image.overrideSprite = square;
-			condition = !condition;
-		}
-	}
-
-	void Awake(){
-
-
-		if (!created) {
-			DontDestroyOnLoad (gameObject);
-			created = true;
-		} else {
-			Destroy (gameObject);
-		}
+		aus.mute = !aus.mute;
+		mybutton.image.overrideSprite = aus.mute? square : triangle;
 	}
 }

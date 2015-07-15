@@ -44,7 +44,7 @@ public class OrbitingScript_backup : _Mono {
 	void Update () {
 
 		OptionsScript optionscomponent = optionsObj.GetComponent<OptionsScript>();
-		float realPeriod = period * optionscomponent.speedAdjust;
+		float realPeriod = period * Globals.speedAdjust;
 		//Debug.Log("x" + x + ", y" + y);
 		//Debug.Log(angle);
 		//angle = 180f - orbitMono.angle;

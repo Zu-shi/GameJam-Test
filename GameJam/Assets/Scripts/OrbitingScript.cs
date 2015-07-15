@@ -62,8 +62,6 @@ public class OrbitingScript : _Mono {
 		//Sets the starting t (time value for parametric function outputting position of planet at all frames
 		t = Mathf.Atan2(localY, localX) + startAngle * Mathf.Deg2Rad;
 		//Options (ask Trevor)
-		GameObject optionsObj = GameObject.Find ("Options");
-		persistentOptions = optionsObj.GetComponent<OptionsScript> ();
 	}
 	
 	// Update is called once per frame
@@ -87,7 +85,7 @@ public class OrbitingScript : _Mono {
 			}
 		}
 
-		float realPeriod = period * persistentOptions.speedAdjust;
+		float realPeriod = period * Globals.speedAdjust;
 		//mask.GetComponentInChildren<TrailRenderer>().time = (Mathf.Abs(realPeriod * 2) / 4f) * 3f;
 		//This dynamically controls the size of the "mask", that is, the visual appearance of the object
 

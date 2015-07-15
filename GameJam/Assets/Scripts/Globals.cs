@@ -17,5 +17,6 @@ public class Globals {
 	public static Boolean inGame{get{return !Application.loadedLevelName.Contains("MainMenu");}}
 	public static string PLAYER_ONE_HOME_NAME;
 	public static string PLAYER_TWO_HOME_NAME;
+	public static float speedAdjust = 1f;
 	public static bool Debug = false;
 }

@@ -8,7 +8,7 @@ public class OptionsScript : MonoBehaviour {
 	public static OptionsScript i;
 	public bool menuEnabled = false;
 
-	public float speedAdjust = 1;
+	public float speedAdjustInv = 1f;
 
 	// Use this for initialization
 	void Start () {
@@ -19,22 +19,23 @@ public class OptionsScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//toggle menu on escape key up
+
+		/*
 		if(Input.GetKeyUp(KeyCode.Escape))
 		{
 			menuEnabled = !menuEnabled;
 		}
-
-
+		 */
 
 	}
 
 	void OnGUI(){
 		if (menuEnabled) {
-			speedAdjust = GUI.HorizontalSlider( new Rect(Screen.width/2 - 50, Screen.height/2 - 5,
-			                                             100, 30), speedAdjust, (float) 0.1, (float) 10.0);
-			
-			GUI.Label(new Rect(Screen.width/2 - 50 + 110, Screen.height/2 - 5, 100, 30),
-			          "Game Speed: " + speedAdjust);
+			Globals.speedAdjust = 1f / GUI.HorizontalSlider( new Rect(Screen.width/2 - 50, Screen.height/2 - 5,
+			                                              100, 30), speedAdjustInv, (float) 0.1f, (float) 5f);
+			speedAdjustInv = 1 / Globals.speedAdjust;
+			GUI.Label(new Rect(Screen.width/2 - 50 + 110, Screen.height/2 - 5, 1000, 30),
+			          "Game Speed: " + speedAdjustInv);
 		}
 	}
 
@@ -47,11 +48,13 @@ public class OptionsScript : MonoBehaviour {
 	}
 
 	void Awake(){
+		/*
 		if(i==null) {
 			i = this;
 			DontDestroyOnLoad(gameObject);
 		}else 
 			Destroy(this);
+		*/
 	}
 
 	public void loadLevel( string name ){
