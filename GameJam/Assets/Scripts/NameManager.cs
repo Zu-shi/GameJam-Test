@@ -91,7 +91,9 @@ public class NameManager : MonoBehaviour {
 					textMesh.color = Globals.PLAYER_ONE_COLOR; // player 1 color
 				} else if (wearer.currentOwner == 2) {
 					textMesh.color = Globals.PLAYER_TWO_COLOR; // player 2 color
-				} else {
+				} else if (wearer.name == "Tutorial") {
+					textMesh.color = Globals.TUTORIAL_COLOR;
+				}else {
 					textMesh.color = Globals.PLAYER_NEUTRAL_NAME_COLOR; // neutral color
 				}
 
@@ -140,6 +142,12 @@ public class NameManager : MonoBehaviour {
 				planetToName.Add(planet, obj); 
 				TextMesh textMesh = planetToName[planet].GetComponentInChildren<TextMesh>();
 				textMesh.text = planet.name.ToUpper(); // set text of name label to current planet name
+
+
+				if(planet.name == "Tutorial"){
+					obj.transform.GetComponent<_Mono>().spriteRenderer.color = Globals.TUTORIAL_COLOR;
+				}
+
 
 				// if fontSize has been manually set, change fontSize of name label
 				if (fontSize > 0) {

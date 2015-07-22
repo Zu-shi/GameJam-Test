@@ -12,6 +12,7 @@ public class Globals {
 	public static readonly Color PLAYER_TWO_ARROW_COLOR = new Color32(215, 217, 2, 140);
 	public static readonly Color PLAYER_NEUTRAL_COLOR = new Color32(200, 200, 200, 140);
 	public static readonly Color PLAYER_NEUTRAL_NAME_COLOR = new Color32(41, 144, 49, 140);
+	public static readonly Color TUTORIAL_COLOR = new Color32(255, 60, 0, 200);
 	public static GameOverManager gameOverManager{get{return GameObject.Find ("GameOverManager").GetComponent<GameOverManager>();}}
 	public static NameManager nameManager{get{return GameObject.Find ("NameManager").GetComponent<NameManager>();}}
 	public static Boolean inGame{get{return !Application.loadedLevelName.Contains("MainMenu");}}

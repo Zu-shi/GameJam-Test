@@ -40,11 +40,7 @@ public class OptionsScript : MonoBehaviour {
 	}
 
 	void OpenOptions() {
-		if (menuEnabled == false) {
-			menuEnabled = true;
-		} else {
-			menuEnabled = false;
-		}
+		menuEnabled = !menuEnabled;
 	}
 
 	void Awake(){

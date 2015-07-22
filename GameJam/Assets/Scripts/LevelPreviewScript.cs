@@ -11,15 +11,16 @@ public class LevelPreviewScript : _Mono {
 	public Sprite level4Sprite;
 	public Sprite level5Sprite;
 	private GameObject levelPreview;
-	private GUIText previewText;
+	private Text previewText;
+	private Image spriteRendererUI;
 	//Sprite[] levelPreviews = new Sprite[6];
 	//Vector3 previewPosition = new Vector3(-175,10,0);
 	//Sprite[] levelPreviews = new Sprite[6];
 
 	// Use this for initialization
 	void Start () {
-		previewText = GetComponentInChildren<GUIText> ();
-
+		previewText = GetComponentInChildren<Text> ();
+		spriteRendererUI = GetComponentInChildren<Image> ();
 		//Vector2 previewPosition = new Vector2(70,-20);
 /*
 		levelPreviews [0] = tutorialSprite;
@@ -42,28 +43,34 @@ public class LevelPreviewScript : _Mono {
 	switch(currentIndex){
 			// Case 0 is ignored because of the initial value of i in MenuKeys
 			case (1):
-				spriteRenderer.sprite = tutorialSprite;
+				spriteRendererUI.sprite = tutorialSprite;
+				spriteRendererUI.color = Color.white;	
 				previewText.text = "TUTORIAL" + System.Environment.NewLine + "Press {~} to continue";
 			//Debug.Log(previewText.text);
 			break;
 			case (2):	
-				spriteRenderer.sprite = level1Sprite;
+				spriteRendererUI.sprite = level1Sprite;
+				spriteRendererUI.color = Color.white;
 				previewText.text = "EYES" + System.Environment.NewLine + "Press {1} to continue";
 			break;
 			case (3):
-				spriteRenderer.sprite = level2Sprite;
+				spriteRendererUI.sprite = level2Sprite;
+				spriteRendererUI.color = Color.white;
 			previewText.text = "PASTRY" + System.Environment.NewLine + "Press {2} to continue";
 			break;
 			case (4):
-				spriteRenderer.sprite = level3Sprite;
+				spriteRendererUI.sprite = level3Sprite;
+				spriteRendererUI.color = Color.white;
 				previewText.text = "YOGA" + System.Environment.NewLine + "Press {3} to continue";
 			break;
 			case (5):
-				spriteRenderer.sprite = level4Sprite;
+				spriteRendererUI.sprite = level4Sprite;
+				spriteRendererUI.color = Color.white;
 				previewText.text = "ORRERY" + System.Environment.NewLine + "Press {4} to continue";
 			break;
 			case (6):
-				spriteRenderer.sprite = level5Sprite;
+				spriteRendererUI.sprite = level5Sprite;
+				spriteRendererUI.color = Color.white;
 				previewText.text = "NEUTRON" + System.Environment.NewLine + "Press {5} to continue";	
 			break;
 

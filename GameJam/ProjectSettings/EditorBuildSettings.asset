@@ -13,17 +13,17 @@ EditorBuildSettings:
     path: Assets/Scene/GameOver1.unity
   - enabled: 0
     path: Assets/Scene/GameOver2.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scene/Level1-bk.unity
   - enabled: 1
     path: Assets/Scene/Credits.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scene/Level2-bk2.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scene/Level3.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scene/Level4-bk.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scene/Level5-bk.unity
   - enabled: 1
     path: Assets/Scene/TutorialScene.unity

@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 418408}
   - 212: {fileID: 21232034}
+  - 114: {fileID: 11411300}
   m_Layer: 0
   m_Name: NameConnector
   m_TagString: Untagged
@@ -105,6 +106,17 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 1017774003
+--- !u!114 &11411300
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 115042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c994818648fc1417790695ed28907b1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11447472
 MonoBehaviour:
   m_ObjectHideFlags: 1
